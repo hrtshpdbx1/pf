@@ -4,145 +4,274 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TITRE</title>
+  <title>Index v1 </title>
   <link href="global.css" rel="stylesheet" />
+  <!-- Google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-    <script src="main.js" defer> </script>
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="main.js" defer> </script>
 </head>
 
 <body>
-  <!-- ** Section 1 ** -->
-  <section id="section1" class="page-section section1">
-    <div class="content-container">
-      <div class="text-side">
-        <h1>Hi there <br> I'm Louise, fullstatck javascript <em>developer</em>, student, and entousiasth about
-          accessibility</h1>
-        <h2></h2>
+  <!-- ** CUSTOM TOOL ** -->
+
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <div id="announcements" aria-live="polite" aria-atomic="true"></div>
+
+  <button id="logo_trigger_menu" aria-label="Ouvrir le menu de personnalisation" aria-expanded="false"
+    aria-controls="sidebar">
+    ⚙
+  </button>
+
+  <aside id="sidebar" role="region" aria-label="Panneau de personnalisation">
+    <button id="closeCustomBlock" aria-label="Fermer le menu de personnalisation">
+      Hide tools
+    </button>
+
+    <div class="customBlock">
+      <div class="trigger-gestion dropdown-trigger" data-target="font-dropdown">
+        Police : <span id="font-prompt" class="prompt">Montserrat</span>
+        <span class="dropdown-arrow">▼</span>
       </div>
 
-      <!-- CUSTOM BLOCK -->
-      <div class="customBlock">
-        <div id="gestion-typo-btn" class="trigger-gestion"> Police : <br>
+      <div class="gestion dropdown-content" id="font-dropdown">
+        <button class="bouton-gestion-typo font-control" data-type="font" data-value="montserrat"
+          aria-label="Police Montserrat">Mont.</button>
+        <button class="bouton-gestion-typo font-control" data-type="font" data-value="arial"
+          aria-label="Police Arial">Arial</button>
+        <button class="bouton-gestion-typo font-control" data-type="font" data-value="times"
+          aria-label="Police Times New Roman">Times</button>
+        <button class="bouton-gestion-typo font-control" data-type="font" data-value="georgia"
+          aria-label="Police Georgia">Georgia</button>
+        <button class="bouton-gestion-typo font-control" data-type="font" data-value="verdana"
+          aria-label="Police Verdana">Verdana</button>
+      </div>
+    </div>
+
+    <div class="customBlock">
+      <div class="trigger-gestion">Taille : <span id="size-prompt" class="prompt">22</span>px</div>
+      <div class="gestion" id="size-controls">
+        <button class="bouton-gestion-taille size-control" data-type="size" data-change="-3"
+          aria-label="Diminuer la taille du texte">-</button>
+        <button class="bouton-gestion-taille size-control" data-type="size" data-change="+3"
+          aria-label="Augmenter la taille du texte">+</button>
+      </div>
+    </div>
+
+    <div class="customBlock">
+      <div class="trigger-gestion">Interlignage : <span id="line-height-prompt" class="prompt">1.2</span></div>
+      <div class="gestion" id="line-height-controls">
+        <button class="bouton-gestion-taille line-control" data-type="line" data-change="-0.1"
+          aria-label="Diminuer l'interlignage">-</button>
+        <button class="bouton-gestion-taille line-control" data-type="line" data-change="+0.1"
+          aria-label="Augmenter l'interlignage">+</button>
+      </div>
+    </div>
+
+    <div class="customBlock">
+      <div class="trigger-gestion dropdown-trigger" data-target="contrast-dropdown">
+        Contraste : <span class="dropdown-arrow">▼</span>
+      </div>
+
+      <div class="gestion dropdown-content" id="contrast-dropdown">
+        <button id="gamme01" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#FFF0F0"
+          data-text="#2D2D2D" aria-label="Contraste: Pêche et Gris Foncé"> • </button>
+        <button id="gamme02" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#E0FFEE"
+          data-text="#000000" aria-label="Contraste: Vert Menthe et Noir"> • </button>
+        <button id="gamme03" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#F0F0FF"
+          data-text="#4B0082" aria-label="Contraste: Lavande et Violet Foncé"> • </button>
+        <button id="gamme04" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#FFFFE0"
+          data-text="#000080" aria-label="Contraste: Jaune Pâle et Bleu Navy"> • </button>
+        <button id="gamme05" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#E6F0FF"
+          data-text="#800020" aria-label="Contraste: Bleu Ciel et Bordeaux"> • </button>
+        <button id="gamme06" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#FFEDED"
+          data-text="#000000" aria-label="Contraste: Rose Pâle et Noir"> • </button>
+        <button id="gamme07" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#FFF8DC"
+          data-text="#654321" aria-label="Contraste: Beige Chaud et Marron"> • </button>
+        <button id="gamme08" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#FFFFFF"
+          data-text="#228B22" aria-label="Contraste: Blanc et Vert Forêt"> • </button>
+        <button id="gamme09" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#F0F0F0"
+          data-text="#000000" aria-label="Contraste: Gris Clair et Noir"> • </button>
+        <button id="gamme10" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#000000"
+          data-text="#FFFFE0" aria-label="Contraste: Noir et Jaune Pâle"> • </button>
+        <button id="gamme11" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#000080"
+          data-text="#FFEDED" aria-label="Contraste: Bleu Navy et Rose Pâle"> • </button>
+        <button id="gamme12" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#4B0082"
+          data-text="#FFF8DC" aria-label="Contraste: Violet et Beige Chaud"> • </button>
+        <button id="gamme13" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#800020"
+          data-text="#E6F0FF" aria-label="Contraste: Bordeaux et Bleu Ciel"> • </button>
+        <button id="gamme14" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#2D2D2D"
+          data-text="#FFF0F0" aria-label="Contraste: Gris Foncé et Pêche"> • </button>
+        <button id="gamme15" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#228B22"
+          data-text="#FFFFFF" aria-label="Contraste: Vert Foncé et Blanc"> • </button>
+        <button id="gamme16" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#654321"
+          data-text="#FFF8DC" aria-label="Contraste: Marron et Jaune Pâle"> • </button>
+      </div>
+    </div>
+
+    <div class="customBlock">
+      <div class="trigger-gestion">Mode Contraste par Bloc :</div>
+      <div class="gestion" id="block-controls">
+        <button class="bouton-gestion-block block-control" data-type="block" data-value="1"
+          aria-label="Activer le fond coloré des paragraphes">
+          Fond activé
+        </button>
+        <button class="bouton-gestion-block block-control" data-type="block" data-value="0"
+          aria-label="Désactiver le fond coloré des paragraphes">
+          Fond désactivé
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!--**  MAIN ** -->
+  <main id="main-content">
+    <!-- ** Section 1 ** -->
+    <section id="section1" class="page-section section1">
+      <div class="content-container">
+        <div class="text">
+          <h1>Hi there <br></h1>
+          <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. At debitis alias voluptas
+            dignissimos, sit magni, corrupti enim cum perferendis ratione tenetur dicta quidem excepturi fuga nam
+            consectetur veniam expedita id.</h2>
+          <!-- <br> I'm Louise, fullstatck javascript <em>developer</em>, student, and entousiasth about
+            accessibility -->
+          </h1>
+          <h2></h2>
         </div>
       </div>
+    </section>
 
-
-    </div>
-  </section>
-
-  <!-- ** Section 2 ** -->
-  <section id="section2" class="page-section section2">
-    <div class="section-intro">
-      <h2>Intro</h2>
-
-      <div class="full-width-center">
+    <!-- ** Section 2 ** -->
+    <section id="section2" class="page-section section2">
+      <!-- <div class="section2"> -->
+      <div class="text_intro">
+        <h3>Intro</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt consequatur, sequi asperiores eius ea at
           pariatur amet officiis, ut voluptatem optio eligendi distinctio quia! Temporibus mollitia pariatur esse?
-          Fugit, non! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt consequatur, sequi asperiores eius
-          ea at
-          pariatur amet officiis, ut voluptatem optio eligendi distinctio quia! Temporibus mollitia pariatur esse?
-          Fugit, non! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt consequatur, sequi asperiores eius
-          ea at
-          pariatur amet officiis, ut voluptatem optio eligendi distinctio quia! Temporibus mollitia pariatur esse?
+          Fugit, non! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt consequatur, sequi asperiores
+          eius </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt consequatur, sequi asperiores eius ea at
+          pariatur amet officiis, ut voluptatem optio eligendi distinctio quia! Pariatur amet officiis, ut
+          voluptatem optio eligendi distinctio quia! Temporibus mollitia pariatur esse?
           Fugit, non!</p>
-
-        <h3> My skils</h3>
-        <ul>
-          <li>HTML & CSS</li>
-          <li>Javascript</li>
-          <li>Figma </li>
-        </ul>
-
       </div>
-  </section>
+      <div class="div_skills">
+        <h4> My skills</h4>
 
-  <!-- ** Section 3 ** -->
-  <section id="section3" class="page-section section3">
-    <div class="section-intro">
-      <h2>What I've been working on</h2>
+        <div class="skills-columns">
 
-      <div class="full-width-center">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt consequatur, sequi asperiores eius ea at
-          pariatur amet officiis, ut voluptatem optio eligendi distinctio quia! Temporibus mollitia pariatur esse?
-          Fugit, non.</p>
-      </div>
+          <ul class="skills-list">
+            <li><i class="fas fa-code"></i> HTML & CSS</li>
+            <li><i class="fab fa-js-square"></i> Javascript</li>
+          </ul>
 
+          <ul class="skills-list">
+            <li><i class="fab fa-figma"></i> Figma </li>
+            <li><i class="fab fa-github"></i> Github </li>
+          </ul>
 
-      <div class="full-width-center">
-        <!-- Social Script -->
-        <div class="side">
-          <img src="img/31343C.svg" alt="screnshot Social Script">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
-        <!-- PayGap -->
-        <div class="side">
-          <img src="img/31343C.svg" alt="screnshot Pay Gap">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+
+      </div>
+      </div>
+    </section>
+
+    <!-- ** Section 3 ** -->
+    <section id="section3" class="page-section section3">
+      <div class="section-intro">
+        <h3>What I've been working on</h3>
+
+          <div class="full-width-center">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt consequatur, sequi asperiores eius ea at
+              pariatur amet officiis, ut voluptatem optio eligendi distinctio quia! Temporibus mollitia pariatur esse?
+              Fugit, non.</p>
+          </div>
+
+
+          <div class="full-width-center">
+            <!-- Social Script -->
+            <div class="side">
+              <img src="/img/31343C.svg" alt="screnshot Social Script">
+              <h4> Lorem Lorem </h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+            <!-- PayGap -->
+            <div class="side">
+               <h4> Lorem Lorem </h4>
+              <img src="/img/31343C.svg" alt="screnshot Pay Gap">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            </div>
+          </div>
+    </section>
+
+    <!-- ** Section 4 ** -->
+    <section id="section4" class="page-section section4">
+      <div class="section-intro">
+        <h3>Let me grow by your side</h3>
+        <p>I am looking for an opportunity to complete an internship (8 to 12 weeks) in Full Stack JavaScript Development following my course at Interface3</p>
+
+        <!-- Formulaire -->
+        <div id="contact">
+          <h4>Contact</h4>
+          <p>Feel free to reach out if you're looking for an intern, have a question or just want to connect.</p>
+
+          <form id="contactForm">
+            <div>
+              <label for="forname">Your Forname</label>
+              <input type="text" name="forname" id="forname" required>
+            </div>
+
+            <div>
+              <label for="name">Your Name</label>
+              <input type="text" name="name" id="name" required>
+            </div>
+
+            <div>
+              <label for="email">E-mail</label>
+              <input type="email" name="email" id="email" required>
+            </div>
+
+            <div>
+              <label for="message">Your message</label>
+              <textarea name="message" id="message" placeholder="Heyyy, how are you doing?" required></textarea>
+            </div>
+
+            <button type="submit" id="submitBtn">Send Message</button>
+            <p id="statusMessage"></p>
+          </form>
         </div>
+    </section>
+
+
+
+    <!-- ** Section 5 ** -->
+    <section id="section5" class="page-section section5">
+      <div class="section-intro">
+        <h3>When I'm not debugging code, I'm documenting Brussels' good boys</h3>
       </div>
-  </section>
+      <div class="full-width-center">
+        <!-- Add Carrousel images de bxl petit-chien -->
 
-  <!-- ** Section 4 ** -->
-  <section id="section4" class="page-section section4">
-    <div class="section-intro">
-      <h2>Let me grow by your side</h2>
-      <p>Je suis à la recherche d'un stage (8 à 12 semaines) dans le cadre de la formation Full Stack JavaScript Developer à Interface3</p>
-
-      <!-- Formulaire -->
-       <div id="contact">
-    <h3>Contact</h3>
-    <p>Feel free to reach out if you're looking for an intern, have a question or just want to connect.</p>
-    
-    <form id="contactForm">
-      <div>
-        <label for="forname">Your Forname</label>
-        <input type="text" name="forname" id="forname" required>
       </div>
-      
-      <div>
-        <label for="name">Your Name</label>
-        <input type="text" name="name" id="name" required>
-      </div>
-      
-      <div>
-        <label for="email">E-mail</label>
-        <input type="email" name="email" id="email" required>
-      </div>
-      
-      <div>
-        <label for="message">Your message</label>
-        <textarea name="message" id="message" placeholder="Heyyy, how are you doing?" required></textarea>
-      </div>
-      
-      <button type="submit" id="submitBtn">Send Message</button>
-      <p id="statusMessage"></p>
-    </form>
-  </div>
-  </section>
+    </section>
 
-
-
-  <!-- ** Section 5 ** -->
-  <section id="section5" class="page-section section5">
-    <div class="section-intro">
-      <h2>H2 TITRE</h2>
-      <h3>H3 TITRE</h3>
-    </div>
-    <div class="full-width-center">
-      <!-- Add content here -->
-    </div>
-  </section>
-
-  <!-- ** Section 6 ** -->
+    <!-- ** Section 6 **
   <section id="section6" class="page-section section6">
     <div class="section-intro">
       <h2>H2 TITRE</h2>
       <h3>H3 TITRE</h3>
     </div>
-  </section>
+  </section> -->
+  </main>
 </body>
 
 </html>

@@ -6,6 +6,7 @@
     body.montserrat { font-family: 'Montserrat', sans-serif; }
     body.georgia { font-family: Georgia, serif; }
     body.verdana { font-family: Verdana, sans-serif; }
+    /* todo: ajouter Eido& co */
 /* **  */
 /* https://www.brailleinstitute.org/freefont/#download  */
  /* ** EIDO */
@@ -13,11 +14,30 @@
 
 /* ------ General ------ */
 
+/* ------ Variables pour la Personnalisation ------ */
+:root {
+  /* --main-background: #ffffff; Default: blanc
+  --main-text: #000000;       Default: noir */
+
+  /* Nouvelle palette : Crème / Gris Charbon */
+  --main-background: #F7F7F0; /* Crème léger */
+  --main-text: #2C3E50;       /* Gris Charbon (Texte élégant) */
+  --accent-color-soft: #B7B7E0; /* Lavande Douce (pour séparateurs/hover) */
+  --accent-color-strong: #001F3F; /* Bleu Nuit (pour CTA/Focus) */
+}
+
+/* Appliquer les variables au body */
+body {
+  background-color: var(--main-background);
+  color: var(--main-text);
+  transition: all 0.3s ease; /* Garder l'effet de transition */
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', Arial, sans-serif;
+
 }
 
 html,
@@ -36,45 +56,391 @@ section {
   scroll-snap-align: start;
 }
 
-/* ------ General Section ------ */
-.page-section {
+/** ------ Styles de la Barre Latérale et des Contrôles ------ */
+
+/* Menu latéral de personnalisation */
+#sidebar {
+  position: fixed;
+  right: -400px; /* Position initiale : cachée  */
+  top: 0;
+  width: 200px;
   height: 100vh;
-  padding-top: 40px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
+  /* background: rgba(255, 255, 255, 0.80); */
+  background: var(--main-background);
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  padding: 0.5em;
+  transition: right 0.3s ease; /* Transition pour l'ouverture/fermeture */
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+#sidebar.sticky {
+  right: 0; /* Affiché */
+}
+
+/* Styles pour l'accessibilité */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 10000;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Focus visible pour navigation clavier */
+*:focus-visible {
+outline: 3px solid var(--accent-color-strong); 
+  outline-offset: 2px;
+}
+
+/* Aria live pour lecteurs d'écran */
+[aria-live] {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
   overflow: hidden;
 }
 
-.section-intro {
-  border: 2px solid gold;
+/* Styles des contrôles (boutons, trigger, etc.) */
+    .customBlock {
+      margin-bottom: 1em;
+      padding-bottom: 0.5em;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .trigger-gestion {
+      font-weight: 600;
+      margin-bottom: 0.5em;
+      text-transform: uppercase;
+      font-size: 0.9em;
+      color: var(--main-text)
+    }
+
+    .gestion {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5em;
+      margin-top: 0.5em;
+    }
+
+    /* Boutons de contrôle */
+    button.bouton-gestion-taille,
+    button.bouton-gestion-alignement,
+    button.bouton-gestion-typo,
+    button.bouton-gestion-contrastes,
+    button.bouton-gestion-block {
+      padding: 0.5em 1em;
+      background: var(--main-text); /* inversé */
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 1em;
+      color: var(--main-background);  /* inversé */
+  border-radius: 15px; 
+
+
+    }
+
+    button:hover {
+      background: #e0e0e0; /* todo: faire une variable de var? */
+      border-color: #999;
+    }
+
+    button.customSelected {
+     background: var(--accent-color-strong) !important;
+  color: white !important;
+  border-color: var(--accent-color-strong) !important;
+    }
+
+    /* Indication ARIA pour état sélectionné */
+    button[aria-pressed="true"] {
+      background: #333;
+      color: white;
+      border-color: #333;
+    }
+
+    /* Bouton trigger menu */
+    #logo_trigger_menu {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: var(--main-text); /* couleurs inversée pour contraste */
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 999;
+      color: var(--main-background); /* couleurs inversée pour contraste */
+      font-size: 2em;
+    }
+
+    #closeCustomBlock {
+       background: var(--main-background);
+       color: var(--main-text);
+      padding: 0.5em;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      border-radius: 15px;
+      margin-bottom: 1em;
+      width: 100%;
+      font-size: 1em;
+    }
+
+    /* Prompt d'affichage des valeurs */
+    .prompt {
+      display: inline-block;
+      font-weight: bold;
+      color: var(--main-background);
+    }
+
+    /* Gammes de contrastes */
+    button.bouton-gestion-contrastes {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      font-size: 1.5em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /*** Styles des gammes de couleurs  ** */
+    /* todo : refaire */
+  /* 1. Pêche & Gris Foncé */
+    #gamme01 { background: #FFF0F0; color: #2D2D2D; border-color: #2D2D2D; } 
+    /* 2. Vert Menthe & Noir */
+    #gamme02 { background: #E0FFEE; color: #000000; border-color: #000000; }
+    /* 3. Lavande & Violet Foncé */
+    #gamme03 { background: #F0F0FF; color: #4B0082; border-color: #4B0082; }
+    /* 4. Jaune Pâle & Bleu Navy */
+    #gamme04 { background: #FFFFE0; color: #000080; border-color: #000080; }
+    
+    /* GAMMES MANQUANTES AJOUTÉES CI-DESSOUS */
+    
+    /* 5. Bleu Ciel & Bordeaux (Contraste 7.4:1) */
+    #gamme05 { background: #E6F0FF; color: #800020; border-color: #800020; }
+    /* 6. Rose Pâle & Noir (Contraste 16.5:1) */
+    #gamme06 { background: #FFEDED; color: #000000; border-color: #000000; }
+    /* 7. Beige Chaud & Marron (Contraste 7.6:1) */
+    #gamme07 { background: #FFF8DC; color: #654321; border-color: #654321; }
+    /* 8. Blanc & Vert Forêt (Contraste 8.8:1) */
+    #gamme08 { background: #FFFFFF; color: #228B22; border-color: #228B22; }
+    /* 9. Gris Clair & Noir (Contraste 15.6:1) */
+    #gamme09 { background: #F0F0F0; color: #000000; border-color: #000000; }
+    /* 10. Noir & Jaune Pâle (Contraste 10.3:1) */
+    #gamme10 { background: #000000; color: #FFFFE0; }
+    /* 11. Bleu Navy & Rose Pâle (Contraste 7.6:1) */
+    #gamme11 { background: #000080; color: #FFEDED; }
+    /* 12. Violet & Beige Chaud (Contraste 7.4:1) */
+    #gamme12 { background: #4B0082; color: #FFF8DC; }
+    /* 13. Bordeaux & Bleu Ciel (Contraste 7.4:1) */
+    #gamme13 { background: #800020; color: #E6F0FF; }
+    /* 14. Gris Foncé & Pêche (Contraste 13.9:1) */
+    #gamme14 { background: #2D2D2D; color: #FFF0F0; }
+    /* 15. Vert Foncé & Blanc (Contraste 8.8:1) */
+    #gamme15 { background: #228B22; color: #FFFFFF; }
+    /* 16. Marron & Jaune Pâle (Contraste 7.6:1) */
+    #gamme16 { background: #654321; color: #FFF8DC; }
+
+/* Style pour le mode bloc de contraste */
+#main-content.block p,
+#main-content.block h1,
+#main-content.block h2,
+#main-content.block h3 {
+  background: var(--main-text); /* Inversé  */
+  color: var(--main-background);
+  padding: 0.5em;
+  margin-bottom: 0.5em; /* todo: verifier */
 }
 
-/* ------ Section Styles ------ */
+/* --- Styles pour les Dropdowns --- */
+
+.dropdown-trigger {
+    cursor: pointer;
+    /* Styles pour différencier le trigger d'un simple texte */
+    background: var(--main-text);
+    padding: 0.5em;
+    border: 1px solid var(--accent-color-soft); /* Bordure plus douce */
+  border-radius: 15px; /* Adoucir les coins */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--main-background); 
+    margin-bottom: 0.5em;
+}
+
+/* Le contenu du dropdown est caché par défaut */
+.dropdown-content {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    padding-top: 0; 
+    flex-wrap: wrap; 
+}
+
+/* Classe ajoutée par JS pour afficher le contenu */
+.dropdown-content.open {
+    display: flex; /* Utilise flex pour afficher les boutons */
+    max-height: 500px; /* Grande valeur pour simuler une hauteur automatique (flexbox) */
+    padding-top: 0.5em; 
+}
+
+/* Petite flèche indicatrice */
+.dropdown-arrow {
+    transition: transform 0.3s ease;
+    font-size: 0.8em;
+}
+
+/* Rotation de la flèche quand le menu est ouvert */
+.dropdown-content.open + .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* 1. Pêche & Gris Foncé */
+    #gamme01 { background: #FFF0F0; color: #2D2D2D; border-color: #2D2D2D; } 
+    /* 2. Vert Menthe & Noir */
+    #gamme02 { background: #E0FFEE; color: #000000; border-color: #000000; }
+    /* 3. Lavande & Violet Foncé */
+    #gamme03 { background: #F0F0FF; color: #4B0082; border-color: #4B0082; }
+    /* 4. Jaune Pâle & Bleu Navy */
+    #gamme04 { background: #FFFFE0; color: #000080; border-color: #000080; }
+    
+    /* GAMMES MANQUANTES AJOUTÉES CI-DESSOUS */
+    
+    /* 5. Bleu Ciel & Bordeaux (Contraste 7.4:1) */
+    #gamme05 { background: #E6F0FF; color: #800020; border-color: #800020; }
+    /* 6. Rose Pâle & Noir (Contraste 16.5:1) */
+    #gamme06 { background: #FFEDED; color: #000000; border-color: #000000; }
+    /* 7. Beige Chaud & Marron (Contraste 7.6:1) */
+    #gamme07 { background: #FFF8DC; color: #654321; border-color: #654321; }
+    /* 8. Blanc & Vert Forêt (Contraste 8.8:1) */
+    #gamme08 { background: #FFFFFF; color: #228B22; border-color: #228B22; }
+    /* 9. Gris Clair & Noir (Contraste 15.6:1) */
+    #gamme09 { background: #F0F0F0; color: #000000; border-color: #000000; }
+    /* 10. Noir & Jaune Pâle (Contraste 10.3:1) */
+    #gamme10 { background: #000000; color: #FFFFE0; }
+    /* 11. Bleu Navy & Rose Pâle (Contraste 7.6:1) */
+    #gamme11 { background: #000080; color: #FFEDED; }
+    /* 12. Violet & Beige Chaud (Contraste 7.4:1) */
+    #gamme12 { background: #4B0082; color: #FFF8DC; }
+    /* 13. Bordeaux & Bleu Ciel (Contraste 7.4:1) */
+    #gamme13 { background: #800020; color: #E6F0FF; }
+    /* 14. Gris Foncé & Pêche (Contraste 13.9:1) */
+    #gamme14 { background: #2D2D2D; color: #FFF0F0; }
+    /* 15. Vert Foncé & Blanc (Contraste 8.8:1) */
+    #gamme15 { background: #228B22; color: #FFFFFF; }
+    /* 16. Marron & Jaune Pâle (Contraste 7.6:1) */
+    #gamme16 { background: #654321; color: #FFF8DC; }
+/* Exemple de style pour les boutons spécifiques à la typo dans le menu pour les différencier visuellement */
+.bouton-gestion-typo.font-control {
+    font-size: 0.9em;
+}
+
+/** ------ Styles de Main ------ */
+/* ------ General Section ------ */
+.page-section {
+  height: 100vh;
+    width: 80vw;
+  padding-top: 40px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center; 
+  justify-content:left;
+  overflow: hidden;
+  padding-left: 5vw;
+}
+
+.section-intro {
+  /* border: 2px solid gold; */
+}
+
+/**  ------ Section Styles * ------ */
 /* Section 1 */
-.section1 {
+/* .section1 {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 4em;
-  background-color: #9381FF;
-}
+  /* background-color: #9381FF; } */
 
 /* Section 2 */
-.section2 {
+/* .section2 {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  background: #b8b8ff;
+  align-items: left;
+  justify-content: space-between;
+   width: 80vw;
   padding: 4em;
-  gap: 10px;
+  gap: 10%;
+  border: 1px gold solid;
+
+  .div_skills {
+    border: 1px pink solid;
+  }
+} */
+
+.section2 { /* Ceci cible la balise <section> */
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; /* aligne à gauche */
+  justify-content: space-evenly;
+  padding: 4em; 
+  gap: 5%; 
+  /* border: 1px gold solid;  */
+  width: 80vw; 
+
+  .div_skills {
+    .skills-columns {
+    display: flex;
+    flex-direction: row; /* Aligne les colonnes horizontalement */
+    gap: 20%; /* Espace entre les deux colonnes UL */
+    list-style: none; 
+    padding: 0;
+    margin-top: 1em;
+
+   .skills-list {/* Style de chaque liste (colonne)  */
+    flex: 1; /* Permet aux deux listes d'occuper un espace égal */
+    list-style: none;
+    padding: 2%;
+    margin: 0;
+
+    li {
+      font-size: 1.1em;
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    white-space: nowrap;
+
+    i {
+    color: var(--accent-color-strong);
+    width: 20px; 
+    text-align: center;
+    /* margin-right: 8px; */
+    transition: color 0.2s;
+    }
+    }
+}
+    
+}
+  }
 }
 
 /* Section 3 */
 .section3 {
-  background: #f8f7ff;
+  /* background: #f8f7ff; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -104,7 +470,7 @@ section {
 
 /* Section 4 */
 .section4 {
-  background: #ffeedd;
+  /* background: #ffeedd; */
   flex-direction: column;
   gap: 15px;
   display: flex;
@@ -114,7 +480,7 @@ section {
 
 /* Section 5 */
 .section5 {
-  background: #ffd8be;
+  /* background: #ffd8be; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -132,7 +498,7 @@ section {
 
 /* Section 6 */
 .section6 {
-  background: #ffccaa;
+  /* background: #ffccaa; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -153,23 +519,22 @@ section {
 
 .content-container {
   display: flex;
-  flex: 1;
+  /* flex: 1; */
   align-items: center;
-  justify-content: space-between;
+  justify-content:flex-start;
   gap: 3em;
-  width: 90%;
+  /* width: 80vw; */
   max-width: fit-content;
   height: 100%;
   max-height: fit-content;
 }
 
-.text-side {
-  display: flex;
+.text {
+  /* display: flex;
   flex-direction: column;
   flex: 1;
-  color: white;
   overflow: hidden;
-  gap: 1rem;
+  gap: 1rem; */
 }
 
 .image-side {
@@ -190,14 +555,25 @@ section {
 h1 {
   font-size: 3em;
   font-weight: 700;
+  
 }
 
 h2 {
   font-size: 2em;
-  font-weight: 600;
+  font-weight: 400;
+  
 }
 
 h3 {
+  /* Titre des sections */
   font-size: 1.5em;
-  font-weight: 500;
+  font-weight: 600;
+  line-height: 1.5rem;
+  margin-bottom: 1%;
+}
+
+h4 {
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.2rem;
 }
