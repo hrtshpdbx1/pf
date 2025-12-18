@@ -3,19 +3,19 @@
 // --- 1. Variables Globales et Valeurs par Défaut ---
 let currentFontSize = 22;
 let currentLineHeight = 1.2;
-let currentFontType = 'montserrat';
+let currentFontType = 'bbbreadme';
 let currentBlockMode = 0; // 0 = mode normal, 1 = mode bloc
 let currentBgColor = '#ffffff';
 let currentTextColor = '#000000';
 
 // Déclaration de variables globales pour les éléments DOM (initialement null)
-let mainContent = null; 
+let mainContent = null;
 let sidebar = null;
 
 // --- 2. Fonction d'Application des Styles ---
 // Applique toutes les préférences stockées à la page.
 function applyStyles() {
-    
+
     // Sécurité : si le conteneur principal n'est pas encore trouvé (devrait être chargé via DOMContentLoaded)
     if (!mainContent) return;
 
@@ -29,18 +29,23 @@ function applyStyles() {
 
     // C. APPLIQUER LA POLICE (en changeant la classe sur la balise <body>)
     // 1. On retire toutes les classes de police existantes
-    document.body.className = document.body.className.replace(/\barial\b|\btimes\b|\bmontserrat\b|\bgeorgia\b|\bverdana\b/g, '');
+    document.body.className = document.body.className.replace(/\barial\b|\btimes\b|\bbbbreadme\b|\beido\b|\baccessibledfa\b|\bopendyslexic\b/g, '');
     // 2. On ajoute la classe correspondant à la police choisie
     document.body.classList.add(currentFontType);
-    
+
     // D. APPLIQUER LE MODE BLOC
     if (currentBlockMode === 1) {
         mainContent.classList.add('block');
     } else {
         mainContent.classList.remove('block');
     }
+// E. MISE À JOUR DES BOUTONS DE FOND
+    // Pour que les boutons "Fond" changent de police en temps réel
+    document.querySelectorAll('.block-control').forEach(btn => {
+        btn.style.fontFamily = getComputedStyle(document.body).fontFamily;
+    });
 
-    // E. METTRE À JOUR LES AFFICHAGES DANS LE MENU (les petites valeurs "prompt")
+    // F. METTRE À JOUR LES AFFICHAGES DANS LE MENU (les petites valeurs "prompt")
     if (document.getElementById('size-prompt')) {
         document.getElementById('size-prompt').textContent = currentFontSize;
     }
@@ -57,17 +62,17 @@ function updateSelectedButton(groupSelector, activeValue) {
     const buttons = document.querySelectorAll(groupSelector);
     buttons.forEach(btn => {
         // Supprime la classe 'selected' et remet aria-pressed à false (si applicable)
-        btn.classList.remove('customSelected', 'selected'); 
+        btn.classList.remove('customSelected', 'selected');
         btn.setAttribute('aria-pressed', false);
-        
+
         // On vérifie la correspondance avec la valeur
-        const isMatch = btn.dataset.value === activeValue || 
-                        btn.dataset.font === activeValue || 
-                        (btn.dataset.bg === activeValue && btn.dataset.type === 'contrast');
+        const isMatch = btn.dataset.value === activeValue ||
+            btn.dataset.font === activeValue ||
+            (btn.dataset.bg === activeValue && btn.dataset.type === 'contrast');
 
         if (isMatch) {
             // Utiliser 'customSelected' ou 'selected' selon votre CSS, j'utilise les deux pour la compatibilité
-            btn.classList.add('customSelected', 'selected'); 
+            btn.classList.add('customSelected', 'selected');
             btn.setAttribute('aria-pressed', true);
         }
     });
@@ -79,7 +84,7 @@ function loadPreferences() {
     currentLineHeight = parseFloat(localStorage.getItem('lineHeight')) || currentLineHeight;
     currentFontType = localStorage.getItem('fontType') || currentFontType;
     currentBlockMode = parseInt(localStorage.getItem('blockMode')) || currentBlockMode;
-    
+
     currentBgColor = localStorage.getItem('bgColor') || currentBgColor;
     currentTextColor = localStorage.getItem('textColor') || currentTextColor;
 }
@@ -96,33 +101,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // Étape 1 : Chargement initial et application
     loadPreferences();
     applyStyles();
-    
+
     // Étape 2 : Mettre à jour l'état visuel des boutons au démarrage
     updateSelectedButton('.font-control', currentFontType);
     updateSelectedButton('.block-control', currentBlockMode.toString());
-    updateSelectedButton('.contrast-control', currentBgColor); 
+    updateSelectedButton('.contrast-control', currentBgColor);
 
 
     // --- A. Gestion du menu de Personnalisation (Ouverture/Fermeture) ---
 
     const triggerBtn = document.getElementById('logo_trigger_menu');
     const closeBtn = document.getElementById('closeCustomBlock');
-    
+
     if (triggerBtn && sidebar) {
-        triggerBtn.addEventListener('click', function() {
-            sidebar.classList.add('sticky'); 
+        triggerBtn.addEventListener('click', function () {
+            sidebar.classList.add('sticky');
         });
     }
 
     if (closeBtn && sidebar) {
-        closeBtn.addEventListener('click', function() {
-            sidebar.classList.remove('sticky'); 
+        closeBtn.addEventListener('click', function () {
+            sidebar.classList.remove('sticky');
         });
     }
-    
+
     // --- B. Événements pour la Police (Font Control) ---
     document.querySelectorAll('.font-control').forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             currentFontType = this.dataset.value;
             localStorage.setItem('fontType', currentFontType);
             applyStyles();
@@ -133,15 +138,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- C. Événements pour la Taille et l'Interlignage ---
     document.querySelectorAll('.size-control, .line-control').forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             const change = parseFloat(this.dataset.change);
 
             if (this.dataset.type === 'size') {
                 currentFontSize += change;
                 currentFontSize = Math.max(14, Math.min(38, currentFontSize));
                 localStorage.setItem('fontSize', currentFontSize);
-            } 
-            
+            }
+
             if (this.dataset.type === 'line') {
                 currentLineHeight += change;
                 currentLineHeight = Math.max(1.0, Math.min(2.5, currentLineHeight));
@@ -154,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- D. Événements pour le Contraste (Contrast Control) ---
     document.querySelectorAll('.contrast-control').forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             currentBgColor = this.dataset.bg;
             currentTextColor = this.dataset.text;
 
@@ -168,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- E. Événements pour le Mode Bloc ---
     document.querySelectorAll('.block-control').forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             currentBlockMode = parseInt(this.dataset.value);
 
             localStorage.setItem('blockMode', currentBlockMode);
@@ -260,3 +265,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+

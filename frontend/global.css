@@ -1,18 +1,112 @@
 /* ------ Font ------ */
 
-    /* Classes de typographies */
-    body.arial { font-family: Arial, sans-serif; }
-    body.times { font-family: 'Times New Roman', serif; }
-    body.montserrat { font-family: 'Montserrat', sans-serif; }
-    body.georgia { font-family: Georgia, serif; }
-    body.verdana { font-family: Verdana, sans-serif; }
-    /* todo: ajouter Eido& co */
-/* **  */
-/* https://www.brailleinstitute.org/freefont/#download  */
- /* ** EIDO */
-/* https://lpc.univ-amu.fr/fr/police-caracteres-eido.html */
+/* Classes de typographies */
+body.bbbreadme {
+  font-family: 'BBB ReadMe', 'BBB ReadMe 2';
+}
 
-/* ------ General ------ */
+body.arial {
+  font-family: Arial, Helvetica, sans-serif, 
+}
+
+body.times {
+  font-family: 'Times New Roman',  Times, serif
+}
+
+body.eido {
+  font-family: 'Eido';
+}
+
+body.accessibledfa {
+  font-family: 'Accessible DFA', 'Accessible DFA 2';
+}
+
+body.opendyslexic {
+  font-family: 'OpenDyslexic';
+}
+
+/* todo: ajouter Eido& co */
+
+
+@font-face {
+  font-family: 'Eido';
+  /* Nom police */
+  src: url('../font/eido.otf') format('truetype');
+  /* Chemin le fichier */
+  font-weight: normal;
+  /* Poids de la police (normal, bold, 400, 700, etc.) */
+  font-style: normal;
+  /* Style (normal, italic) */
+}
+
+@font-face {
+  font-family: 'Accessible DFA';
+  /* Nom police */
+  src: url('../font/AccessibleDfA-VF.woff') format('truetype');
+  /* Chemin le fichier */
+  font-weight: normal;
+  /* Poids de la police (normal, bold, 400, 700, etc.) */
+  font-style: normal;
+  /* Style (normal, italic) */
+}
+
+@font-face {
+  font-family: 'Accessible DFA 2';
+  src: url('../font/AccessibleDfA-VF.woff2') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BBB ReadMe';
+  src: url('../font/BBBReadMe-Regular.woff') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BBB ReadMe 2';
+  src: url('../font/BBBReadMe-Regular.woff2') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('../font/OpenDyslexic-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic Bold';
+  src: url('../font/OpenDyslexic-Bold.otf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic Bold Italic';
+  src: url('../font/OpenDyslexic-BoldItalic.otf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic Italic';
+  src: url('../font/OpenDyslexic-Italic.otf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/*
+1. Faire une règle @font-face distincte pour chaque variation (gras, italique) et chaque poids, comme font-weight: bold; ou font-style: italic;.
+2. Pour appliquer la police ensuite 
+body {
+  font-family: 'MaPolicePersonnalisee', Arial, sans-serif; /* Police principale, puis alternatives }
+  */
+
+/* ** ------ General ** ------ */
 
 /* ------ Variables pour la Personnalisation ------ */
 :root {
@@ -20,17 +114,22 @@
   --main-text: #000000;       Default: noir */
 
   /* Nouvelle palette : Crème / Gris Charbon */
-  --main-background: #F7F7F0; /* Crème léger */
-  --main-text: #2C3E50;       /* Gris Charbon (Texte élégant) */
-  --accent-color-soft: #B7B7E0; /* Lavande Douce (pour séparateurs/hover) */
-  --accent-color-strong: #001F3F; /* Bleu Nuit (pour CTA/Focus) */
+  --main-background: #F7F7F0;
+  /* Crème léger */
+  --main-text: #2C3E50;
+  /* Gris Charbon (Texte élégant) */
+  --accent-color-soft: #B7B7E0;
+  /* Lavande Douce (pour séparateurs/hover) */
+  --accent-color-strong: #001F3F;
+  /* Bleu Nuit (pour CTA/Focus) */
 }
 
 /* Appliquer les variables au body */
 body {
   background-color: var(--main-background);
   color: var(--main-text);
-  transition: all 0.3s ease; /* Garder l'effet de transition */
+  transition: all 0.3s ease;
+  /* Garder l'effet de transition */
 }
 
 * {
@@ -61,21 +160,24 @@ section {
 /* Menu latéral de personnalisation */
 #sidebar {
   position: fixed;
-  right: -400px; /* Position initiale : cachée  */
+  right: -400px;
+  /* Position initiale : cachée  */
   top: 0;
   width: 200px;
   height: 100vh;
   /* background: rgba(255, 255, 255, 0.80); */
   background: var(--main-background);
-  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
   padding: 0.5em;
-  transition: right 0.3s ease; /* Transition pour l'ouverture/fermeture */
+  transition: right 0.3s ease;
+  /* Transition pour l'ouverture/fermeture */
   z-index: 1000;
   overflow-y: auto;
 }
 
 #sidebar.sticky {
-  right: 0; /* Affiché */
+  right: 0;
+  /* Affiché */
 }
 
 /* Styles pour l'accessibilité */
@@ -96,7 +198,7 @@ section {
 
 /* Focus visible pour navigation clavier */
 *:focus-visible {
-outline: 3px solid var(--accent-color-strong); 
+  outline: 3px solid var(--accent-color-strong);
   outline-offset: 2px;
 }
 
@@ -110,256 +212,431 @@ outline: 3px solid var(--accent-color-strong);
 }
 
 /* Styles des contrôles (boutons, trigger, etc.) */
-    .customBlock {
-      margin-bottom: 1em;
-      padding-bottom: 0.5em;
-      border-bottom: 1px solid #ddd;
-    }
+.customBlock {
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #ddd;
+}
 
-    .trigger-gestion {
-      font-weight: 600;
-      margin-bottom: 0.5em;
-      text-transform: uppercase;
-      font-size: 0.9em;
-      color: var(--main-text)
-    }
+.trigger-gestion {
+  /* font-weight: 600; */
+  margin-bottom: 0.5em;
+  /* text-transform: uppercase; */
+  font-size: 0.9em;
+  color: var(--main-text)
+}
 
-    .gestion {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5em;
-      margin-top: 0.5em;
-    }
+.gestion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin-top: 0.5em;
+}
 
-    /* Boutons de contrôle */
-    button.bouton-gestion-taille,
-    button.bouton-gestion-alignement,
-    button.bouton-gestion-typo,
-    button.bouton-gestion-contrastes,
-    button.bouton-gestion-block {
-      padding: 0.5em 1em;
-      background: var(--main-text); /* inversé */
-      cursor: pointer;
-      transition: all 0.2s;
-      font-size: 1em;
-      color: var(--main-background);  /* inversé */
-  border-radius: 15px; 
+/* Boutons de contrôle */
+button.bouton-gestion-taille,
+button.bouton-gestion-alignement,
+button.bouton-gestion-typo,
+button.bouton-gestion-contrastes,
+button.bouton-gestion-block {
+  padding: 0.5em 1em;
+  background: var(--main-text);
+  /* inversé */
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1em;
+  color: var(--main-background);
+  /* inversé */
+  border-radius: 15px;
 
 
-    }
+}
 
-    button:hover {
-      background: #e0e0e0; /* todo: faire une variable de var? */
-      border-color: #999;
-    }
+button:hover {
+  background: #e0e0e0;
+  /* todo: faire une variable de var? */
+  border-color: #999;
+}
 
-    button.customSelected {
-     background: var(--accent-color-strong) !important;
+button.customSelected {
+  background: var(--accent-color-strong) !important;
   color: white !important;
   border-color: var(--accent-color-strong) !important;
-    }
+}
 
-    /* Indication ARIA pour état sélectionné */
-    button[aria-pressed="true"] {
-      background: #333;
-      color: white;
-      border-color: #333;
-    }
+/* Indication ARIA pour état sélectionné */
+button[aria-pressed="true"] {
+  background: #333;
+  color: white;
+  border-color: #333;
+}
 
-    /* Bouton trigger menu */
-    #logo_trigger_menu {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background: var(--main-text); /* couleurs inversée pour contraste */
-      border: none;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 999;
-      color: var(--main-background); /* couleurs inversée pour contraste */
-      font-size: 2em;
-    }
+/* Bouton trigger menu */
+#logo_trigger_menu {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: var(--main-text);
+  /* couleurs inversée pour contraste */
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  color: var(--main-background);
+  /* couleurs inversée pour contraste */
+  font-size: 2em;
+}
 
-    #closeCustomBlock {
-       background: var(--main-background);
-       color: var(--main-text);
-      padding: 0.5em;
-      text-align: center;
-      cursor: pointer;
-      border: none;
-      border-radius: 15px;
-      margin-bottom: 1em;
-      width: 100%;
-      font-size: 1em;
-    }
+#closeCustomBlock {
+  background: var(--main-background);
+  color: var(--main-text);
+  padding: 0.5em;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 1em;
+  width: 100%;
+  font-size: 1em;
+}
 
-    /* Prompt d'affichage des valeurs */
-    .prompt {
-      display: inline-block;
-      font-weight: bold;
-      color: var(--main-background);
-    }
+/* Prompt d'affichage des valeurs */
+.prompt {
+  display: inline-block;
+  font-weight: bold;
+  color: var(--main-background);
+}
 
-    /* Gammes de contrastes */
-    button.bouton-gestion-contrastes {
-      width: 40px;
-      height: 40px;
-      padding: 0;
-      font-size: 1.5em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+/* Gammes de contrastes */
+button.bouton-gestion-contrastes {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    /*** Styles des gammes de couleurs  ** */
-    /* todo : refaire */
-  /* 1. Pêche & Gris Foncé */
-    #gamme01 { background: #FFF0F0; color: #2D2D2D; border-color: #2D2D2D; } 
-    /* 2. Vert Menthe & Noir */
-    #gamme02 { background: #E0FFEE; color: #000000; border-color: #000000; }
-    /* 3. Lavande & Violet Foncé */
-    #gamme03 { background: #F0F0FF; color: #4B0082; border-color: #4B0082; }
-    /* 4. Jaune Pâle & Bleu Navy */
-    #gamme04 { background: #FFFFE0; color: #000080; border-color: #000080; }
-    
-    /* GAMMES MANQUANTES AJOUTÉES CI-DESSOUS */
-    
-    /* 5. Bleu Ciel & Bordeaux (Contraste 7.4:1) */
-    #gamme05 { background: #E6F0FF; color: #800020; border-color: #800020; }
-    /* 6. Rose Pâle & Noir (Contraste 16.5:1) */
-    #gamme06 { background: #FFEDED; color: #000000; border-color: #000000; }
-    /* 7. Beige Chaud & Marron (Contraste 7.6:1) */
-    #gamme07 { background: #FFF8DC; color: #654321; border-color: #654321; }
-    /* 8. Blanc & Vert Forêt (Contraste 8.8:1) */
-    #gamme08 { background: #FFFFFF; color: #228B22; border-color: #228B22; }
-    /* 9. Gris Clair & Noir (Contraste 15.6:1) */
-    #gamme09 { background: #F0F0F0; color: #000000; border-color: #000000; }
-    /* 10. Noir & Jaune Pâle (Contraste 10.3:1) */
-    #gamme10 { background: #000000; color: #FFFFE0; }
-    /* 11. Bleu Navy & Rose Pâle (Contraste 7.6:1) */
-    #gamme11 { background: #000080; color: #FFEDED; }
-    /* 12. Violet & Beige Chaud (Contraste 7.4:1) */
-    #gamme12 { background: #4B0082; color: #FFF8DC; }
-    /* 13. Bordeaux & Bleu Ciel (Contraste 7.4:1) */
-    #gamme13 { background: #800020; color: #E6F0FF; }
-    /* 14. Gris Foncé & Pêche (Contraste 13.9:1) */
-    #gamme14 { background: #2D2D2D; color: #FFF0F0; }
-    /* 15. Vert Foncé & Blanc (Contraste 8.8:1) */
-    #gamme15 { background: #228B22; color: #FFFFFF; }
-    /* 16. Marron & Jaune Pâle (Contraste 7.6:1) */
-    #gamme16 { background: #654321; color: #FFF8DC; }
+/*** Styles des gammes de couleurs  ** */
+/* todo : refaire */
+/* 1. Pêche & Gris Foncé */
+#gamme01 {
+  background: #FFF0F0;
+  color: #2D2D2D;
+  border-color: #2D2D2D;
+}
+
+/* 2. Vert Menthe & Noir */
+#gamme02 {
+  background: #E0FFEE;
+  color: #000000;
+  border-color: #000000;
+}
+
+/* 3. Lavande & Violet Foncé */
+#gamme03 {
+  background: #F0F0FF;
+  color: #4B0082;
+  border-color: #4B0082;
+}
+
+/* 4. Jaune Pâle & Bleu Navy */
+#gamme04 {
+  background: #FFFFE0;
+  color: #000080;
+  border-color: #000080;
+}
+
+/* 5. Bleu Ciel & Bordeaux (Contraste 7.4:1) */
+#gamme05 {
+  background: #E6F0FF;
+  color: #800020;
+  border-color: #800020;
+}
+
+/* 6. Rose Pâle & Noir (Contraste 16.5:1) */
+#gamme06 {
+  background: #FFEDED;
+  color: #000000;
+  border-color: #000000;
+}
+
+/* 7. Beige Chaud & Marron (Contraste 7.6:1) */
+#gamme07 {
+  background: #FFF8DC;
+  color: #654321;
+  border-color: #654321;
+}
+
+/* 8. Blanc & Vert Forêt (Contraste 8.8:1) */
+#gamme08 {
+  background: #FFFFFF;
+  color: #228B22;
+  border-color: #228B22;
+}
+
+/* 9. Gris Clair & Noir (Contraste 15.6:1) */
+#gamme09 {
+  background: #F0F0F0;
+  color: #000000;
+  border-color: #000000;
+}
+
+/* 10. Noir & Jaune Pâle (Contraste 10.3:1) */
+#gamme10 {
+  background: #000000;
+  color: #FFFFE0;
+}
+
+/* 11. Bleu Navy & Rose Pâle (Contraste 7.6:1) */
+#gamme11 {
+  background: #000080;
+  color: #FFEDED;
+}
+
+/* 12. Violet & Beige Chaud (Contraste 7.4:1) */
+#gamme12 {
+  background: #4B0082;
+  color: #FFF8DC;
+}
+
+/* 13. Bordeaux & Bleu Ciel (Contraste 7.4:1) */
+#gamme13 {
+  background: #800020;
+  color: #E6F0FF;
+}
+
+/* 14. Gris Foncé & Pêche (Contraste 13.9:1) */
+#gamme14 {
+  background: #2D2D2D;
+  color: #FFF0F0;
+}
+
+/* 15. Vert Foncé & Blanc (Contraste 8.8:1) */
+#gamme15 {
+  background: #228B22;
+  color: #FFFFFF;
+}
+
+/* 16. Marron & Jaune Pâle (Contraste 7.6:1) */
+#gamme16 {
+  background: #654321;
+  color: #FFF8DC;
+}
 
 /* Style pour le mode bloc de contraste */
 #main-content.block p,
 #main-content.block h1,
 #main-content.block h2,
 #main-content.block h3 {
-  background: var(--main-text); /* Inversé  */
+  background: var(--main-text);
+  /* Inversé  */
   color: var(--main-background);
   padding: 0.5em;
-  margin-bottom: 0.5em; /* todo: verifier */
+  margin-bottom: 0.5em;
+  /* todo: verifier */
 }
 
 /* --- Styles pour les Dropdowns --- */
 
 .dropdown-trigger {
-    cursor: pointer;
-    /* Styles pour différencier le trigger d'un simple texte */
-    background: var(--main-text);
-    padding: 0.5em;
-    border: 1px solid var(--accent-color-soft); /* Bordure plus douce */
-  border-radius: 15px; /* Adoucir les coins */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--main-background); 
-    margin-bottom: 0.5em;
+  cursor: pointer;
+  /* Styles pour différencier le trigger d'un simple texte */
+  background: var(--main-text);
+  padding: 0.5em;
+  border: 1px solid var(--accent-color-soft);
+  /* Bordure plus douce */
+  border-radius: 15px;
+  /* Adoucir les coins */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--main-background);
+  margin-bottom: 0.5em;
 }
 
 /* Le contenu du dropdown est caché par défaut */
 .dropdown-content {
-    display: none;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-    padding-top: 0; 
-    flex-wrap: wrap; 
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  padding-top: 0;
+  flex-wrap: wrap;
 }
 
 /* Classe ajoutée par JS pour afficher le contenu */
 .dropdown-content.open {
-    display: flex; /* Utilise flex pour afficher les boutons */
-    max-height: 500px; /* Grande valeur pour simuler une hauteur automatique (flexbox) */
-    padding-top: 0.5em; 
+  display: flex;
+  /* Utilise flex pour afficher les boutons */
+  max-height: 500px;
+  /* Grande valeur pour simuler une hauteur automatique (flexbox) */
+  padding-top: 0.5em;
 }
 
-/* Petite flèche indicatrice */
+/* Petite flèche  */
 .dropdown-arrow {
-    transition: transform 0.3s ease;
-    font-size: 0.8em;
+  transition: transform 0.3s ease;
+  font-size: 0.8em;
 }
 
 /* Rotation de la flèche quand le menu est ouvert */
-.dropdown-content.open + .dropdown-arrow {
-    transform: rotate(180deg);
+.dropdown-content.open+.dropdown-arrow {
+  transform: rotate(180deg);
 }
 
 
+ /** ---- BTN FONT ------ **/
+/* --- Style des polices --- */
+.font-control[data-value="bbbreadme"] { font-family: 'BBB ReadMe', sans-serif; }
+.font-control[data-value="eido"] { font-family: 'Eido', sans-serif; }
+.font-control[data-value="accessibledfa"] { font-family: 'Accessible DFA', sans-serif; }
+.font-control[data-value="opendyslexic"] { font-family: 'OpenDyslexic', sans-serif; }
+.font-control[data-value="arial"] { font-family: Arial, sans-serif; }
+.font-control[data-value="times"] { font-family: 'Times New Roman', Times, serif; }
+
+/* --- 2. Forcer la police sélectionnée sur les boutons "Fond" --- */
+/* Ces boutons utiliseront la police héritée du body (celle sélectionnée) */
+.block-control {
+    font-family: inherit;
+}
+ /** ---- BTN FOND ACTIVé/DESACTIVé ------ **/
+/* --- 3. Style du bouton "Fond activé" (fond noir/texte clair via variables) --- */
+.block-control[data-value="1"] {
+    background-color: var(--main-text) !important;
+    color: var(--main-background) !important;
+    border: 1px solid var(--main-text);
+}
+
+
+ /** ---- BTN GAMME DE COULEUR ------ **/
 /* 1. Pêche & Gris Foncé */
-    #gamme01 { background: #FFF0F0; color: #2D2D2D; border-color: #2D2D2D; } 
-    /* 2. Vert Menthe & Noir */
-    #gamme02 { background: #E0FFEE; color: #000000; border-color: #000000; }
-    /* 3. Lavande & Violet Foncé */
-    #gamme03 { background: #F0F0FF; color: #4B0082; border-color: #4B0082; }
-    /* 4. Jaune Pâle & Bleu Navy */
-    #gamme04 { background: #FFFFE0; color: #000080; border-color: #000080; }
-    
-    /* GAMMES MANQUANTES AJOUTÉES CI-DESSOUS */
-    
-    /* 5. Bleu Ciel & Bordeaux (Contraste 7.4:1) */
-    #gamme05 { background: #E6F0FF; color: #800020; border-color: #800020; }
-    /* 6. Rose Pâle & Noir (Contraste 16.5:1) */
-    #gamme06 { background: #FFEDED; color: #000000; border-color: #000000; }
-    /* 7. Beige Chaud & Marron (Contraste 7.6:1) */
-    #gamme07 { background: #FFF8DC; color: #654321; border-color: #654321; }
-    /* 8. Blanc & Vert Forêt (Contraste 8.8:1) */
-    #gamme08 { background: #FFFFFF; color: #228B22; border-color: #228B22; }
-    /* 9. Gris Clair & Noir (Contraste 15.6:1) */
-    #gamme09 { background: #F0F0F0; color: #000000; border-color: #000000; }
-    /* 10. Noir & Jaune Pâle (Contraste 10.3:1) */
-    #gamme10 { background: #000000; color: #FFFFE0; }
-    /* 11. Bleu Navy & Rose Pâle (Contraste 7.6:1) */
-    #gamme11 { background: #000080; color: #FFEDED; }
-    /* 12. Violet & Beige Chaud (Contraste 7.4:1) */
-    #gamme12 { background: #4B0082; color: #FFF8DC; }
-    /* 13. Bordeaux & Bleu Ciel (Contraste 7.4:1) */
-    #gamme13 { background: #800020; color: #E6F0FF; }
-    /* 14. Gris Foncé & Pêche (Contraste 13.9:1) */
-    #gamme14 { background: #2D2D2D; color: #FFF0F0; }
-    /* 15. Vert Foncé & Blanc (Contraste 8.8:1) */
-    #gamme15 { background: #228B22; color: #FFFFFF; }
-    /* 16. Marron & Jaune Pâle (Contraste 7.6:1) */
-    #gamme16 { background: #654321; color: #FFF8DC; }
+#gamme01 {
+  background: #FFF0F0;
+  color: #2D2D2D;
+  border-color: #2D2D2D;
+}
+
+/* 2. Vert Menthe & Noir */
+#gamme02 {
+  background: #E0FFEE;
+  color: #000000;
+  border-color: #000000;
+}
+
+
+/* 3. Lavande & Violet Foncé */
+#gamme03 {
+  background: #F0F0FF;
+  color: #4B0082;
+  border-color: #4B0082;
+}
+
+/* 4. Jaune Pâle & Bleu Navy */
+#gamme04 {
+  background: #FFFFE0;
+  color: #000080;
+  border-color: #000080;
+}
+
+/* 5. Bleu Ciel & Bordeaux (Contraste 7.4:1) */
+#gamme05 {
+  background: #E6F0FF;
+  color: #800020;
+  border-color: #800020;
+}
+
+/* 6. Rose Pâle & Noir (Contraste 16.5:1) */
+#gamme06 {
+  background: #FFEDED;
+  color: #000000;
+  border-color: #000000;
+}
+
+/* 7. Beige Chaud & Marron (Contraste 7.6:1) */
+#gamme07 {
+  background: #FFF8DC;
+  color: #654321;
+  border-color: #654321;
+}
+
+/* 8. Blanc & Vert Forêt (Contraste 8.8:1) */
+#gamme08 {
+  background: #FFFFFF;
+  color: #228B22;
+  border-color: #228B22;
+}
+
+/* 9. Gris Clair & Noir (Contraste 15.6:1) */
+#gamme09 {
+  background: #F0F0F0;
+  color: #000000;
+  border-color: #000000;
+}
+
+/* 10. Noir & Jaune Pâle (Contraste 10.3:1) */
+#gamme10 {
+  background: #000000;
+  color: #FFFFE0;
+}
+
+/* 11. Bleu Navy & Rose Pâle (Contraste 7.6:1) */
+#gamme11 {
+  background: #000080;
+  color: #FFEDED;
+}
+
+/* 12. Violet & Beige Chaud (Contraste 7.4:1) */
+#gamme12 {
+  background: #4B0082;
+  color: #FFF8DC;
+}
+
+/* 13. Bordeaux & Bleu Ciel (Contraste 7.4:1) */
+#gamme13 {
+  background: #800020;
+  color: #E6F0FF;
+}
+
+/* 14. Gris Foncé & Pêche (Contraste 13.9:1) */
+#gamme14 {
+  background: #2D2D2D;
+  color: #FFF0F0;
+}
+
+/* 15. Vert Foncé & Blanc (Contraste 8.8:1) */
+#gamme15 {
+  background: #228B22;
+  color: #FFFFFF;
+}
+
+/* 16. Marron & Jaune Pâle (Contraste 7.6:1) */
+#gamme16 {
+  background: #654321;
+  color: #FFF8DC;
+}
+
 /* Exemple de style pour les boutons spécifiques à la typo dans le menu pour les différencier visuellement */
 .bouton-gestion-typo.font-control {
-    font-size: 0.9em;
+  font-size: 0.9em;
 }
 
 /** ------ Styles de Main ------ */
 /* ------ General Section ------ */
 .page-section {
   height: 100vh;
-    width: 80vw;
+  width: 80vw;
   padding-top: 40px;
   box-sizing: border-box;
   display: flex;
-  align-items: center; 
-  justify-content:left;
+  align-items: center;
+  justify-content: left;
   overflow: hidden;
   padding-left: 5vw;
 }
@@ -393,48 +670,54 @@ outline: 3px solid var(--accent-color-strong);
   }
 } */
 
-.section2 { /* Ceci cible la balise <section> */
+.section2 {
+  /* Ceci cible la balise <section> */
   display: flex;
-  flex-direction: column; 
-  align-items: flex-start; /* aligne à gauche */
+  flex-direction: column;
+  align-items: flex-start;
+  /* aligne à gauche */
   justify-content: space-evenly;
-  padding: 4em; 
-  gap: 5%; 
+  padding: 4em;
+  gap: 5%;
   /* border: 1px gold solid;  */
-  width: 80vw; 
+  width: 80vw;
 
   .div_skills {
     .skills-columns {
-    display: flex;
-    flex-direction: row; /* Aligne les colonnes horizontalement */
-    gap: 20%; /* Espace entre les deux colonnes UL */
-    list-style: none; 
-    padding: 0;
-    margin-top: 1em;
+      display: flex;
+      flex-direction: row;
+      /* Aligne les colonnes horizontalement */
+      gap: 20%;
+      /* Espace entre les deux colonnes UL */
+      list-style: none;
+      padding: 0;
+      margin-top: 1em;
 
-   .skills-list {/* Style de chaque liste (colonne)  */
-    flex: 1; /* Permet aux deux listes d'occuper un espace égal */
-    list-style: none;
-    padding: 2%;
-    margin: 0;
+      .skills-list {
+        /* Style de chaque liste (colonne)  */
+        flex: 1;
+        /* Permet aux deux listes d'occuper un espace égal */
+        list-style: none;
+        padding: 2%;
+        margin: 0;
 
-    li {
-      font-size: 1.1em;
-    margin-bottom: 0.5em;
-    font-weight: 500;
-    white-space: nowrap;
+        li {
+          font-size: 1.1em;
+          margin-bottom: 0.5em;
+          font-weight: 500;
+          white-space: nowrap;
 
-    i {
-    color: var(--accent-color-strong);
-    width: 20px; 
-    text-align: center;
-    /* margin-right: 8px; */
-    transition: color 0.2s;
+          i {
+            color: var(--accent-color-strong);
+            width: 20px;
+            text-align: center;
+            /* margin-right: 8px; */
+            transition: color 0.2s;
+          }
+        }
+      }
+
     }
-    }
-}
-    
-}
   }
 }
 
@@ -521,7 +804,7 @@ outline: 3px solid var(--accent-color-strong);
   display: flex;
   /* flex: 1; */
   align-items: center;
-  justify-content:flex-start;
+  justify-content: flex-start;
   gap: 3em;
   /* width: 80vw; */
   max-width: fit-content;
@@ -555,13 +838,13 @@ outline: 3px solid var(--accent-color-strong);
 h1 {
   font-size: 3em;
   font-weight: 700;
-  
+
 }
 
 h2 {
   font-size: 2em;
   font-weight: 400;
-  
+
 }
 
 h3 {
