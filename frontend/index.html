@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <!-- ** CUSTOM TOOL ** -->
+
 
   <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
@@ -28,118 +28,119 @@
 
   <button id="logo_trigger_menu" aria-label="Ouvrir le menu de personnalisation" aria-expanded="false"
     aria-controls="sidebar">
-    ⚙
+    <!-- icone FA ⚙️ -->
+    <i class="fa-duotone fa-solid fa-gear"></i>
+
   </button>
 
-  <aside id="sidebar" role="region" aria-label="Panneau de personnalisation">
-    <button id="closeCustomBlock" aria-label="Fermer le menu de personnalisation">
-      Hide tools
-    </button>
+  <!-- ** ------------------------------------- -->
+  <!-- ** ------------ Side bar --------------- -->
+  <!-- ** ------------------------------------- -->
 
-    <div class="customBlock">
-      <div class="trigger-gestion dropdown-trigger" data-target="font-dropdown">
-        Police : <span id="font-prompt" class="prompt">Montserrat</span>
-        <span class="dropdown-arrow">▼</span>
-      </div>
-
-      <div class="gestion dropdown-content" id="font-dropdown">
-  <button class="bouton-gestion-typo font-control" data-type="font" data-value="bbbreadme"
-    aria-label="Police BBB ReadMe">BBB ReadMe</button>
-  
-  <button class="bouton-gestion-typo font-control" data-type="font" data-value="eido"
-    aria-label="Police Eido">Eido</button>
-  
-  <button class="bouton-gestion-typo font-control" data-type="font" data-value="accessibledfa"
-    aria-label="Police Accessible DFA">Accessible DFA</button>
-  
-  <button class="bouton-gestion-typo font-control" data-type="font" data-value="opendyslexic"
-    aria-label="Police OpenDyslexic">OpenDyslexic</button>
-  
-<button class="bouton-gestion-typo font-control" data-type="font" data-value="arial"
-    aria-label="Police Arial">Arial</button>
-    
-<button class="bouton-gestion-typo font-control" data-type="font" data-value="times"
-    aria-label="Police Times">Times</button>
-</div>
+  <aside id="sidebar" role="region" aria-label="Personnalisation">
+    <div class="sidebar__header">
+      <h2 class="sidebar__title">Réglages</h2>
+      <button id="closeCustomBlock" aria-label="Fermer">
+        <!-- icone FA ✖️ -->
+        <i class="fa-solid fa-xmark"></i>
+      </button>
     </div>
 
-    <div class="customBlock">
-      <div class="trigger-gestion">Taille : <span id="size-prompt" class="prompt">22</span>px</div>
-      <div class="gestion" id="size-controls">
-        <button class="bouton-gestion-taille size-control" data-type="size" data-change="-3"
-          aria-label="Diminuer la taille du texte">-</button>
-        <button class="bouton-gestion-taille size-control" data-type="size" data-change="+3"
-          aria-label="Augmenter la taille du texte">+</button>
-      </div>
+    <div class="sidebar__content">
+
+      <!--   TODO: CHOIX LANGUE
+      <div class="sidebar__group">
+    <span class="sidebar__group__label">Langue</span>
+    <div class="sidebar__group__controls">
+      <button class="lang-btn active" data-lang="fr">🇫🇷</button>
+      <button class="lang-btn" data-lang="en">🇬🇧</button>
     </div>
+   </div> -->
 
-    <div class="customBlock">
-      <div class="trigger-gestion">Interlignage : <span id="line-height-prompt" class="prompt">1.2</span></div>
-      <div class="gestion" id="line-height-controls">
-        <button class="bouton-gestion-taille line-control" data-type="line" data-change="-0.1"
-          aria-label="Diminuer l'interlignage">-</button>
-        <button class="bouton-gestion-taille line-control" data-type="line" data-change="+0.1"
-          aria-label="Augmenter l'interlignage">+</button>
+      <!-- ** Choix Police ** -->
+      <div class="sidebar__group">
+        <h3 class="sidebar__label">Police</h3>
+        <select id="font-select" class="sidebar_dropdown">
+          <option value="bbbreadme" class="opt-bbbreadme">BBB ReadMe</option>
+          <option value="eido" class="opt-eido">Eido</option>
+          <option value="accessibledfa" class="opt-accessibledfa">Accessible DFA</option>
+          <option value="opendyslexic" class="opt-opendyslexic">OpenDyslexic</option>
+          <option value="arial" class="opt-arial">Arial</option>
+          <option value="times" class="opt-times">Times</option>
+        </select>
       </div>
-    </div>
 
-    <div class="customBlock">
-      <div class="trigger-gestion dropdown-trigger" data-target="contrast-dropdown">
-        Contraste : <span class="dropdown-arrow">▼</span>
+      <!-- ** Choix Taille  ** -->
+      <div class="sidebar__group">
+        <h3 class="sidebar__label">Taille :</h3>
+        <div class="sidebar__pill-group">
+          <button class="pill-btn size-control" data-type="size" data-change="-3">-</button>
+          <!-- <span id="size-prompt" class="pill-value">22</span> -->
+          <!-- <span class="pill-value"><i class="fa-light fa-text-height"></i></span> -->
+          <img src="../img/icon/font-size.png" alt="icone qui représente la taille de police" class="pill-value">
+          <button class="pill-btn size-control" data-type="size" data-change="+3">+</button>
+        </div>
       </div>
 
-      <div class="gestion dropdown-content" id="contrast-dropdown">
-        <button id="gamme01" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#FFF0F0"
-          data-text="#2D2D2D" aria-label="Contraste: Pêche et Gris Foncé"> • </button>
-        <button id="gamme02" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#E0FFEE"
-          data-text="#000000" aria-label="Contraste: Vert Menthe et Noir"> • </button>
-        <button id="gamme03" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#F0F0FF"
-          data-text="#4B0082" aria-label="Contraste: Lavande et Violet Foncé"> • </button>
-        <button id="gamme04" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#FFFFE0"
-          data-text="#000080" aria-label="Contraste: Jaune Pâle et Bleu Navy"> • </button>
-        <button id="gamme05" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#E6F0FF"
-          data-text="#800020" aria-label="Contraste: Bleu Ciel et Bordeaux"> • </button>
-        <button id="gamme06" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#FFEDED"
-          data-text="#000000" aria-label="Contraste: Rose Pâle et Noir"> • </button>
-        <button id="gamme07" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#FFF8DC"
-          data-text="#654321" aria-label="Contraste: Beige Chaud et Marron"> • </button>
-        <button id="gamme08" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#FFFFFF"
-          data-text="#228B22" aria-label="Contraste: Blanc et Vert Forêt"> • </button>
-        <button id="gamme09" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#F0F0F0"
-          data-text="#000000" aria-label="Contraste: Gris Clair et Noir"> • </button>
-        <button id="gamme10" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#000000"
-          data-text="#FFFFE0" aria-label="Contraste: Noir et Jaune Pâle"> • </button>
-        <button id="gamme11" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#000080"
-          data-text="#FFEDED" aria-label="Contraste: Bleu Navy et Rose Pâle"> • </button>
-        <button id="gamme12" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#4B0082"
-          data-text="#FFF8DC" aria-label="Contraste: Violet et Beige Chaud"> • </button>
-        <button id="gamme13" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#800020"
-          data-text="#E6F0FF" aria-label="Contraste: Bordeaux et Bleu Ciel"> • </button>
-        <button id="gamme14" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#2D2D2D"
-          data-text="#FFF0F0" aria-label="Contraste: Gris Foncé et Pêche"> • </button>
-        <button id="gamme15" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#228B22"
-          data-text="#FFFFFF" aria-label="Contraste: Vert Foncé et Blanc"> • </button>
-        <button id="gamme16" class="bouton-gestion-contrastes contrast-control" data-type="contrast" data-bg="#654321"
-          data-text="#FFF8DC" aria-label="Contraste: Marron et Jaune Pâle"> • </button>
+      <!-- ** Choix Interligne ** -->
+      <div class="sidebar__group">
+        <h3 class="sidebar__label">
+          <h3 class="sidebar__label">Interligne :</h3>
+        </h3>
+        <div class="sidebar__pill-group">
+          <button class="pill-btn line-control" data-type="line" data-change="-0.1">-</button>
+          <img src="../img/icon/line-spacing3.png" alt="icone qui représente la taille d'interline" class="pill-value">
+          <!-- <span class="pill-value"><i class="fa-light fa-line-height"></i></i></span> -->
+          <!-- <span id="line-height-prompt" class="pill-value">1.2</span> -->
+          <button class="pill-btn line-control" data-type="line" data-change="+0.1">+</button>
+        </div>
       </div>
-    </div>
 
-    <div class="customBlock">
-      <div class="trigger-gestion">Mode Contraste par Bloc :</div>
-      <div class="gestion" id="block-controls">
-        <button class="bouton-gestion-block block-control" data-type="block" data-value="1"
-          aria-label="Activer le fond coloré des paragraphes">
-          Fond activé
-        </button>
-        <button class="bouton-gestion-block block-control" data-type="block" data-value="0"
-          aria-label="Désactiver le fond coloré des paragraphes">
-          Fond désactivé
+      <!-- ** Choix Theme ** -->
+      <div class="sidebar__group">
+        <p>Thèmes :</p>
+        <div class="contrast-group">
+          <button class="contrast-circle contrast-control" data-bg="#F7F7F0" data-text="#2C3E50"></button>
+          <button class="contrast-circle contrast-control" data-bg="#FFF0F0" data-text="#2D2D2D"></button>
+          <button class="contrast-circle contrast-control" data-bg="#E0FFEE" data-text="#000000"></button>
+          <button class="contrast-circle contrast-control" data-bg="#000000" data-text="#FFFFE0"></button>
+          <button class="contrast-circle contrast-control" data-bg="#000080" data-text="#FFEDED"></button>
+          <button class="contrast-circle contrast-control" data-bg="#FFFFFF" data-text="#228B22"></button>
+          <button class="contrast-circle contrast-control" data-bg="#2D2D2D" data-text="#FFF0F0"></button>
+          <button class="contrast-circle contrast-control" data-bg="#F0F0F0" data-text="#000000"></button>
+        </div>
+      </div>
+
+      <!-- ** Inverser ** -->
+      <div class="sidebar__group">
+        <div class="sidebar__toggle-wrapper">
+        
+          <div class="switch">
+            <input type="checkbox" id="invert-toggle">
+            <span class="slider round"></span>
+          </div>
+          <div class="sidebar__label">Inverser</div>
+        </div>
+      </div>
+
+      <!-- ** Choix Reset thème par défaut ** -->
+      <div class="sidebar__group">
+        <button id="reset-theme" class="sidebar__reset-button" title="Réinitialiser le thème">
+               <i class="fa-solid fa-rotate-left"></i>
+               <span>Réinitialiser</span>
+     
         </button>
       </div>
+
+
+    </div>
     </div>
   </aside>
 
-  <!--**  MAIN ** -->
+  <!-- ** ------------------------------------- -->
+  <!-- ** -------------- Main  ---------------- -->
+  <!-- ** ------------------------------------- -->
+
   <main id="main-content">
     <!-- ** Section 1 ** -->
     <section id="section1" class="page-section section1">
@@ -197,34 +198,35 @@
       <div class="section-intro">
         <h3>What I've been working on</h3>
 
-          <div class="full-width-center">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt consequatur, sequi asperiores eius ea at
-              pariatur amet officiis, ut voluptatem optio eligendi distinctio quia! Temporibus mollitia pariatur esse?
-              Fugit, non.</p>
-          </div>
+        <div class="full-width-center">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt consequatur, sequi asperiores eius ea at
+            pariatur amet officiis, ut voluptatem optio eligendi distinctio quia! Temporibus mollitia pariatur esse?
+            Fugit, non.</p>
+        </div>
 
 
-          <div class="full-width-center">
-            <!-- Social Script -->
-            <div class="side">
-              <img src="/img/31343C.svg" alt="screnshot Social Script">
-              <h4> Lorem Lorem </h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-            <!-- PayGap -->
-            <div class="side">
-               <h4> Lorem Lorem </h4>
-              <img src="/img/31343C.svg" alt="screnshot Pay Gap">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
+        <div class="full-width-center">
+          <!-- Social Script -->
+          <div class="side">
+            <img src="/img/31343C.svg" alt="screnshot Social Script">
+            <h4> Lorem Lorem </h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
           </div>
+          <!-- PayGap -->
+          <div class="side">
+            <h4> Lorem Lorem </h4>
+            <img src="/img/31343C.svg" alt="screnshot Pay Gap">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </div>
+        </div>
     </section>
 
     <!-- ** Section 4 ** -->
     <section id="section4" class="page-section section4">
       <div class="section-intro">
         <h3>Let me grow by your side</h3>
-        <p>I am looking for an opportunity to complete an internship (8 to 12 weeks) in Full Stack JavaScript Development following my course at Interface3</p>
+        <p>I am looking for an opportunity to complete an internship (8 to 12 weeks) in Full Stack JavaScript
+          Development following my course at Interface3</p>
 
         <!-- Formulaire -->
         <div id="contact">
