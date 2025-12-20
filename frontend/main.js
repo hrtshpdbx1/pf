@@ -1,10 +1,11 @@
 // 1. CONFIGURATION DES VALEURS PAR DÉFAUT (Réglages d'usine)
 const DEFAULTS = {
+    // ! Theme par défaut 
     fontSize: 12,
     lineHeight: 1.2,
     fontType: 'bbbreadme',
-    bgColor: '#F7F7F0',
-    textColor: '#2C3E50',
+    bgColor: 'rgb(84.699% 96.254% 83.914%)',
+    textColor: 'rgb(13.81% 13.179% 9.5057%)',
     lang: 'fr'
 };
 
@@ -17,15 +18,20 @@ let mainContent, sidebar;
 function applyStyles() {
     if (!mainContent) return;
 
-    // Appliquer Taille et Interligne
+    // Appliquer Taille 
     mainContent.style.fontSize = currentFontSize + 'px';
-    mainContent.style.lineHeight = currentLineHeight;
+
+ // Appliquer interlignevia variables CSS
+    //  uniquement les <p> et <li> définis dans le CSS
+    document.documentElement.style.setProperty('--dynamic-line-height', currentLineHeight);
+
+    // mainContent.style.lineHeight = currentLineHeight;
 
     // Appliquer Couleurs via variables CSS
     document.documentElement.style.setProperty('--main-background', currentBgColor);
     document.documentElement.style.setProperty('--main-text', currentTextColor);
 
-    // Appliquer Police (via classe sur le body)
+    // Police et UI
     document.body.className = ''; 
     document.body.classList.add(currentFontType);
 

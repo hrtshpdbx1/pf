@@ -61,10 +61,12 @@
    2. VARIABLES & RESET
    ========================================= */
 :root {
-    --main-background: #F7F7F0;
+    /* ! e pas modifier ces couleurs qui sont pilotées par le JS*/
+    --main-background: #F7F7F0; 
+    /* ! idem */
     --main-text: #2C3E50;
-    --accent-color-soft: #B7B7E0;
-    --accent-color-strong: #001F3F;
+    /* --accent-color-soft: #B7B7E0;
+    --accent-color-strong: #001F3F; */
 
     /* SPACING */
     --space-0-5: 0.15rem;
@@ -88,9 +90,9 @@
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
     --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.20);
+
     /* FONTS */
-    --font-main: "Nunito", sans-serif;
-    --font-code: "Courier New", monospace;
+
     --font-size-extra-small: 0.8rem;
     /* ~13px */
     --font-size-small: 0.9rem;
@@ -114,10 +116,10 @@
     --weight-extra-bold: 800;
     --weight-black: 900;
 
-    --line-tight: 1;
+    /* --line-tight: 1;
     --line-normal: 1.5;
     --line-loose: 1.8;
-    --line-big: 2.2;
+    --line-big: 2.2; */
 
     --letter-tight: -0.02em;
     --letter-normal: 0;
@@ -167,6 +169,27 @@ body {
     &.opendyslexic {
         font-family: 'OpenDyslexic', sans-serif;
     }
+}
+
+#main-content {
+    /* ne pas mettre de line-height ici ! */
+}
+
+#main-content p, 
+#main-content li {
+    /* variable pilotée par le JS */
+    line-height: var(--dynamic-line-height, 1.2);
+    
+    /*espace entre paragraphes  */
+    margin-bottom: 1.5rem; 
+}
+
+/* titres plus serrés */
+#main-content h1, 
+#main-content h2, 
+#main-content h3 {
+    line-height: 1.2; 
+    margin-bottom: 1rem;
 }
 
 /* =========================================
@@ -400,7 +423,7 @@ body {
 
     /* ÉTAT COCHÉ */
     input:checked + .slider {
-        background-color: var(--accent-color-strong);
+        background-color: var(--main-text);
 
         &:before {
             transform: translateX(18px);
