@@ -62,7 +62,7 @@
    ========================================= */
 :root {
     /* ! e pas modifier ces couleurs qui sont pilotées par le JS*/
-    --main-background: #F7F7F0; 
+    --main-background: #F7F7F0;
     /* ! idem */
     --main-text: #2C3E50;
     /* --accent-color-soft: #B7B7E0;
@@ -175,22 +175,75 @@ body {
     /* ne pas mettre de line-height ici ! */
 }
 
-#main-content p, 
+#main-content p {
+    /* variable pilotée par le JS */
+    line-height: var(--dynamic-line-height, 1.2);
+
+    /*espace entre paragraphes  */
+    margin-bottom: 1.5rem;
+}
+
+
 #main-content li {
     /* variable pilotée par le JS */
     line-height: var(--dynamic-line-height, 1.2);
-    
-    /*espace entre paragraphes  */
-    margin-bottom: 1.5rem; 
 }
 
 /* titres plus serrés */
-#main-content h1, 
-#main-content h2, 
+#main-content h1,
+#main-content h2,
 #main-content h3 {
-    line-height: 1.2; 
+    line-height: 1.2;
     margin-bottom: 1rem;
 }
+
+em {
+    font-weight: var(--weight-bold);
+    font-style: normal;
+}
+
+
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    width: 100%;
+    /* Prend toute la largeur du groupe */
+    padding: 10px 15px;
+    background: var(--main-background);
+    color: var(--main-text);
+    border: 1px solid var(--main-text);
+    border-radius: var(--radius-lg);
+
+    /* Typographie */
+    font-family: inherit;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    span {
+        /* Aligne le texte avec l'icône */
+        line-height: 1;
+    }
+
+    i {
+        font-size: 1.1em;
+    }
+
+    &:hover {
+        opacity: 0.8;
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-sm);
+    }
+
+    &:active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 /* =========================================
    3. SIDEBAR & CUSTOM TOOLS
@@ -208,9 +261,9 @@ body {
     z-index: 1000;
     overflow-y: auto;
 
-     display: flex;
-            flex-direction: column;
-            justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
     &.sticky {
         right: 0;
@@ -234,31 +287,29 @@ body {
         width: 100%;
         margin-bottom: 0.5em;
 
-
         /* &:hover{
-               rotate: 90deg;
+            rotate: 90deg;
         } */
-
 
     }
 
     .sidebar__content {
-           display: flex;
-            flex-direction: column;
-            align-items:flex-start;
-            justify-content: space-evenly;
-            gap: var(--space-2);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        gap: var(--space-2);
 
-    height: calc(100% - 80px); /* 100% de la sidebar moins la taille du header */
-    min-height: 0;
+        height: calc(100% - 80px);
+        /* 100% de la sidebar moins la taille du header */
+        min-height: 0;
 
-    
         .sidebar__group {
             display: flex;
             flex-direction: column;
             /* margin-bottom: 1.5em;
         padding-bottom: 1em; */
-    
+
             /* p {
             font-size: 0.9em;
             font-weight: bold;
@@ -309,7 +360,7 @@ body {
             .sidebar__pill-group {
                 display: flex;
                 align-items: center;
-               border-radius: var(--radius-lg);
+                border-radius: var(--radius-lg);
                 background: var(--main-background);
                 color: var(--main-text);
                 border: 1px solid var(--main-text);
@@ -338,6 +389,7 @@ body {
                 }
 
             }
+
             /* Grille des cercles de contraste */
             .contrast-group {
                 display: flex;
@@ -363,87 +415,92 @@ body {
             /* Toggle Inversion Thème */
             .sidebar__toggle-wrapper {
                 display: flex;
-               flex-direction: row; 
+                flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
                 width: 100%;
                 gap: var(--space-2);
-    padding: 5px 0;
+                padding: 5px 0;
 
                 .sidebar__label {
                     font-weight: var(--weight-regular);
-                    margin-bottom: 0 !important; /* Force la suppression de la marge qui décale */
-        cursor: pointer;
+                    margin-bottom: 0 !important;
+                    /* Force la suppression de la marge qui décale */
+                    cursor: pointer;
                 }
 
                 .switch {
-    position: relative;
-    display: inline-block;
-    width: 40px;  /* La largeur est ici */
-    height: 22px; /* La hauteur est ici */
+                    position: relative;
+                    display: inline-block;
+                    width: 40px;
+                    /* La largeur est ici */
+                    height: 22px;
+                    /* La hauteur est ici */
 
-    /* L'INPUT (invisible mais capte le clic) */
-    input {
-        opacity: 0;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 2;
-        cursor: pointer;
-        margin: 0;
-    }
+                    /* L'INPUT (invisible mais capte le clic) */
+                    input {
+                        opacity: 0;
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: 2;
+                        cursor: pointer;
+                        margin: 0;
+                    }
 
-    /* LE SLIDER (le dessin du switch) */
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: var(--main-text); /* Couleur de fond */
-        transition: .4s;
-        border-radius: 34px;
-        z-index: 1;
+                    /* LE SLIDER (le dessin du switch) */
+                    .slider {
+                        position: absolute;
+                        cursor: pointer;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-color: var(--main-text);
+                        /* Couleur de fond */
+                        transition: .4s;
+                        border-radius: 34px;
+                        z-index: 1;
 
-        &:before {
-            position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            left: 3px;
-            bottom: 3px;
-            background-color: var(--main-background); /* La bille */
-            transition: .4s;
-            border-radius: 50%;
-        }
-    }
+                        &:before {
+                            position: absolute;
+                            content: "";
+                            height: 16px;
+                            width: 16px;
+                            left: 3px;
+                            bottom: 3px;
+                            background-color: var(--main-background);
+                            /* La bille */
+                            transition: .4s;
+                            border-radius: 50%;
+                        }
+                    }
 
-    /* ÉTAT COCHÉ */
-    input:checked + .slider {
-        background-color: var(--main-text);
+                    /* ÉTAT COCHÉ */
+                    input:checked+.slider {
+                        background-color: var(--main-text);
 
-        &:before {
-            transform: translateX(18px);
-        }
-    }
-}
+                        &:before {
+                            transform: translateX(18px);
+                        }
+                    }
+                }
 
                 /* .switch {
                     opacity: 0;
         width: 100%; /* Prend toute la place pour capter le clic */
-        /* height: 100%;
+                /* height: 100%;
         position: absolute;
         top: 0;
         left: 0;
         z-index: 2; Passe au dessus du slider
         cursor: pointer;
                     }  */
-/* 
+                /* 
                     .slider {
-                       position: absolute;
+            position: absolute;
             inset: 0;
             background-color: var(--main-text);
             transition: .4s;
@@ -461,18 +518,18 @@ body {
                         }
                     } */
 
-                    /* input:checked+.slider {
+                /* input:checked+.slider {
                         background-color: var(--accent-color-strong);
 
                         &:before {
                             transform: translateX(18px);
                         }
                     } */
-                }
             }
+        }
 
-            /* Reset */
-            /* .reset {
+        /* Reset */
+        /* .reset {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -480,54 +537,56 @@ body {
 
                 
             } */
-.sidebar__reset-button {
-    /* Mise en forme "Pill" */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-    
-    width: 100%; /* Prend toute la largeur du groupe */
-    padding: 10px 15px;
-    
-    /* Couleurs cohérentes avec tes .pill-btn */
-    background: var(--main-background);
-    color: var(--main-text);
-    border: 1px solid var(--main-text);
-    border-radius: var(--radius-lg);
-    
-    /* Typographie */
-    font-family: inherit;
-    font-size: 0.9em;
-    cursor: pointer;
-    transition: all 0.2s ease;
+        .sidebar__reset-button {
+            /* Mise en forme "Pill" */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
 
-    span {
-        /* Aligne le texte avec l'icône */
-        line-height: 1;
-    }
+            width: 100%;
+            /* Prend toute la largeur du groupe */
+            padding: 10px 15px;
 
-    i {
-        font-size: 1.1em;
-    }
+            /* Couleurs cohérentes avec tes .pill-btn */
+            background: var(--main-background);
+            color: var(--main-text);
+            border: 1px solid var(--main-text);
+            border-radius: var(--radius-lg);
 
-    /* Interactions */
-    &:hover {
-        opacity: 0.8;
-        transform: translateY(-1px);
-        box-shadow: var(--shadow-sm);
-    }
+            /* Typographie */
+            font-family: inherit;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.2s ease;
 
-    &:active {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
+            span {
+                /* Aligne le texte avec l'icône */
+                line-height: 1;
+            }
+
+            i {
+                font-size: 1.1em;
+            }
+
+            /* Interactions */
+            &:hover {
+                opacity: 0.8;
+                transform: translateY(-1px);
+                box-shadow: var(--shadow-sm);
+            }
+
+            &:active {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
     }
+}
+
 /* Selecteur spécial pour l'icone line height */
 #sidebar .sidebar__group:nth-of-type(3) .pill-value {
-    max-height:  20px;
+    max-height: 20px;
 
 }
 
@@ -601,95 +660,184 @@ body {
 /* =========================================
    5. SECTIONS & MAIN CONTENT
    ========================================= */
+
+/* Section global layout */
+
 .page-section {
     height: 100vh;
-    width: 100vw;
+    width: 80vw;
     display: flex;
     align-items: center;
     padding-left: 10vw;
     scroll-snap-align: start;
 
     .content-container {
-        max-width: 800px;
+        width: 100%;
 
         h1 {
-            font-size: 3.5em;
-            font-weight: 700;
-            margin-bottom: 0.2em;
+            font-size: var(--font-size-hero);
+            font-weight: var(--weight-bold);
+            margin-bottom: var(--space-4);
         }
 
         h2 {
-            font-size: 1.8em;
-            font-weight: 400;
-            line-height: 1.4;
+            font-size: var(--font-size-title);
+            font-weight: var(--weight-regular);
+            margin-bottom: var(--space-4);
         }
 
         h3 {
-            font-size: 1.5em;
-            font-weight: 600;
-            margin-bottom: 1em;
+            font-size: var(--font-size-large);
+            font-weight: var(--weight-black);
+            margin-bottom: var(--space-4);
+            letter-spacing: var(--letter-wide);
         }
 
         h4 {
-            font-size: 1.2em;
-            font-weight: 500;
+            font-size: var(--font-size-large);
+            font-weight: var(--weight-bold);
+
+            margin-bottom: 1rem;
+
         }
 
         p {
             margin-bottom: 1em;
-            line-height: 1.6;
+            font-weight: var(--weight-light);
+            /* font-size: var(--letter-normal); */
+            /* line-height: 1.6; */
         }
     }
 }
 
 /* Spécificités Section 2 (Compétences) */
 .section2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .text_intro {}
+
     .div_skills {
         margin-top: 2em;
+        width: 80%;
 
         .skills-columns {
             display: flex;
-            gap: 50px;
+            align-items: center;
+            /* justify-content: space-evenly; */
+            gap: var(--space-12);
             list-style: none;
+            border: 1px red solid;
+            width: 100%;
 
-            li {
-                margin-bottom: 10px;
+            .skills-list {
+                border: 1px green solid;
+                width: 50%;
+                list-style: none;
+                padding-left: 0;
 
-                i {
-                    color: var(--accent-color-strong);
-                    margin-right: 10px;
+                li {
+                    display: flex;
+                    align-items: flex-start;
+                    margin-bottom: 0.8rem !important;
+
+                    /* margin-bottom: 0.75rem;  */
+                    /* Réduit l'espace entre les puces */
+                    /* Optionnel : force un interligne serré */
+                    /* todo : trouve cmt enlever les bullet mais garder les illu */
+                    i {
+                        /* color: var(--accent-color-strong);
+                        margin-right: 2%; */
+                        min-width: 25px;
+                        /* Largeur fixe pour l'icône */
+                        margin-top: 4px;
+                        /* Petit ajustement vertical */
+                        color: var(--main-text);
+                        /* Ou ta couleur d'accent */
+                    }
                 }
             }
         }
     }
 }
 
-/* Formulaire Contact */
-#contactForm {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 500px;
+/* Section 3 */
 
-    input,
-    textarea {
-        padding: 12px;
-        border: 1px solid var(--main-text);
-        background: transparent;
-        color: inherit;
-        font-family: inherit;
+
+.section3 {
+    /* width: 100%; */
+
+    .section-intro {}
+
+    .projects_container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border: 2px blue solid;
+        /* width: 100%; */
+        gap: 10%;
+
+
+        .projet_elem {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            border: 2px red solid;
+            width: 40%;
+            gap: 10%;
+            text-align: center;
+
+            img {
+                max-width: 300px;
+                margin: 5%;
+            }
+
+            .btn_container {
+                display: flex;
+                justify-content: space-around;
+                width: 100%;
+                gap: 10%;
+                padding-right: 5%;
+                padding-left: 5%;
+            }
+        }
     }
+}
 
-    button {
-        padding: 15px;
-        background: var(--main-text);
-        color: var(--main-background);
-        border: none;
-        cursor: pointer;
-        font-weight: bold;
+/* Formulaire Contact */
+.section4 {
+    .contactform_container {
 
-        &:hover {
-            opacity: 0.9;
+        #contactForm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            border: solid 1px saddlebrown;
+
+            input,
+            textarea {
+                padding: 12px;
+                border: 1px solid var(--main-text);
+                background: transparent;
+                color: inherit;
+                font-family: inherit;
+            }
+
+            button {
+                padding: 15px;
+                background: var(--main-text);
+                color: var(--main-background);
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+
+                &:hover {
+                    opacity: 0.9;
+                }
+            }
         }
     }
 }
