@@ -1,18 +1,52 @@
 /* project-detail.css */
 
-/* 1. Base typographique locale pour la page projet */
-p, li, ul {
-    font-family: Helvetica, sans-serif;
-    line-height: var(--line-normal);
+body {
+    background-color: var(--main-background);
+    color: var(--main-text);
+    /* Assure que tout le texte utilise la variable */
 }
 
-/* 2. Conteneur principal */
+/* 1. Base typographique locale */
+p,
+li,
+ul {
+    font-family: Helvetica, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: var(--space-4);
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+h3 {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* 2. Médias globaux */
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-md);
+}
+
+/* 3. Conteneur principal (Nesting) */
 #main-content.project-page {
-    max-width: 900px;
+    max-width: 70vw;
     margin: 0 auto;
     padding: var(--space-12) var(--space-4);
 
-    /* Navigation  */
+    /* Navigation */
     .project-nav {
         padding: var(--space-6) 10vw;
 
@@ -28,64 +62,57 @@ p, li, ul {
         }
     }
 
-    /* Header Section (Hero) */
+    /* Hero */
     .project-hero {
         display: flex;
         flex-direction: column;
         gap: var(--space-8);
         text-align: left;
 
-        /* règle spécifique pour l'interligne */
         p.project-tagline {
             line-height: 2;
             font-size: var(--font-size-normal);
         }
 
         .project-homepage_screen img {
-            width: 60vw;
-            box-shadow: var(--shadow-md);
+            width: 100%;
+            margin-bottom: 5%;
         }
     }
 
-    /* Rôle, Tech, etc. */
+    /* Meta & Links */
     .project-meta {
         display: flex;
         justify-content: space-between;
-        /* gap: var(--space-12); */
-        /* flex-wrap: wrap; */
-         border: 2px blue solid; 
 
         .meta-container-left {
-display: flex;
-gap: var(--space-8);
-width: 60%;
-border: 2px red solid;
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
         }
 
-         .meta-container-right {
-       display: flex;  
-       gap: var(--space-8) ;
-       border: 2px red solid; 
+        .meta-container-right {
+            display: flex;
+            gap: var(--space-1);
         }
 
         .meta-item {
             display: flex;
             flex-direction: column;
             font-size: var(--font-size-small);
-            padding-bottom: var(--space-1);
+            padding: var(--space-2);
             gap: var(--space-2);
-            border: 2px green solid;
 
-            ul, li {
+            ul,
+            li {
                 list-style: none;
                 opacity: 0.9;
                 line-height: var(--line-normal);
-                margin-bottom: 0; /* Reset des marges globales si besoin */
+                margin-bottom: 0;
             }
         }
     }
 
-    /* Boutons et liens */
     .project-links {
         display: flex;
         justify-content: center;
@@ -98,8 +125,11 @@ border: 2px red solid;
         }
     }
 
-    /* Sections de contenu de l'article */
+    /* --- SECTIONS GÉNÉRALES --- */
     .project-section {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-10);
         margin-bottom: var(--space-12);
 
         h2 {
@@ -107,26 +137,181 @@ border: 2px red solid;
             border-bottom: 1px solid var(--main-text);
             display: inline-block;
             margin-bottom: var(--space-4);
+            margin-top: var(--space-2);
         }
 
-        /* Boite de mise en avant (Focus Technique) */
+        .projet_purpose {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .projet_design {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start; /* Aligne le contenu interne à gauche */
+            width: 100%;                /* On utilise toute la largeur disponible */
+            max-width: 800px;           /* Pour garder une ligne de lecture confortable */
+            margin-left: 0;             /* 💡 Corrigé : on ne pousse plus vers la droite */
+            text-align: left;
+
+            .elem_design {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start; /* Aligne l'image à gauche dans sa colonne */
+
+                img {
+                    max-width: 80%;
+                    height: auto;
+                    margin-top: var(--space-4);
+                }
+            }
+        }
+
+        .container_screens {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-8);
+
+            img {
+                width: 100%;
+            }
+        }
+
+        /* --- BLOCS DE CODE THÈME DRACULA (Globaux) --- */
+        .code-concept,
+        .html-concept {
+            background-color: #282a36;
+            /* Fond mauve foncé Dracula */
+            border-radius: var(--radius-md);
+            padding: var(--space-6);
+            margin: var(--space-6) 0;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid #44475a;
+            text-align: left;
+            /* Assure l'alignement à gauche même dans les sections à droite */
+            display: block;
+            overflow-x: auto;
+            /* Scroll interne si le code est trop long */
+        }
+
+        .code-comment {
+            color: #6272a4;
+            /* Bleu-gris (Commentaires) */
+            font-style: italic;
+            display: block;
+            margin-bottom: var(--space-4);
+
+            &::before {
+                content: "// ";
+            }
+        }
+
+        .code-concept {
+            &::before {
+                content: "JavaScript";
+                display: block;
+                color: #f1fa8c;
+                font-size: 0.75rem;
+                border-bottom: 1px solid #44475a;
+                margin-bottom: 10px;
+                opacity: 0.6;
+                text-transform: uppercase;
+            }
+
+            code {
+                color: #50fa7b;
+            }
+
+            /* Vert fluo Dracula */
+            .keyword {
+                color: #ff79c6;
+            }
+
+            /* Rose */
+            .string {
+                color: #f1fa8c;
+            }
+
+            /* Jaune */
+            .attr {
+                color: #50fa7b;
+            }
+
+            /* Vert */
+        }
+
+        .html-concept {
+            &::before {
+                content: "HTML5";
+                display: block;
+                color: #8be9fd;
+                font-size: 0.75rem;
+                border-bottom: 1px solid #44475a;
+                margin-bottom: 10px;
+                opacity: 0.6;
+                text-transform: uppercase;
+            }
+
+            code {
+                color: #ffb86c;
+            }
+
+            /* Orange Dracula */
+            .keyword {
+                color: #ff79c6;
+            }
+        }
+
+
+        /* On force les blocs de code et les placeholders à avoir la même largeur */
+        .code-block-width,
+        .image-placeholder {
+            width: 85%;
+            /* Largeur commune pour l'équilibre visuel */
+            max-width: 800px;
+            margin: var(--space-6) auto;
+            /* Centrage horizontal */
+        }
+
+        .image-placeholder {
+            /* max-width: 100%;  */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-6);
+            margin: var(--space-8) 0;
+
+            video,
+            img {
+                max-width: 100%;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                height: auto;
+                max-height: 450px;
+                object-fit: contain;
+            }
+
+            /* Style des légendes */
+            figcaption {
+                margin-top: var(--space-3);
+                font-size: 0.85rem;
+                font-style: italic;
+                opacity: 0.8;
+                text-align: center;
+            }
+        }
+
+        /* --- STYLE HIGHLIGHT (POUR "CE QUE J'AI APPRIS") --- */
         &.highlight {
             background: rgba(0, 0, 0, 0.03);
-            padding: var(--space-8);
-            border-left: 4px solid var(--main-text);
+            padding: var(--space-8) var(--space-8) var(--space-8) var(--space-12);
+            border-left: 5px solid var(--main-text);
             border-radius: var(--radius-sm);
-
-            .code-concept {
-                margin-top: var(--space-4);
-                font-style: italic;
-                padding: var(--space-4);
-                background: var(--main-background);
-                border: 1px dashed var(--main-text);
-            }
         }
     }
 
-    /* Listes stylisées dans le texte */
+    /* Listes stylisées */
     .project-list {
         list-style: none;
         padding-left: 0;
@@ -146,19 +331,80 @@ border: 2px red solid;
     }
 }
 
-/* 3. Éléments extérieurs au flux principal */
+/* Footer & Media Queries (Hors Nesting) */
 .project-footer {
     text-align: center;
     padding: var(--space-12);
     border-top: 1px solid var(--main-text);
     margin-top: var(--space-12);
+
+    /* On s'assure que le bouton ne s'étire pas */
+    .btn {
+        display: inline-block;
+        /* Le bouton ne prend que la largeur de son texte */
+        width: auto;
+        /* Annule un éventuel width: 100% */
+        padding: var(--space-3) var(--space-8);
+        /* On lui donne une belle forme */
+        margin-top: var(--space-6);
+    }
 }
 
-/* 4. Media Queries */
-@media (max-width: 600px) {
-    #main-content.project-page {
-        .project-links {
-            flex-direction: column;
+/* --- NOUVEAU FOOTER INVERSÉ --- */
+.main-footer-inverted {
+    background-color: var(--main-text);
+    /* Fond noir (si main-text est noir) */
+    color: var(--main-background);
+    /* Texte blanc (si main-background est blanc) */
+    padding: var(--space-8) 0;
+    margin-top: var(--space-12);
+
+    .footer-container {
+        max-width: 70vw;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer-left .footer-logo {
+        color: var(--main-background);
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: var(--weight-light);
+
+    }
+
+    .social-icons {
+        display: flex;
+        gap: var(--space-6);
+
+        a {
+            color: var(--main-background);
+            font-size: 1.2rem;
+            transition: transform 0.2s ease;
+
+            &:hover {
+                transform: translateY(-3px);
+                opacity: 0.8;
+            }
         }
+    }
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 768px) {
+    #main-content.project-page {
+        max-width: 90vw;
+
+        .code-block-width,
+        .image-placeholder {
+            width: 100%;
+        }
+    }
+
+    .main-footer-inverted .footer-container {
+        flex-direction: column;
+        gap: var(--space-6);
     }
 }

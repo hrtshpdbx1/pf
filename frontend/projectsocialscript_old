@@ -1,0 +1,315 @@
+/* project-detail.css */
+
+/* Base typographique locale  */
+p,
+li,
+ul {
+    font-family: Helvetica, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;    
+    margin-bottom: var(--space-6); /* Pespace sous les paragraphes */
+}
+
+/* Empêche les médias de déborder de leur parent */
+img, video {
+    max-width: 100%;
+    height: auto; 
+    display: block;
+    border: 1px solid rgba(0,0,0,0.1);
+       box-shadow: var(--shadow-md);
+}
+
+
+/* Conteneur principal */
+#main-content.project-page {
+    max-width: 70vw;
+    margin: 0 auto;
+    padding: var(--space-12) var(--space-4);
+
+    /* Navigation  */
+    .project-nav {
+        padding: var(--space-6) 10vw;
+
+        .back-link {
+            text-decoration: none;
+            color: var(--main-text);
+            font-weight: var(--weight-bold);
+            transition: opacity 0.2s;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    /* Hero */
+    .project-hero {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-8);
+        text-align: left;
+
+        /* règle spécifique pour l'interligne */
+        p.project-tagline {
+            line-height: 2;
+            font-size: var(--font-size-normal);
+        }
+
+        .project-homepage_screen img {
+            width: 100%;
+        }
+    }
+
+    /* Rôle, Tech, etc. */
+    .project-meta {
+        display: flex;
+        /* max-width: 80%; */
+        justify-content: space-between;
+        /* gap: var(--space-12); */
+        /* flex-wrap: wrap; */
+
+        .meta-container-left {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+        }
+
+        .meta-container-right {
+            display: flex;
+            gap: var(--space-1);
+
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            font-size: var(--font-size-small);
+            padding: var(--space-2);
+            gap: var(--space-2);
+
+            ul,
+            li {
+                list-style: none;
+                opacity: 0.9;
+                line-height: var(--line-normal);
+                margin-bottom: 0;
+                /* Reset des marges globales si besoin */
+            }
+        }
+    }
+
+    /* Boutons et liens */
+    .project-links {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-4);
+        max-width: 400px;
+        margin: 0 auto;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    /* PROJECT SECTION */
+    .project-section {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-8);
+        margin-bottom: var(--space-12); 
+        gap: var(--space-10); /* Espace interne à la section */
+        border: 1px solid pink;
+
+        h2 {
+            color: var(--main-text);
+            border-bottom: 1px solid var(--main-text);
+            display: inline-block;
+            margin-bottom: var(--space-4);
+            margin-top: var(--space-2);
+        }
+
+        .projet_purpose {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            width: 100%;
+            max-width: 800px;
+            border: 1px solid green;
+
+        }
+
+        .projet_design {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            width: 60%;
+            margin-left: auto;
+            text-align: right;
+
+            .elem_design {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+
+                img {
+                    max-width: 80%;
+                    height: auto;
+                    border: 1px solid rgba(0,0,0,0.1)
+                }
+            }
+        }
+
+        .container_screens {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-8);
+
+            img {
+                width: 100%;
+                /* box-shadow: var(--shadow-md); */
+                border: 1px solid rgba(0,0,0,0.1)
+            }
+        }
+
+        /* Focus Technique */
+        &.highlight {
+            background: rgba(0, 0, 0, 0.03);
+            padding: var(--space-8);
+            border-left: 4px solid var(--main-text);
+            border-radius: var(--radius-sm);
+
+            /* .code-concept {
+                margin-top: var(--space-4);
+                font-style: italic;
+                padding: var(--space-4);
+                background: var(--main-background);
+                border: 1px dashed var(--main-text);
+            } */
+
+            /* Style général des blocs de code */
+        .code-concept, .html-concept {
+            background-color: #282a36; /* Fond Dracula */
+            border-radius: var(--radius-md);
+            padding: var(--space-6);
+            margin: var(--space-6) 0;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid #44475a;
+            overflow-x: auto;
+        }
+
+        /* Texte explicatif typé "Commentaires" */
+        .code-comment {
+            color: #6272a4; /* Bleu-gris Dracula (Commentaires) */
+            font-style: italic;
+            display: block;
+            margin-bottom: var(--space-4);
+            line-height: 1.5;
+            
+            &::before {
+                content: "// ";
+            }
+        }
+
+        /* --- Style spécifique JS --- */
+        .code-concept {
+            &::before {
+                content: "JavaScript";
+                display: block;
+                color: #f1fa8c; /* Jaune Dracula */
+                font-size: 0.75rem;
+                margin-bottom: 15px;
+                opacity: 0.7;
+                text-transform: uppercase;
+                border-bottom: 1px solid #44475a;
+            }
+
+            code {
+                color: #50fa7b; /* Vert Dracula (Méthodes) */
+                
+                span.keyword { color: #ff79c6; } /* Rose Dracula */
+                span.string { color: #f1fa8c; }  /* Jaune */
+            }
+        }
+
+        /* --- Style spécifique HTML --- */
+        .html-concept {
+            &::before {
+                content: "HTML5";
+                display: block;
+                color: #8be9fd; /* Cyan Dracula */
+                font-size: 0.75rem;
+                margin-bottom: 15px;
+                opacity: 0.7;
+                text-transform: uppercase;
+                border-bottom: 1px solid #44475a;
+            }
+
+            code {
+                color: #ffb86c; /* Orange Dracula (Tags) */
+                
+                span.attr { color: #50fa7b; } /* Vert (Attributs) */
+            }
+        }
+    }
+}
+            
+        }
+    }
+}
+        
+            .image-placeholder {
+                max-width: 100%; 
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            gap: var(--space-6);
+            margin: var(--space-8) 0;
+
+                video {
+                   max-width: 80%;
+                margin: 0 auto;
+
+                }
+            }
+
+        }
+    }
+
+    /* Listes stylisées dans le texte */
+    .project-list {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+            margin-bottom: var(--space-2) !important;
+            position: relative;
+            padding-left: var(--space-6);
+
+            &::before {
+                content: "→";
+                position: absolute; a
+                left: 0;
+                color: var(--main-text);
+            }
+        }
+    }
+}
+
+/* FOOTER */
+.project-footer {
+    text-align: center;
+    padding: var(--space-12);
+    border-top: 1px solid var(--main-text);
+    margin-top: var(--space-12);
+}
+
+/* 4. Media Queries */
+@media (max-width: 600px) {
+    #main-content.project-page {
+        .project-links {
+            flex-direction: column;
+        }
+    }
+}
