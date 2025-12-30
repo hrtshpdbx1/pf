@@ -1,113 +1,152 @@
 /* project-detail.css */
 
-.project-page {
+/* 1. Base typographique locale pour la page projet */
+p, li, ul {
+    font-family: Helvetica, sans-serif;
+    line-height: var(--line-normal);
+}
+
+/* 2. Conteneur principal */
+#main-content.project-page {
     max-width: 900px;
     margin: 0 auto;
     padding: var(--space-12) var(--space-4);
+
+    /* Navigation  */
+    .project-nav {
+        padding: var(--space-6) 10vw;
+
+        .back-link {
+            text-decoration: none;
+            color: var(--main-text);
+            font-weight: var(--weight-bold);
+            transition: opacity 0.2s;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    /* Header Section (Hero) */
+    .project-hero {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-8);
+        text-align: left;
+
+        /* règle spécifique pour l'interligne */
+        p.project-tagline {
+            line-height: 2;
+            font-size: var(--font-size-normal);
+        }
+
+        .project-homepage_screen img {
+            width: 60vw;
+            box-shadow: var(--shadow-md);
+        }
+    }
+
+    /* Rôle, Tech, etc. */
+    .project-meta {
+        display: flex;
+        justify-content: space-between;
+        /* gap: var(--space-12); */
+        /* flex-wrap: wrap; */
+         border: 2px blue solid; 
+
+        .meta-container-left {
+display: flex;
+gap: var(--space-8);
+width: 60%;
+border: 2px red solid;
+        }
+
+         .meta-container-right {
+       display: flex;  
+       gap: var(--space-8) ;
+       border: 2px red solid; 
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            font-size: var(--font-size-small);
+            padding-bottom: var(--space-1);
+            gap: var(--space-2);
+            border: 2px green solid;
+
+            ul, li {
+                list-style: none;
+                opacity: 0.9;
+                line-height: var(--line-normal);
+                margin-bottom: 0; /* Reset des marges globales si besoin */
+            }
+        }
+    }
+
+    /* Boutons et liens */
+    .project-links {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-4);
+        max-width: 400px;
+        margin: 0 auto;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    /* Sections de contenu de l'article */
+    .project-section {
+        margin-bottom: var(--space-12);
+
+        h2 {
+            color: var(--main-text);
+            border-bottom: 1px solid var(--main-text);
+            display: inline-block;
+            margin-bottom: var(--space-4);
+        }
+
+        /* Boite de mise en avant (Focus Technique) */
+        &.highlight {
+            background: rgba(0, 0, 0, 0.03);
+            padding: var(--space-8);
+            border-left: 4px solid var(--main-text);
+            border-radius: var(--radius-sm);
+
+            .code-concept {
+                margin-top: var(--space-4);
+                font-style: italic;
+                padding: var(--space-4);
+                background: var(--main-background);
+                border: 1px dashed var(--main-text);
+            }
+        }
+    }
+
+    /* Listes stylisées dans le texte */
+    .project-list {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+            margin-bottom: var(--space-2) !important;
+            position: relative;
+            padding-left: var(--space-6);
+
+            &::before {
+                content: "→";
+                position: absolute;
+                left: 0;
+                color: var(--main-text);
+            }
+        }
+    }
 }
 
-/* Navigation */
-.project-nav {
-    padding: var(--space-6) 10vw;
-}
-
-.back-link {
-    text-decoration: none;
-    color: var(--main-text);
-    font-weight: var(--weight-bold);
-    transition: opacity 0.2s;
-}
-
-.back-link:hover {
-    opacity: 0.7;
-}
-
-/* Header Section */
-.project-hero {
-    text-align: center;
-    margin-bottom: var(--space-12);
-}
-
-.project-tagline {
-    font-size: var(--font-size-large);
-    margin-bottom: var(--space-6);
-    opacity: 0.8;
-}
-
-.project-meta {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-8);
-    margin-bottom: var(--space-8);
-    flex-wrap: wrap;
-}
-
-.meta-item {
-    font-size: var(--font-size-small);
-    border-bottom: 2px solid var(--main-text);
-    padding-bottom: var(--space-1);
-}
-
-.project-links {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-4);
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.project-links a {
-    text-decoration: none;
-}
-
-/* Sections de texte */
-.project-section {
-    margin-bottom: var(--space-12);
-}
-
-.project-section h2 {
-    color: var(--main-text);
-    border-bottom: 1px solid var(--main-text);
-    display: inline-block;
-    margin-bottom: var(--space-4);
-}
-
-/* Boite de mise en avant (Focus Technique) */
-.project-section.highlight {
-    background: rgba(0, 0, 0, 0.03);
-    padding: var(--space-8);
-    border-left: 4px solid var(--main-text);
-    border-radius: var(--radius-sm);
-}
-
-.code-concept {
-    margin-top: var(--space-4);
-    font-style: italic;
-    padding: var(--space-4);
-    background: var(--main-background);
-    border: 1px dashed var(--main-text);
-}
-
-/* Listes */
-.project-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.project-list li {
-    margin-bottom: var(--space-2) !important;
-    position: relative;
-    padding-left: var(--space-6);
-}
-
-.project-list li::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: var(--main-text);
-}
-
-/* Footer de page */
+/* 3. Éléments extérieurs au flux principal */
 .project-footer {
     text-align: center;
     padding: var(--space-12);
@@ -115,9 +154,11 @@
     margin-top: var(--space-12);
 }
 
-/* Responsive */
+/* 4. Media Queries */
 @media (max-width: 600px) {
-    .project-links {
-        flex-direction: column;
+    #main-content.project-page {
+        .project-links {
+            flex-direction: column;
+        }
     }
 }

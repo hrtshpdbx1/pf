@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Script - Étude de cas | Louise Moraldy</title>
+    <title>Social Script - Présentation de projet Louise Moraldy</title>
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="project-detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body class="bbbreadme"> <nav class="project-nav">
+
+<body class="bbbreadme">
+    <nav class="project-nav">
         <a href="index.html" class="back-link">
             <i class="fa-solid fa-arrow-left"></i> Retour au portfolio
         </a>
@@ -17,55 +20,158 @@
     <main id="main-content" class="project-page">
         <header class="project-hero">
             <h1>Social Script</h1>
-            <p class="project-tagline">Simulateur d'interactions sociales pour la neurodivergence.</p>
-            
+            <p class="project-tagline">SocialScript est un simulateur interactif d'entraînement aux situations sociales,
+                développé dans le cadre d'un workshop HTML/CSS/JavaScript de ma formation Developper Javascript
+                Fullstack à Interface3. Le projet répond à un besoin d'apprentissage explicite des codes sociaux dans un
+                environnement sécurisé, particulièrement utile pour les personnes neurodivergentes.</p>
+
             <div class="project-meta">
-                <div class="meta-item"><strong>Rôle :</strong> Développeuse Fullstack & UX</div>
-                <div class="meta-item"><strong>Tech :</strong> JS, HTML, SCSS</div>
+                <div class="meta-container-left">
+                    <div class="meta-item">
+                        <strong>Rôle :</strong>
+                        <ul>
+                            <li>Développement</li>
+                            <li>Design</li>
+                            <li>Redaction</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Tech:</strong>
+                        <ul>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>JSON Server</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="meta-container-right">
+                    <div class="meta-item">
+                        <a href="https://github.com/hrtshpdbx1/SocialScript" target="_blank" class="btn">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                    <div class="meta-item"> <a href="https://social-script-nine.vercel.app" target="_blank"
+                            class="btn primary">
+                            <i class="fa-solid fa-rocket"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
+
+
             </div>
 
-            <div class="project-links">
-                <a href="https://github.com/hrtshpdbx1/SocialScript/tree/main" target="_blank" class="btn">
-                    <i class="fab fa-github"></i> Voir le code
-                </a>
-                <button class="btn primary" disabled>Bientôt en ligne</button>
+            <div class="project-homepage_screen">
+                <img src="../img/screen/homepage.png" alt="capture d'écran de la page d'acceuil du site SocialScript">
             </div>
         </header>
 
         <section class="project-section">
-            <h2>Pourquoi ce projet ?</h2>
-            <p>Social Script est né d'un constat simple : le web regorge de ressources théoriques sur les habiletés sociales, mais peu d'espaces permettent une <strong>pratique sécurisée</strong>. Pour une personne neurodivergente, l'interaction en temps réel est souvent source de surcharge cognitive.</p>
-            <p>J'ai voulu créer un environnement "bac à sable" où l'on peut explorer différents styles de communication (assertif, passif, agressif) et comprendre immédiatement l'impact de ses choix à travers un feedback pédagogique bienveillant.</p>
-        </section>
+            <h2>Résumé global</h2>
+            <p>SocialScript est un simulateur interactif d'entraînement aux situations sociales, développé dans le cadre
+                d'un workshop HTML/CSS/JavaScript de ma formation Developper Javascript Fullstack à Interface3. Le
+                projet répond à un besoin d'apprentissage explicite des codes sociaux dans un environnement sécurisé,
+                particulièrement utile pour les personnes neurodivergentes.</p>
 
-        <section class="project-section highlight">
-            <h2>Le défi technique : La logique de feedback</h2>
-            <p>Le plus grand challenge a été de concevoir un système de navigation non-linéaire. Chaque réponse choisie par l'utilisateur doit déclencher non seulement une réaction de l'interlocuteur virtuel, mais aussi une explication détaillée de l'implicite social en jeu.</p>
-            <div class="code-concept">
-                <p><strong>Ma solution :</strong> Utiliser une structure de données en objets imbriqués pour mapper les scénarios. Cela m'a permis de séparer le contenu textuel de la logique de rendu, facilitant ainsi l'ajout futur de nouveaux scripts sans toucher au code source.</p>
+            <div class="image-placeholder">
+                [Image du simulateur SocialScript montrant une interaction avec un avatar]
             </div>
-        </section>
 
-        <section class="project-section">
-            <h2>Mon focus : Accessibilité</h2>
-            <p>Puisque ce site s'adresse à des profils neurodivergents, l'accessibilité n'est pas un bonus, c'est le cœur du projet. J'ai porté une attention particulière à :</p>
+            <h3>Fonctionnalités clés :</h3>
             <ul class="project-list">
-                <li><strong>La réduction de la distraction :</strong> Une interface épurée pour éviter la surcharge sensorielle.</li>
-                <li><strong></strong> </li>
-                <li><strong>La sémantique :</strong> Une structure HTML rigoureuse pour garantir une navigation fluide au clavier et aux lecteurs d'écran.</li>
+                <li><strong>Affichage dynamique :</strong> Gestion des scénarios via JavaScript et un JSON server.</li>
+                <li><strong>Génération d'avatars :</strong> Utilisation de Dicebear API pour créer des interlocuteurs
+                    uniques.</li>
+                <li><strong>Feedback pédagogique :</strong> Explication détaillée des codes implicites à l'œuvre après
+                    chaque choix.</li>
+                <li><strong>Exploration :</strong> Possibilité de rejouer les scénarios pour explorer toutes les issues
+                    possibles.</li>
+                <li><strong>Ressources :</strong> Pages dédiées au masking, à l'assertivité et annuaire de collectifs
+                    filtrable.</li>
             </ul>
         </section>
 
         <section class="project-section">
-            <h2>Ce que j'ai appris</h2>
-            <p>Ce projet m'a appris l'importance de la <strong>conception centrée utilisateur</strong>. Coder est une chose, mais coder pour répondre à un besoin émotionnel et cognitif spécifique demande une empathie technique constante. C'est ce qui définit ma vision du développement aujourd'hui.</p>
+            <h2>Objectif et But du projet</h2>
+            <h3>Pourquoi avoir créé ce projet ?</h3>
+            <p>Ce projet vient d'un besoin. Étant autiste et TDAH, c'est par la répétition et l'analyse consciente des
+                interactions que j'ai acquis des compétences sociales qui ne me venaient pas naturellement (Merci les
+                SIMS !). J'ai toujours rêvé d'un environnement où m'entraîner sans craindre les malentendus ou les faux
+                pas du temps réel. Ce projet est cette réalisation : un simulateur où les personnes neurodivergentes
+                peuvent expérimenter, analyser et progresser dans un cadre structuré et bienveillant.</p>
+
+            <div class="section-grid">
+                <div>
+                    <h3>Résultat attendu</h3>
+                    <p>Un espace agréable, non jugeant et bienveillant qui aide à renforcer ces habilités sociales sans
+                        être moralisateur. L’idée n’est pas d’apprendre à faire comme les neurotypiques, mais au
+                        contraire de trouver son style, en accord avec ses besoins et ses particularités.</p>
+                </div>
+                <div class="image-placeholder horizontal">
+                    [Image de la charte graphique : couleurs douces et typographie Kalam]
+                </div>
+            </div>
+
+            <h3>Designs initiaux</h3>
+            <p>Mes recherches graphiques ont abouti à un design qui reprend le logo de l'autisme (un sigle infini) en
+                l'intégrant au S de SOCIAL et de Script. Cette fusion symbolise une boucle d'apprentissage continue et
+                fluide.</p>
+            <div class="image-placeholder">
+                [Image des croquis de recherche pour le logo SocialScript]
+            </div>
+        </section>
+
+        <section class="project-section highlight">
+            <h2>Défis techniques et Réalisations</h2>
+            <h3>La "Killer Feature" : L'Accessibilité</h3>
+            <p>Le site est entièrement navigable à l'aide du clavier. Une attention particulière a été mise sur
+                l'accessibilité. Par exemple, la FAQ en accordéon de la page d'accueil utilise les balises
+                <code>&lt;details&gt;</code> et <code>&lt;summary&gt;</code>. Ces éléments HTML natifs ont l'avantage
+                d'être entièrement focusables sans aucun JavaScript ; les lecteurs d'écran indiquent automatiquement si
+                le contenu est ouvert ou fermé.
+            </p>
+
+            <div class="image-placeholder">
+                [Image montrant le focus clavier visible sur les boutons de réponse]
+            </div>
+
+            <h3>Obstacles techniques</h3>
+            <p>En tant que premier projet d'envergure en JavaScript, j'ai été confrontée à la rigueur de la syntaxe. Une
+                simple virgule manquante ou une erreur de frappe dans le fichier <code>db.json</code> bloquait toute
+                l'application. Ayant des difficultés de dyslexie, repérer ces erreurs de ponctuation a été un véritable
+                défi d'attention.</p>
+
+            <h3>Solutions</h3>
+            <p>J'ai appris à utiliser la console et les outils de validation JSON pour systématiser la vérification de
+                mes structures de données. Pour pallier l'absence de serveur Node.js en ligne (le JSON Server ne
+                permettant pas l'hébergement statique classique), j'ai réalisé une démonstration vidéo qui montre toute
+                l'interactivité des scénarios.</p>
+        </section>
+
+        <section class="project-section">
+            <h2>Leçons apprises</h2>
+            <p>En tant que projet pour personnes neurodivergentes, l'accessibilité n'était pas une option. J'ai
+                travaillé sur la réduction de la charge cognitive, des contrastes doux et une navigation entièrement au
+                clavier.</p>
+
+            <ul class="project-list">
+                <li><strong>Accessibilité :</strong> Contrastes certifiés WCAG AA (zéro erreur via l'outil Wave),
+                    balises sémantiques et focus visible.</li>
+                <li><strong>Technique :</strong> Manipulation asynchrone des données et intégration d'API tierces
+                    (Dicebear).</li>
+                <li><strong>Impact futur :</strong> Cette expérience a ancré ma conviction que coder pour répondre à un
+                    besoin émotionnel et cognitif spécifique demande une empathie technique constante.</li>
+            </ul>
         </section>
     </main>
 
     <footer class="project-footer">
-        <p>Prêt·e à discuter d'accessibilité ?</p>
+        <p>Prêt·e à discuter d'accessibilité et de neuro-inclusion ?</p>
         <a href="index.html#contact" class="btn">Me contacter</a>
     </footer>
 
 </body>
+
 </html>
