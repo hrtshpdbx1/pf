@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Pay Gap Quest - Étude de cas | Louise Moraldy</title>
+    <title>PayGap Quest - Présentation de projet Louise Moraldy</title>
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="project-detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body class="bbbreadme"> <nav class="project-nav">
+
+<body class="bbbreadme">
+    <nav class="project-nav">
         <a href="index.html" class="back-link">
             <i class="fa-solid fa-arrow-left"></i> Retour au portfolio
         </a>
@@ -16,91 +19,195 @@
 
     <main id="main-content" class="project-page">
         <header class="project-hero">
-            <h1>The Pay Gap Quest</h1>
-            <p class="project-tagline">Sensibilisation interactive aux inégalités salariales.</p>
-            
+            <h1>PayGap Quest</h1>
+            <p class="project-tagline">Un simulateur engagé pour briser le tabou des écarts salariaux et outiller les
+                femmes dans leur négociation de carrière. Créé en 72h lors d'un marathon créatif.</p>
+
             <div class="project-meta">
-                <div class="meta-item"><strong>Contexte :</strong> Hackathon Finance (3 jours)</div>
-                <div class="meta-item"><strong>Rôle :</strong> Lead Frontend & Accessibilité</div>
-                <div class="meta-item"><strong>Tech :</strong> HTML, CSS, JavaScript</div>
+                <div class="meta-container-left">
+                    <div class="meta-item">
+                        <strong>Type</strong>
+                        <ul>
+                            <li>Hackathon (3j)</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Rôle</strong>
+                        <ul>
+                            <li>Porteuse de projet</li>
+                            <li>Développement Front</li>
+                            <li>Rédaction</li>
+                        </ul>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Tech</strong>
+                        <ul>
+                            <li>HTML / CSS</li>
+                            <li>JavaScript</li>
+                            <li>PHP / JSON</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="meta-container-right">
+                    <div class="meta-item">
+                        <a href="https://github.com/sahardel92/PayGapHackathon" target="_blank" class="btn">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                    <div class="meta-item">
+                        <a href="#" target="_blank" class="btn primary">
+                            <i class="fa-solid fa-rocket"></i> Live Demo
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <div class="project-links">
-                <a href="https://deepthroadocus.itch.io/the-paygap-quest" target="_blank" class="btn primary">
-                    <i class="fas fa-play"></i> Voir la démo (Itch.io)
-                </a>
-                <a href="https://github.com/sahardel92/PayGapHackathon" target="_blank" class="btn">
-                    <i class="fab fa-github"></i> Voir le code
-                </a>
+            <div class="project-homepage_screen">
+                <figure class="image-placeholder">
+                    <video autoplay loop muted playsinline>
+                        <source src="../img/screen/homepage_animation.mp4"
+                            alt="Capture d'écran de l'accueil PayGap Quest" type="video/mp4">
+                    </video>
+                    <figcaption>Page d'accueil PayGap Quest.</figcaption>
+                </figure>
             </div>
         </header>
 
-        <section class="project-section">
-            <h2>L'origine du projet</h2>
-            <p>
-                Créé lors d'un hackathon de trois jours sur le thème de la finance, <strong>Pay Gap Quest</strong> est né d'une volonté collective : transformer des statistiques complexes sur les inégalités de genre en un outil de sensibilisation visuel et impactant.
-            </p>
-            <p>
-                Mon équipe et moi avons conçu ce prototype pour qu'il soit plus qu'un simple site informatif ; c'est un parcours pédagogique qui inclut des outils interactifs, comme un calculateur de salaire juste, pour aider les utilisatrices à réaliser l'ampleur du fossé salarial en Belgique.
-            </p>
+        <section class="project-section highlight">
+            <h2>À propos de cette démo</h2>
+            <p><strong>Cette version est une démonstration interactive Frontend uniquement.</strong> Elle présente le
+                design visuel et les interactions conçus durant l'événement. Pour faciliter l'accès immédiat, cette démo
+                présente la structure fidèle au prototype original, bien que les calculs en temps réel (Backend via PHP)
+                soient ici simulés. L'architecture complète reste consultable sur GitHub.</p>
         </section>
 
-        <section class="project-section highlight">
-            <h2>Mon défi technique : L'intégration sous contrainte</h2>
-            <p>
-                Dans le cadre d'un hackathon, le temps est la ressource la plus précieuse. En tant que développeuse frontend, j'ai dû assurer l'intégration fidèle des concepts graphiques créés par notre designer tout en maintenant une structure de code propre.
-            </p>
-            <div class="code-concept">
-                <p>
-                    <strong>Le challenge :</strong> Assurer la fluidité des éléments animés et la clarté des layouts visuels sans compromettre la performance. J'ai mis en place une structure statique robuste (HTML/CSS/JS) qui permet de simuler l'expérience utilisateur complète du prototype, même sans les fonctionnalités backend actives dans cette version de démonstration.
-                </p>
+        <section class="project-section">
+            <div class="projet_purpose">
+                <h2>Objectif du projet</h2>
+                <p>J'ai proposé ce projet pour répondre au Hackathon @Finances : <em>« 3 jours pour prouver que la
+                        finance peut être créative, accessible et engagée. »</em></p>
+                <p>En Belgique, l’égalité salariale est un enjeu de justice sociale : les femmes gagnent encore en
+                    moyenne 20 % de moins que les hommes, travaillant symboliquement "gratuitement" à partir du 20
+                    octobre. L'absence de négociation peut coûter jusqu'à 1 million d'euros sur une carrière. Face à ce
+                    manque d'éducation financière, notre équipe a créé un outil pour se réapproprier ces enjeux par
+                    l'information et la négociation.</p>
+
+                <h3>Fonctionnalités clés :</h3>
+                <ul class="project-list">
+                    <li><strong>Calculateur salarial :</strong> Comparatif dynamique basé sur le secteur, le niveau et
+                        le genre.</li>
+                    <li><strong>Feuille de route :</strong> Guide de négociation structuré et téléchargeable en PDF.
+                    </li>
+                    <li><strong>Boîte à outils :</strong> Annuaire de ressources (livres, podcasts, lois) pour
+                        s'informer.</li>
+                    <li><strong>API Sectorielle :</strong> Structuration des données réelles de l'IEFH 2024.</li>
+                </ul>
             </div>
         </section>
 
         <section class="project-section">
-            <h2>Accessibilité : Un pilier non-négociable</h2>
-            <p>
-                Pour ce projet, j'ai agi comme garante de l'accessibilité. Un outil de sensibilisation n'a de sens que s'il est consultable par tout le monde. J'ai travaillé sur :
-            </p>
-            <ul class="project-list">
-                <li><strong>Le renforcement visuel :</strong> Optimisation des contrastes et de la lisibilité pour les données chiffrées.</li>
-                <li><strong>La flexibilité :</strong> Implémentation de textes scalables et d'un design responsive pour un confort de lecture total, quel que soit l'appareil.</li>
-                <li><strong>Assistive Tech :</strong> Préparation de la structure pour les lecteurs d'écran (Aria-labels, sémantique HTML5), un aspect souvent négligé lors des hackathons.</li>
-            </ul>
-        </section>
-                <section class="project-section">
-    <h2>Travail d'équipe & Crédits</h2>
-    <p>
-        Ce projet est le fruit d'une collaboration intense entre le développement et le design lors de ces 3 jours de marathon créatif :
-    </p>
-    
-    <ul class="project-list">
-        <li>
-            <strong>Développement Frontend :</strong> 
-            <a href="https://github.com/Sara-pe" target="_blank" class="credit-link">Sara</a>, 
-            <a href="https://github.com/Vic50595" target="_blank" class="credit-link">Victoria</a> 
-            et Moi 
-        </li>
-        <li>
-            <strong>Développement Backend :</strong> 
-            <a href="https://github.com/sahardel92" target="_blank" class="credit-link">Sahar D.</a>
-        </li>
-        <li>
-            <strong>Graphisme & Design Visuel :</strong> 
-            <a href="https://deepthroadocus.itch.io/" target="_blank" class="credit-link">Romane</a>
-        </li>
-    </ul>
-</section>
-            </ul>
+            <h2>Défis techniques & Réalisations</h2>
+
+            <div class="article-point">
+                <h3>La "Killer Feature" : Le calculateur d'écart</h3>
+                <p>Mon défi majeur a été d'intégrer le Front-end à l'architecture Back-end collective. J'ai géré l'envoi
+                    des requêtes asynchrones et le traitement de la réponse JSON pour offrir un affichage fluide et
+                    instantané.</p>
+
+                <div class="html-concept code-block-width">
+                    <span class="code-comment">Extrait de la structure de données consommée par le Front-end</span>
+                    <code>
+                        {<br>
+                        &nbsp;&nbsp;"IT": {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"ecartHF": <span class="string">0.18</span>,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"metiers": {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"UX/UI Designer": { "base": <span class="string">2900</span>, "femme": <span class="string">2850</span> }<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;}<br>
+                        }
+                    </code>
+                </div>
+
+                <figure class="image-placeholder">
+                    <img src="../img/screen/diagramme_backend.png" alt="Diagramme de l'architecture backend">
+                    <figcaption>Architecture logicielle : Requête Fetch (JS) → Validation PHP → Extraction salary.json →
+                        Réponse Front-end.</figcaption>
+                </figure>
+            </div>
+
+            <div class="article-point">
+                <h3>Le compteur dynamique : Visualiser l'urgence</h3>
+                <p>Comment capter l'attention dès l'accueil ? J'ai développé un compteur JavaScript qui traduit
+                    l'inégalité en temps réel. En voyant les minutes défiler, l'utilisateur prend conscience que
+                    l'inégalité est une perte qui s'accumule chaque seconde.</p>
+
+                <div class="code-concept code-block-width">
+                    <span class="code-comment">Calcul dynamique de l'inégalité en temps réel</span>
+                    <code>
+                        <span class="keyword">function</span> <span class="attr">updateCounter</span>() {<br>
+                        &nbsp;&nbsp;<span class="keyword">const</span> today = <span class="keyword">new</span> Date();<br>
+                        &nbsp;&nbsp;<span class="keyword">let</span> diff = today - unequalPayDay;<br>
+                        &nbsp;&nbsp;<span class="code-comment">// Conversion en jours, heures, minutes</span><br>
+                        &nbsp;&nbsp;<span class="keyword">const</span> diffDays = Math.<span class="keyword">floor</span>(diff / (<span class="string">1000 * 60 * 60 * 24</span>));<br>
+                        &nbsp;&nbsp;counterElement.innerHTML = <span class="string">`Depuis ${diffDays} jours...`</span>;<br>
+                        }
+                    </code>
+                </div>
+
+                <figure class="image-placeholder">
+                    <video autoplay loop muted playsinline>
+                        <source src="../img/screen/compteur_fast.mp4" type="video/mp4">
+                    </video>
+                    <figcaption>Capture vidéo du compteur : Transformer une donnée froide en une expérience temporelle
+                        percutante.</figcaption>
+                </figure>
+            </div>
         </section>
 
-        
+        <section class="project-section highlight">
+            <h2>Ce que j'ai appris</h2>
+            <ul class="project-list">
+                <li><strong>Collaboration intensive :</strong> Intégrer mon Front-end sur une logique Back-end tierce
+                    sous pression.</li>
+                <li><strong>Git Flow sous tension :</strong> Résoudre les conflits de fusion en équipe durant un sprint
+                    de 72h.</li>
+                <li><strong>MVP & Agilité :</strong> Prioriser les fonctionnalités essentielles pour livrer un projet
+                    fonctionnel.</li>
+            </ul>
+
+            <h3>On the agenda (Futur du prototype) :</h3>
+            <p>Pour la suite, je souhaite renforcer l'accessibilité (contraste et sémantique vocale), peaufiner l'UI
+                pour plus de clarté, et assurer un responsive design total pour une utilisation mobile en situation
+                d'entretien.</p>
+        </section>
+
+        <section class="project-section">
+            <h2>Travail d'équipe & Crédits</h2>
+            <p>Ce projet est le fruit d'une collaboration intense entre le développement et le design :</p>
+            <ul class="project-list">
+                <li><strong>Développement Frontend :</strong> Sara, Victoria & Moi.</li>
+                <li><strong>Développement Backend :</strong> Sahar D.</li>
+                <li><strong>Illustration :</strong> Romane.</li>
+            </ul>
+        </section>
     </main>
 
-    <footer class="project-footer">
-        <p>Vous cherchez une développeuse frontend soucieuse de l'accessibilité ?</p>
-        <a href="index.html#contact" class="btn">Discutons de votre projet</a>
+    <footer class="main-footer-inverted">
+        <div class="footer-container">
+            <div class="footer-left">
+                <a href="index.html" class="footer-logo">Louise Moraldy</a>
+            </div>
+            <div class="footer-right">
+                <div class="social-icons">
+                    <a href="https://github.com/tonprofil" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/tonprofil" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://instagram.com/tonprofil" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:tonemail@exemple.com"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
 
 </body>
+
 </html>
