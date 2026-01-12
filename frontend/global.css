@@ -54,7 +54,9 @@
     font-style: normal;
 }
 
-
+a {
+    text-decoration: none;
+}
 
 
 /* =========================================
@@ -204,43 +206,58 @@ em {
 
 
 
-.btn {
-    display: flex;
+/* Classe Bouton Universelle */
+
+/* basic  - class="btn" */
+.btn { 
+    /* Layout */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: var(--space-2);
-    width: 100%;
-    /* Prend toute la largeur du groupe */
-    padding: 10px 15px;
-    background: var(--main-background);
-    color: var(--main-text);
-    border: 1px solid var(--main-text);
-    border-radius: var(--radius-lg);
+    padding: 12px 24px;
+
+    /* Style Pilule */
+    border-radius: var(--radius-full);
+    border: 1.5px solid var(--main-text);
+    background: var(--main-text);
+    color: var(--main-background);
 
     /* Typographie */
     font-family: inherit;
-    font-size: 0.9em;
+    font-size: var(--font-size-small);
+    font-weight: var(--weight-bold);
+    text-decoration: none;
     cursor: pointer;
-    transition: all 0.2s ease;
 
-    span {
-        /* Aligne le texte avec l'icône */
-        line-height: 1;
-    }
+    /* Animation */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-md);
 
     i {
         font-size: 1.1em;
     }
 
     &:hover {
-        opacity: 0.8;
-        transform: translateY(-1px);
-        box-shadow: var(--shadow-sm);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+        opacity: 0.9;
     }
 
     &:active {
         transform: translateY(0);
-        opacity: 1;
+        box-shadow: var(--shadow-sm);
+    }
+
+    /* Variante - class="btn btn-outline"> */
+    &.btn-outline {
+        background: transparent;
+        color: var(--main-text);
+
+        &:hover {
+            background: var(--main-text);
+            color: var(--main-background);
+        }
     }
 }
 
@@ -710,6 +727,14 @@ em {
     }
 }
 
+/* Section 1 (Intro) */
+.section1 {
+.content-container {
+p {
+font-size: 2em;
+}
+}
+}
 /* Spécificités Section 2 (Compétences) */
 .section2 {
     display: flex;
@@ -774,7 +799,7 @@ em {
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        border: 2px blue solid;
+        /* border: 2px blue solid; */
         /* width: 100%; */
         gap: 10%;
 
@@ -784,14 +809,29 @@ em {
             flex-direction: column;
             align-items: center;
             justify-content: space-around;
-            border: 2px red solid;
-            width: 40%;
+            /* border: 2px red solid; */
+            width: 80%;
             gap: 10%;
             text-align: center;
+            /* padding: 5%;
+        background-color: rgb(from var(--main-text) r g b / 5%); */
+            /* box-shadow: var(--shadow-sm); */
+            /* border-radius: var(--radius-md); */
+
+            background-color: rgb(from var(--main-text) r g b / 3%);
+                /* Fond très léger */
+                padding: var(--space-8);
+                border-radius: var(--radius-lg);
+                border: 1px solid rgb(from var(--main-text) r g b / 10%);
+                max-width: 600px;
+
+
 
             img {
-                max-width: 300px;
-                margin: 5%;
+               width: 100%;
+                /* margin: 5%; */
+                margin-top: 5%;
+                margin-bottom: 5%;
             }
 
             .btn_container {
@@ -807,7 +847,7 @@ em {
 }
 
 /* Formulaire Contact */
-.section4 {
+/* .section4 {
     .contactform_container {
 
         #contactForm {
@@ -836,6 +876,93 @@ em {
 
                 &:hover {
                     opacity: 0.9;
+                }
+            }
+        }
+    }
+} */
+
+/* Formulaire Contact - Design Amélioré */
+.section4 {
+    .contactform_container {
+        margin-top: var(--space-4);
+
+        #contact {
+            background-color: rgb(from var(--main-text) r g b / 3%);
+            /* Fond très léger */
+            padding: var(--space-8);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgb(from var(--main-text) r g b / 10%);
+            max-width: 600px;
+        }
+
+        #contactForm {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            margin-top: var(--space-4);
+
+            div {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-2);
+            }
+
+            label {
+                font-size: var(--font-size-small);
+                font-weight: var(--weight-medium);
+                letter-spacing: var(--letter-wide);
+                opacity: 0.8;
+            }
+
+            input,
+            textarea {
+                padding: var(--space-4);
+                border: 1.5px solid rgb(from var(--main-text) r g b / 20%);
+                background: var(--main-background);
+                color: var(--main-text);
+                font-family: inherit;
+                border-radius: var(--radius-sm);
+                transition: all 0.2s ease;
+
+                &:focus {
+                    outline: none;
+                    border-color: var(--main-text);
+                    box-shadow: 0 0 0 3px rgb(from var(--main-text) r g b / 5%);
+                }
+
+                &::placeholder {
+                    opacity: 0.4;
+                    font-style: italic;
+                }
+            }
+
+            textarea {
+                min-height: 120px;
+                resize: vertical;
+            }
+
+            button#submitBtn {
+                margin-top: var(--space-2);
+                padding: var(--space-4);
+                background: var(--main-text);
+                color: var(--main-background);
+                border: none;
+                border-radius: var(--radius-full);
+                font-weight: var(--weight-bold);
+                font-size: var(--font-size-normal);
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: var(--shadow-md);
+
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: var(--shadow-lg);
+                    opacity: 0.9;
+                }
+
+                &:active {
+                    transform: translateY(0);
                 }
             }
         }
