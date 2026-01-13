@@ -1,3 +1,6 @@
+
+
+// ** CUSTOM TOOLS
 // 1. CONFIGURATION DES VALEURS PAR DÉFAUT (Réglages d'usine)
 const DEFAULTS = {
     // ! Theme par défaut 

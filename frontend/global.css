@@ -204,9 +204,10 @@ em {
     font-style: normal;
 }
 
+/* ------------------- */
+/*  ---- BUTTONS ----- */
+/* ------------------- */
 
-
-/* Classe Bouton Universelle */
 
 /* basic  - class="btn" */
 .btn { 
@@ -678,6 +679,7 @@ em {
    5. SECTIONS & MAIN CONTENT
    ========================================= */
 
+
 /* Section global layout */
 
 .page-section {
@@ -735,13 +737,15 @@ font-size: 2em;
 }
 }
 }
-/* Spécificités Section 2 (Compétences) */
+/* Spécificités Section 2  */
 .section2 {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 
-    .text_intro {}
+    .text_intro {
+        border:  1px solid sandybrown;
+    }
 
     
 }
