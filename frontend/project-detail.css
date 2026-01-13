@@ -67,7 +67,7 @@ video {
             font-size: var(--font-size-normal);
         }
 
-        .project-homepage_screen img {
+        .project-homepage_screen img, figure {
             width: 100%;
             margin-bottom: 5%;
         }
@@ -122,8 +122,10 @@ video {
     .project-section {
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: var(--space-10);
         margin-bottom: var(--space-12);
+      
 
         h2 {
             color: var(--main-text);
@@ -135,7 +137,7 @@ video {
 
         .projet_purpose {
             width: 100%;
-            max-width: 800px;
+            /* max-width: 800px; */
         }
 
         .projet_design {
@@ -143,7 +145,8 @@ video {
             flex-direction: row;
             justify-content: flex-start; /* Aligne le contenu interne à gauche */
             width: 100%;                /* On utilise toute la largeur disponible */
-            max-width: 800px;           /* Pour garder une ligne de lecture confortable */
+            /* max-width: 800px;           */
+             /* Pour garder une ligne de lecture confortable */
             margin-left: 0;             /* 💡 Corrigé : on ne pousse plus vers la droite */
             text-align: left;
 
