@@ -4,6 +4,13 @@ body {
     background-color: var(--main-background);
     color: var(--main-text);
     /* Assure que tout le texte utilise la variable */
+
+    /* Navigation */
+        .project-nav {
+            /* padding: var(--space-6) 10vw; */
+            margin: var(--space-2) var(--space-4)
+        }
+
 }
 
 /* 1. Base typographique locale */
@@ -42,25 +49,11 @@ video {
 
 /* 3. Conteneur principal (Nesting) */
 #main-content.project-page {
-    max-width: 70vw;
+    max-width: 60vw;
     margin: 0 auto;
     padding: var(--space-12) var(--space-4);
 
-    /* Navigation */
-    .project-nav {
-        padding: var(--space-6) 10vw;
-
-        .back-link {
-            text-decoration: none;
-            color: var(--main-text);
-            font-weight: var(--weight-bold);
-            transition: opacity 0.2s;
-
-            &:hover {
-                opacity: 0.7;
-            }
-        }
-    }
+   
 
     /* Hero */
     .project-hero {
