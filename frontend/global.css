@@ -743,10 +743,18 @@ font-size: 2em;
 
     .text_intro {}
 
-    .div_skills {
+    
+}
+
+/* Section 3 */
+.section3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+.div_skills {
         margin-top: 2em;
         width: 80%;
-
         .skills-columns {
             display: flex;
             align-items: center;
@@ -755,18 +763,15 @@ font-size: 2em;
             list-style: none;
             border: 1px red solid;
             width: 100%;
-
             .skills-list {
                 border: 1px green solid;
                 width: 50%;
                 list-style: none;
                 padding-left: 0;
-
                 li {
                     display: flex;
                     align-items: flex-start;
                     margin-bottom: 0.8rem !important;
-
                     /* margin-bottom: 0.75rem;  */
                     /* Réduit l'espace entre les puces */
                     /* Optionnel : force un interligne serré */
@@ -784,16 +789,16 @@ font-size: 2em;
                 }
             }
         }
-    }
+    }  
 }
 
-/* Section 3 */
-
-
-.section3 {
+/* Section 4 */
+.section4 {
     /* width: 100%; */
 
-    .section-intro {}
+    .section-intro {
+
+    }
 
     .projects_container {
         display: flex;
@@ -883,7 +888,7 @@ font-size: 2em;
 } */
 
 /* Formulaire Contact - Design Amélioré */
-.section4 {
+.section5 {
     .contactform_container {
         margin-top: var(--space-4);
 

@@ -1,7 +1,7 @@
 // 1. CONFIGURATION DES VALEURS PAR DÉFAUT (Réglages d'usine)
 const DEFAULTS = {
     // ! Theme par défaut 
-    fontSize: 12,
+    fontSize: 14,
     lineHeight: 1.5,
     fontType: 'bbbreadme',
     bgColor: 'rgb(84.699% 96.254% 83.914%)',
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', function() {
             const change = parseFloat(this.dataset.change);
             if (this.classList.contains('size-control')) {
-                currentFontSize = Math.max(10, Math.min(40, currentFontSize + change));
+                currentFontSize = Math.max(10, Math.min(24, currentFontSize + change));
                 localStorage.setItem('fontSize', currentFontSize);
             } else {
                 currentLineHeight = Math.max(1.0, Math.min(2.5, currentLineHeight + change));
