@@ -138,3 +138,10 @@ document.getElementById('invert-toggle').addEventListener('change', function() {
         console.log("Interface remise à zéro.");
     });
 });
+
+// GLOW / Mouse mvt effet 
+// window.addEventListener('mousemove', (e) => {
+//     // On met à jour les variables CSS sur l'élément body
+//     document.body.style.setProperty('--mouse-x', e.clientX + 'px');
+//     document.body.style.setProperty('--mouse-y', e.clientY + 'px');
+// });

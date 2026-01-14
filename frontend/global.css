@@ -63,7 +63,7 @@ a {
    2. VARIABLES & RESET
    ========================================= */
 :root {
-    /* ! e pas modifier ces couleurs qui sont pilotées par le JS*/
+    /* ! Ne pas modifier ces couleurs qui sont pilotées par le JS*/
     --main-background: #F7F7F0;
     /* ! idem */
     --main-text: #2C3E50;
@@ -134,18 +134,32 @@ a {
     box-sizing: border-box;
 }
 
+html {
+    /* * Scroll Snapping  */
+    /* "y" pour défilement vertical, "mandatory" pour forcer l'aimantation */
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    /* Pour que les ancres soient fluides */
+}
+
 html,
 body {
     height: 100%;
-    scroll-behavior: smooth;
+
+
 }
 
 body {
     background-color: var(--main-background);
+    transition: background-color 0.5s ease, color 0.5s ease;
     color: var(--main-text);
     transition: all 0.3s ease;
     scroll-snap-type: y mandatory;
-    font-family: 'BBB ReadMe', sans-serif;
+    font-family: 'BBB ReadMe',
+        sans-serif;
+
+    /* * Scroll Snapping  */
+    margin: 0;
 
     /* Classes de polices injectées par JS */
     &.bbbreadme {
@@ -172,6 +186,8 @@ body {
         font-family: 'OpenDyslexic', sans-serif;
     }
 }
+
+
 
 #main-content {
     /* ne pas mettre de line-height ici ! */
@@ -210,7 +226,7 @@ em {
 
 
 /* basic  - class="btn" */
-.btn { 
+.btn {
     /* Layout */
     display: inline-flex;
     align-items: center;
@@ -690,6 +706,16 @@ em {
     padding-left: 10vw;
     scroll-snap-align: start;
 
+    /* * Scroll Snapping  */
+    /* Point d'accroche */
+    scroll-snap-align: start;
+    /* pour que le scroll ne saute trop violemment */
+    scroll-snap-stop: always;
+
+    display: flex;
+    align-items: center;
+    /* Centre verticalement le contenu interne */
+
     .content-container {
         width: 100%;
 
@@ -731,78 +757,94 @@ em {
 
 /* Section 1 (Intro) */
 .section1 {
-.content-container {
-p {
-font-size: 2em;
+    .content-container {
+        p {
+            font-size: 2em;
+        }
+    }
 }
-}
-}
+
 /* Spécificités Section 2  */
 .section2 {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
 
     .text_intro {
-        border:  1px solid sandybrown;
+        /* border:  1px solid sandybrown; */
     }
 
-    
+
 }
 
 /* Section 3 */
 .section3 {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: flex-start;
 
-.div_skills {
+    .div_skills {
         margin-top: 2em;
         width: 80%;
+
         .skills-columns {
             display: flex;
-            align-items: center;
-            /* justify-content: space-evenly; */
+            align-items: flex-start;
+            justify-content: flex-start;
             gap: var(--space-12);
             list-style: none;
-            border: 1px red solid;
+
             width: 100%;
-            .skills-list {
-                border: 1px green solid;
-                width: 50%;
-                list-style: none;
-                padding-left: 0;
-                li {
-                    display: flex;
-                    align-items: flex-start;
-                    margin-bottom: 0.8rem !important;
-                    /* margin-bottom: 0.75rem;  */
-                    /* Réduit l'espace entre les puces */
-                    /* Optionnel : force un interligne serré */
-                    /* todo : trouve cmt enlever les bullet mais garder les illu */
-                    i {
-                        /* color: var(--accent-color-strong);
-                        margin-right: 2%; */
-                        min-width: 25px;
-                        /* Largeur fixe pour l'icône */
-                        margin-top: 4px;
-                        /* Petit ajustement vertical */
-                        color: var(--main-text);
-                        /* Ou ta couleur d'accent */
+
+            .skills-category {
+                flex: 1;
+
+                .skills-list {
+
+                    width: 100%;
+                    list-style: none;
+                    /* padding-left: 0; */
+                    padding: 0;
+
+                    li {
+                        display: flex;
+                        align-items: flex-start;
+                        margin-bottom: 0.8rem !important;
+
+                        i {
+                            margin-right: 18px;
+                            margin-top: 4px;
+                            min-width: 25px;
+                            text-align: center;
+
+                            &.fa-check-double {
+                                color: var(--main-text);
+                                font-size: 1.5rem;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                        }
+
+                        @media (max-width: 768px) {
+                            flex-direction: column;
+                        }
                     }
                 }
             }
         }
-    }  
+    }
 }
+
+
+
 
 /* Section 4 */
 .section4 {
     /* width: 100%; */
 
-    .section-intro {
-
-    }
+    .section-intro {}
 
     .projects_container {
         display: flex;
@@ -828,16 +870,16 @@ font-size: 2em;
             /* border-radius: var(--radius-md); */
 
             background-color: rgb(from var(--main-text) r g b / 3%);
-                /* Fond très léger */
-                padding: var(--space-8);
-                border-radius: var(--radius-lg);
-                border: 1px solid rgb(from var(--main-text) r g b / 10%);
-                max-width: 600px;
+            /* Fond très léger */
+            padding: var(--space-8);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgb(from var(--main-text) r g b / 10%);
+            max-width: 600px;
 
 
 
             img {
-               width: 100%;
+                width: 100%;
                 /* margin: 5%; */
                 margin-top: 5%;
                 margin-bottom: 5%;
