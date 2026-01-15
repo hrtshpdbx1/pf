@@ -105,7 +105,7 @@ a {
     /* ~18px */
     --font-size-large: 1.5rem;
     /* ~24px */
-    --font-size-title: 2rem;
+    --font-size-title: 2.5rem;
     /* ~32px */
     --font-size-hero: 3.5rem;
     /* ~56px */
@@ -521,56 +521,10 @@ em {
                         }
                     }
                 }
-
-                /* .switch {
-                    opacity: 0;
-        width: 100%; /* Prend toute la place pour capter le clic */
-                /* height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 2; Passe au dessus du slider
-        cursor: pointer;
-                    }  */
-                /* 
-                    .slider {
-            position: absolute;
-            inset: 0;
-            background-color: var(--main-text);
-            transition: .4s;
-            border-radius: 34px;
-            pointer-events: none; 
-                            position: absolute;
-                            content: "";
-                            height: 16px;
-                            width: 16px;
-                            left: 3px;
-                            bottom: 3px;
-                            background-color: var(--main-background);
-                            transition: .4s;
-                            border-radius: 50%;
-                        }
-                    } */
-
-                /* input:checked+.slider {
-                        background-color: var(--accent-color-strong);
-
-                        &:before {
-                            transform: translateX(18px);
-                        }
-                    } */
             }
         }
-
-        /* Reset */
-        /* .reset {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-
                 
-            } */
+            } 
         .sidebar__reset-button {
             /* Mise en forme "Pill" */
             display: flex;
@@ -616,7 +570,38 @@ em {
             }
         }
     }
-}
+
+        /* Cibler les icônes SVG dans la sidebar */
+        .sidebar__pill-group .pill-value {
+            /* 1. On définit la taille */
+            width: 24px;
+            height: 24px;
+    
+            /* 2. La couleur magique : elle utilisera ta variable de thème */
+            background-color: var(--main-text);
+    
+            /* 3. On applique le masque (on retire l'attribut src du HTML plus tard) */
+            /* Note: On utilise mask-image et sa version préfixée pour la compatibilité */
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-position: center;
+            mask-position: center;
+        }
+    
+        /* On assigne les fichiers spécifiques à chaque groupe */
+        /* Groupe Taille de police */
+        .sidebar__group:nth-of-type(2) .pill-value {
+            -webkit-mask-image: url('../img/icon/font-size-svgrepo-com.svg');
+            mask-image: url('../img/icon/font-size-svgrepo-com.svg');
+        }
+    
+        /* Groupe Interligne */
+        .sidebar__group:nth-of-type(3) .pill-value {
+            -webkit-mask-image: url('../img/icon/line-height-line-svgrepo-com.svg');
+            mask-image: url('../img/icon/line-height-line-svgrepo-com.svg');
+        }
 
 /* Selecteur spécial pour l'icone line height */
 #sidebar .sidebar__group:nth-of-type(3) .pill-value {
@@ -728,7 +713,7 @@ em {
         h2 {
             font-size: var(--font-size-title);
             font-weight: var(--weight-regular);
-            margin-bottom: var(--space-4);
+            margin-bottom: var(--space-6);
         }
 
         h3 {
@@ -783,6 +768,7 @@ em {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    gap: var(--space-8);
 
     .div_skills {
         margin-top: 2em;
@@ -936,12 +922,12 @@ em {
 /* Formulaire Contact - Design Amélioré */
 .section5 {
     .contactform_container {
-        margin-top: var(--space-4);
+        margin-top: var(--space-8);
 
         #contact {
             background-color: rgb(from var(--main-text) r g b / 3%);
             /* Fond très léger */
-            padding: var(--space-8);
+            padding: var(--space-4);
             border-radius: var(--radius-lg);
             border: 1px solid rgb(from var(--main-text) r g b / 10%);
             max-width: 600px;
@@ -950,13 +936,15 @@ em {
         #contactForm {
             display: flex;
             flex-direction: column;
+          
             gap: var(--space-2);
-            margin-top: var(--space-4);
+            margin-top: var(--space-2);
 
             div {
                 display: flex;
                 flex-direction: column;
-                gap: var(--space-2);
+                justify-content: space-around;
+                gap: var(--space-4);
             }
 
             label {
@@ -989,13 +977,13 @@ em {
             }
 
             textarea {
-                min-height: 120px;
+                min-height: 100px;
                 resize: vertical;
             }
 
             button#submitBtn {
                 margin-top: var(--space-2);
-                padding: var(--space-4);
+                padding: var(--space-2);
                 background: var(--main-text);
                 color: var(--main-background);
                 border: none;
@@ -1005,6 +993,10 @@ em {
                 cursor: pointer;
                 transition: all 0.3s ease;
                 box-shadow: var(--shadow-md);
+                align-self: flex-start;
+                    width: fit-content;
+                    padding: 12px 30px;
+                    
 
                 &:hover {
                     transform: translateY(-2px);
@@ -1016,6 +1008,23 @@ em {
                     transform: translateY(0);
                 }
             }
+                        /* 1. On cache le message de statut s'il ne contient pas de texte */
+                        #statusMessage:empty {
+                            display: none;
+                        }
+            
+                        /* 2. On supprime l'espace (gap) après le bouton s'il est le dernier élément visible */
+                        #contactForm {
+                            gap: var(--space-2);
+                        }
+            
+                        /* 3. Optionnel : Réduire spécifiquement le padding bas du cadre gris */
+                        .section5 .contactform_container #contact {
+                            padding-bottom: var(--space-2);
+                            /* Au lieu de space-4 */
+                        }
         }
+
+        
     }
 }
