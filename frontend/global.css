@@ -339,8 +339,10 @@ em {
         min-height: 0;
 
         .sidebar__group {
+            border: #2C3E50 1x solid;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             /* margin-bottom: 1.5em;
         padding-bottom: 1em; */
 

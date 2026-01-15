@@ -123,7 +123,7 @@ video {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: var(--space-10);
+        gap: var(--space-8);
         margin-bottom: var(--space-12);
       
 
@@ -173,11 +173,11 @@ video {
             }
         }
 
-        /* --- BLOCS DE CODE THÈME DRACULA (Globaux) --- */
+        /* --- BLOCS DE CODE  --- */
         .code-concept,
         .html-concept {
-            background-color: #282a36;
-            /* Fond mauve foncé Dracula */
+            width: 100%;
+            background-color: #282a36; /* Fond Dracula */
             border-radius: var(--radius-md);
             padding: var(--space-6);
             margin: var(--space-6) 0;
@@ -186,24 +186,19 @@ video {
             box-shadow: var(--shadow-lg);
             border: 1px solid #44475a;
             text-align: left;
-            /* Assure l'alignement à gauche même dans les sections à droite */
             display: block;
             overflow-x: auto;
-            /* Scroll interne si le code est trop long */
         }
 
         .code-comment {
             color: #6272a4;
-            /* Bleu-gris (Commentaires) */
             font-style: italic;
             display: block;
             margin-bottom: var(--space-4);
-
             &::before {
                 content: "// ";
             }
         }
-
         .code-concept {
             &::before {
                 content: "JavaScript";
@@ -215,27 +210,19 @@ video {
                 opacity: 0.6;
                 text-transform: uppercase;
             }
-
             code {
                 color: #50fa7b;
             }
-
             /* Vert fluo Dracula */
             .keyword {
                 color: #ff79c6;
             }
-
-            /* Rose */
             .string {
                 color: #f1fa8c;
             }
-
-            /* Jaune */
             .attr {
                 color: #50fa7b;
             }
-
-            /* Vert */
         }
 
         .html-concept {
@@ -249,30 +236,24 @@ video {
                 opacity: 0.6;
                 text-transform: uppercase;
             }
-
             code {
                 color: #ffb86c;
             }
-
             /* Orange Dracula */
             .keyword {
                 color: #ff79c6;
             }
         }
-
-
         /* On force les blocs de code et les placeholders à avoir la même largeur */
         .code-block-width,
         .image-placeholder {
-            width: 85%;
-            /* Largeur commune pour l'équilibre visuel */
+            width: 100%;
             max-width: 800px;
             margin: var(--space-6) auto;
-            /* Centrage horizontal */
+            border: #ff79c6 2px solid;
         }
 
         .image-placeholder {
-            /* max-width: 100%;  */
             display: flex;
             flex-direction: column;
             align-items: center;
