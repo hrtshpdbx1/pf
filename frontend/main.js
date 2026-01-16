@@ -5,7 +5,7 @@
 const DEFAULTS = {
     // ! Theme par défaut 
     fontSize: 14,
-    lineHeight: 1.5,
+    lineHeight: 2,
     fontType: 'bbbreadme',
     bgColor: 'rgb(84.699% 96.254% 83.914%)',
     textColor: 'rgb(13.81% 13.179% 9.5057%)',

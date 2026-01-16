@@ -196,10 +196,15 @@ body {
 #main-content p {
     /* variable pilotée par le JS */
     line-height: var(--dynamic-line-height, 1.2);
+    max-width: 80ch;
+    /* TODO : verifier ceci !!! */
+    margin-bottom: var(--space-6);
+    opacity: 0.9;
+    text-align: left;
+            /* Un noir pur sur fond blanc peut être agressif, 0.9 adoucit le contraste */
+        }
 
-    /*espace entre paragraphes  */
-    margin-bottom: 1.5rem;
-}
+
 
 
 #main-content li {
@@ -525,85 +530,86 @@ em {
                 }
             }
         }
-                
-            } 
-        .sidebar__reset-button {
-            /* Mise en forme "Pill" */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-2);
 
-            width: 100%;
-            /* Prend toute la largeur du groupe */
-            padding: 10px 15px;
-
-            /* Couleurs cohérentes avec tes .pill-btn */
-            background: var(--main-background);
-            color: var(--main-text);
-            border: 1px solid var(--main-text);
-            border-radius: var(--radius-lg);
-
-            /* Typographie */
-            font-family: inherit;
-            font-size: 0.9em;
-            cursor: pointer;
-            transition: all 0.2s ease;
-
-            span {
-                /* Aligne le texte avec l'icône */
-                line-height: 1;
-            }
-
-            i {
-                font-size: 1.1em;
-            }
-
-            /* Interactions */
-            &:hover {
-                opacity: 0.8;
-                transform: translateY(-1px);
-                box-shadow: var(--shadow-sm);
-            }
-
-            &:active {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
     }
 
-        /* Cibler les icônes SVG dans la sidebar */
-        .sidebar__pill-group .pill-value {
-            /* 1. On définit la taille */
-            width: 24px;
-            height: 24px;
-    
-            /* 2. La couleur magique : elle utilisera ta variable de thème */
-            background-color: var(--main-text);
-    
-            /* 3. On applique le masque (on retire l'attribut src du HTML plus tard) */
-            /* Note: On utilise mask-image et sa version préfixée pour la compatibilité */
-            -webkit-mask-repeat: no-repeat;
-            mask-repeat: no-repeat;
-            -webkit-mask-size: contain;
-            mask-size: contain;
-            -webkit-mask-position: center;
-            mask-position: center;
+    .sidebar__reset-button {
+        /* Mise en forme "Pill" */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-2);
+
+        width: 100%;
+        /* Prend toute la largeur du groupe */
+        padding: 10px 15px;
+
+        /* Couleurs cohérentes avec tes .pill-btn */
+        background: var(--main-background);
+        color: var(--main-text);
+        border: 1px solid var(--main-text);
+        border-radius: var(--radius-lg);
+
+        /* Typographie */
+        font-family: inherit;
+        font-size: 0.9em;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        span {
+            /* Aligne le texte avec l'icône */
+            line-height: 1;
         }
-    
-        /* On assigne les fichiers spécifiques à chaque groupe */
-        /* Groupe Taille de police */
-        .sidebar__group:nth-of-type(2) .pill-value {
-            -webkit-mask-image: url('../img/icon/font-size-svgrepo-com.svg');
-            mask-image: url('../img/icon/font-size-svgrepo-com.svg');
+
+        i {
+            font-size: 1.1em;
         }
-    
-        /* Groupe Interligne */
-        .sidebar__group:nth-of-type(3) .pill-value {
-            -webkit-mask-image: url('../img/icon/line-height-line-svgrepo-com.svg');
-            mask-image: url('../img/icon/line-height-line-svgrepo-com.svg');
+
+        /* Interactions */
+        &:hover {
+            opacity: 0.8;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
         }
+
+        &:active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
+/* Cibler les icônes SVG dans la sidebar */
+.sidebar__pill-group .pill-value {
+    /* 1. On définit la taille */
+    width: 24px;
+    height: 24px;
+
+    /* 2. La couleur magique : elle utilisera ta variable de thème */
+    background-color: var(--main-text);
+
+    /* 3. On applique le masque (on retire l'attribut src du HTML plus tard) */
+    /* Note: On utilise mask-image et sa version préfixée pour la compatibilité */
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+/* On assigne les fichiers spécifiques à chaque groupe */
+/* Groupe Taille de police */
+.sidebar__group:nth-of-type(2) .pill-value {
+    -webkit-mask-image: url('../img/icon/font-size-svgrepo-com.svg');
+    mask-image: url('../img/icon/font-size-svgrepo-com.svg');
+}
+
+/* Groupe Interligne */
+.sidebar__group:nth-of-type(3) .pill-value {
+    -webkit-mask-image: url('../img/icon/line-height-line-svgrepo-com.svg');
+    mask-image: url('../img/icon/line-height-line-svgrepo-com.svg');
+}
 
 /* Selecteur spécial pour l'icone line height */
 #sidebar .sidebar__group:nth-of-type(3) .pill-value {
@@ -687,7 +693,7 @@ em {
 
 .page-section {
     height: 100vh;
-    width: 80vw;
+    width: 70vw;
     display: flex;
     align-items: center;
     padding-left: 10vw;
@@ -772,15 +778,45 @@ em {
     align-items: flex-start;
     gap: var(--space-8);
 
-    .div_skills {
-        margin-top: 2em;
+    .text_intro {
+        /* margin-top: 2em; */
         width: 80%;
+        /* flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-start; */
+        /* gap: var(--space-12); */
+
+        .competences-intro {
+            font-style: italic;
+            color: var(--main-text);
+            opacity: 0.9;
+            margin-bottom: var(--space-8);
+            max-width: 850px;
+            /* Évite les lignes trop longues pour la lecture */
+            border-left: 2px solid var(--main-text);
+            /* Rappel discret du style highlight */
+            padding-left: var(--space-6);
+        }
+
+        .linkedin-inline-link {
+            color: var(--main-text);
+            font-weight: bold;
+            text-decoration: underline;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    .div_skills {
+
 
         .skills-columns {
             display: flex;
             align-items: flex-start;
             justify-content: flex-start;
-            gap: var(--space-12);
+            gap: var(--space-8);
             list-style: none;
 
             width: 100%;
@@ -798,7 +834,7 @@ em {
                     li {
                         display: flex;
                         align-items: flex-start;
-                        margin-bottom: 0.8rem !important;
+                        /* margin-bottom: 0.8rem !important; */
 
                         i {
                             margin-right: 18px;
@@ -823,10 +859,8 @@ em {
             }
         }
     }
+
 }
-
-
-
 
 /* Section 4 */
 .section4 {
@@ -938,7 +972,7 @@ em {
         #contactForm {
             display: flex;
             flex-direction: column;
-          
+
             gap: var(--space-2);
             margin-top: var(--space-2);
 
@@ -996,9 +1030,9 @@ em {
                 transition: all 0.3s ease;
                 box-shadow: var(--shadow-md);
                 align-self: flex-start;
-                    width: fit-content;
-                    padding: 12px 30px;
-                    
+                width: fit-content;
+                padding: 12px 30px;
+
 
                 &:hover {
                     transform: translateY(-2px);
@@ -1010,23 +1044,24 @@ em {
                     transform: translateY(0);
                 }
             }
-                        /* 1. On cache le message de statut s'il ne contient pas de texte */
-                        #statusMessage:empty {
-                            display: none;
-                        }
-            
-                        /* 2. On supprime l'espace (gap) après le bouton s'il est le dernier élément visible */
-                        #contactForm {
-                            gap: var(--space-2);
-                        }
-            
-                        /* 3. Optionnel : Réduire spécifiquement le padding bas du cadre gris */
-                        .section5 .contactform_container #contact {
-                            padding-bottom: var(--space-2);
-                            /* Au lieu de space-4 */
-                        }
+
+            /* 1. On cache le message de statut s'il ne contient pas de texte */
+            #statusMessage:empty {
+                display: none;
+            }
+
+            /* 2. On supprime l'espace (gap) après le bouton s'il est le dernier élément visible */
+            #contactForm {
+                gap: var(--space-2);
+            }
+
+            /* 3. Optionnel : Réduire spécifiquement le padding bas du cadre gris */
+            .section5 .contactform_container #contact {
+                padding-bottom: var(--space-2);
+                /* Au lieu de space-4 */
+            }
         }
 
-        
+
     }
 }
