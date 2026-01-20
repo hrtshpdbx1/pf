@@ -139,6 +139,27 @@ document.getElementById('invert-toggle').addEventListener('change', function() {
     });
 });
 
+
+// Back to top 
+const backToTopBtn = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    // On affiche le bouton après 400px de scroll
+    if (window.scrollY > 400) {
+        backToTopBtn.classList.add('visible');
+    } else {
+        backToTopBtn.classList.remove('visible');
+    }
+});
+
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+
 // GLOW / Mouse mvt effet 
 // window.addEventListener('mousemove', (e) => {
 //     // On met à jour les variables CSS sur l'élément body

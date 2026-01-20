@@ -187,7 +187,46 @@ body {
     }
 }
 
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--main-text);
+    color: var(--main-background);
+    border: 1.5px solid var(--main-text);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 998;
+    /* Juste en dessous du menu trigger */
 
+    /* On le cache par défaut */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+
+    /* Animation fluide */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-md);
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+        background-color: var(--main-background);
+        color: var(--main-text);
+    }
+
+    /* Version active/visible */
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
 
 #main-content {
     /* ne pas mettre de line-height ici ! */
@@ -201,8 +240,8 @@ body {
     margin-bottom: var(--space-6);
     opacity: 0.9;
     text-align: left;
-            /* Un noir pur sur fond blanc peut être agressif, 0.9 adoucit le contraste */
-        }
+    /* Un noir pur sur fond blanc peut être agressif, 0.9 adoucit le contraste */
+}
 
 
 
@@ -238,6 +277,7 @@ em {
     justify-content: center;
     gap: var(--space-2);
     padding: 12px 24px;
+    letter-spacing: var(--letter-wide);
 
     /* Style Pilule */
     border-radius: var(--radius-full);
@@ -261,8 +301,14 @@ em {
     }
 
     &:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-lg);
+        background: var(--main-background);
+        color: var(--main-text);
+        transform: translateY(-3px);
+        /* Utilise une ombre basée sur ta variable de texte pour la cohérence */
+        box-shadow: 0 8px 15px rgb(from var(--main-text) r g b / 15%);
+
+        /* transform: translateY(-2px); */
+        /* box-shadow: var(--shadow-lg); */
         opacity: 0.9;
     }
 
@@ -1020,30 +1066,12 @@ em {
             button#submitBtn {
                 margin-top: var(--space-2);
                 padding: var(--space-2);
-                background: var(--main-text);
-                color: var(--main-background);
-                border: none;
-                border-radius: var(--radius-full);
-                font-weight: var(--weight-bold);
-                font-size: var(--font-size-normal);
-                cursor: pointer;
-                transition: all 0.3s ease;
-                box-shadow: var(--shadow-md);
                 align-self: flex-start;
                 width: fit-content;
                 padding: 12px 30px;
 
 
-                &:hover {
-                    transform: translateY(-2px);
-                    box-shadow: var(--shadow-lg);
-                    opacity: 0.9;
-                }
-
-                &:active {
-                    transform: translateY(0);
-                }
-            }
+               
 
             /* 1. On cache le message de statut s'il ne contient pas de texte */
             #statusMessage:empty {
