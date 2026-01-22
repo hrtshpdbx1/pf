@@ -236,7 +236,6 @@ body {
     /* variable pilotée par le JS */
     line-height: var(--dynamic-line-height, 1.2);
     max-width: 80ch;
-    /* TODO : verifier ceci !!! */
     margin-bottom: var(--space-6);
     opacity: 0.9;
     text-align: left;

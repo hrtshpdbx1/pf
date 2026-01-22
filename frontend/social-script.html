@@ -12,9 +12,9 @@
 
 <body class="bbbreadme">
     <div class="project-nav"><a href="index.html" class="back-link">
-        <button class="btn"><i class="fa-solid fa-arrow-left"></i> Retour au portfolio</button>
-    </a></div>
-    
+            <button class="btn"><i class="fa-solid fa-arrow-left"></i> Retour au portfolio</button>
+        </a></div>
+
 
     <main id="main-content" class="project-page">
         <header class="project-hero">
@@ -52,7 +52,7 @@
                 </div>
                 <div class="meta-container-right">
                     <div class="meta-item">
-                        <a href="https://github.com/hrtshpdbx1/SocialScript" target="_blank" class="btn btn-outline " >
+                        <a href="https://github.com/hrtshpdbx1/SocialScript" target="_blank" class="btn btn-outline ">
                             <i class="fab fa-github"></i>Code source
                         </a>
                     </div>
@@ -70,7 +70,7 @@
 
         <!-- ** ------- OBJECTIFS PROJET * ----------  -->
         <section class="project-section">
-            <div class="projet_purpose">
+            <div class="projet_purpose highlight">
                 <h2>Objectif du projet</h2>
                 <p>Ce projet vient d'un besoin que j'ai rencontré personellement. Étant autiste et TDAH, c'est par la
                     répétition et l'analyse consciente des
@@ -80,6 +80,7 @@
                     faux
                     pas du temps réel. Ce projet est cette réalisation : un simulateur où les personnes neurodivergentes
                     peuvent expérimenter, analyser et progresser dans un cadre structuré et bienveillant.</p>
+
                 <!-- ** -------FONCTIONALITEs   ** ----------  -->
                 <h3>Fonctionnalités clés :</h3>
                 <ul class="project-list">
@@ -88,7 +89,8 @@
                     <li><strong>Génération d'avatars :</strong> Utilisation de Dicebear API pour générer des
                         interlocuteur..ices
                         uniques.</li>
-                    <li><strong>Feedback pédagogique :</strong> Explication détaillée des codes implicites et possibilité
+                    <li><strong>Feedback pédagogique :</strong> Explication détaillée des codes implicites et
+                        possibilité
                         de rejouer pour explorer toutes les
                         issues
                         possibles.</li>
@@ -98,11 +100,12 @@
                 </ul>
             </div>
         </section>
-            <!-- ** ------- DESIGN ----------  -->
+        <!-- ** ------- DESIGN ----------  -->
         <section class="project-section">
-           <h2>Design</h2>
-            <div class="projet_design">  
-                <div class="elem_design">   
+
+            <div class="projet_design">
+                <h2>Design</h2>
+                <div class="elem_design">
                     <p>Mes recherches graphiques ont abouti à un design qui reprend le logo de l'autisme (un sigle
                         infini) en
                         l'intégrant au S de Socal et de Script. Cette fusion symbolise une boucle d'apprentissage
@@ -110,14 +113,15 @@
                         fluide tout en respectant les normes
                         WCAG AAA voulue sur le site.</p>
 
-                    <img src="../img/screen/recherchesgraphiques.png" alt="Différentes version du logo" class="image-placeholder ">
+                    <img src="../img/screen/recherchesgraphiques.png" alt="Différentes version du logo"
+                        class="image-placeholder ">
                 </div>
 
             </div>
-            </section>  
+        </section>
 
-             <!-- ** ------- SCREENS SCENARIOS ----------  -->
-            <!-- <div class="container_screens project-section ">
+        <!-- ** ------- SCREENS SCENARIOS ----------  -->
+        <!-- <div class="container_screens project-section ">
             <h2>Capture d'écran Scenarios</h2>
 <img src="../img/screen/scenario1.png" alt="capture d'écran de la page scenario">
                 <img src="../img/screen/scenario2.png" alt="capture d'écran de la page scenario">
@@ -126,56 +130,62 @@
         </section> -->
         <!-- ** -------DEFI TECH ** ----------  -->
         <section class="project-section">
-            <h2>Défis techniques : L'Accessibilité</h2>
-            <p>
-                Pour un projet s'adressant aux personnes neurodivergentes, l'accessibilité n'est pas une option, mais le
-                socle de l'expérience utilisateur. Mon défi a été de réduire la charge cognitive tout en assurant une
-                navigation robuste pour les technologies d'assistance.
-            </p>
-
-            <div class="article-point">
-                <h3>1. Navigation sémantique native</h3>
+            <div class="project-technique">
+                <h2>Défis techniques : L'Accessibilité</h2>
                 <p>
-                    J'ai privilégié l'utilisation des balises HTML5 <code>&lt;details&gt;</code> et
-                    <code>&lt;summary&gt;</code> pour les FAQ et les sections d'analyse.
-                </p>
-                <p>
-                    <strong>L'intérêt technique :</strong> Ces balises offrent une interactivité native sans JavaScript.
-                    Elles sont <strong>accessibles par défaut</strong> : le navigateur gère lui-même le focus clavier et
-                    communique automatiquement l'état (ouvert ou fermé) aux lecteurs d'écran.
+                    Pour un projet s'adressant aux personnes neurodivergentes, l'accessibilité n'est pas une option,
+                    mais le
+                    socle de l'expérience utilisateur. Mon défi a été de réduire la charge cognitive tout en assurant
+                    une
+                    navigation robuste pour les technologies d'assistance.
                 </p>
 
-                <div class="html-concept">
-    <span class="code-comment">L'élément natif permet de gérer l'ouverture/fermeture sans JS</span>
-    <code>
+                <div class="article-point">
+                    <h3>1. Navigation sémantique native</h3>
+                    <p>
+                        J'ai privilégié l'utilisation des balises HTML5 <code>&lt;details&gt;</code> et
+                        <code>&lt;summary&gt;</code> pour les FAQ et les sections d'analyse.
+                    </p>
+                    <p>
+                        <strong>L'intérêt technique :</strong> Ces balises offrent une interactivité native sans
+                        JavaScript.
+                        Elles sont <strong>accessibles par défaut</strong> : le navigateur gère lui-même le focus
+                        clavier et
+                        communique automatiquement l'état (ouvert ou fermé) aux lecteurs d'écran.
+                    </p>
+
+                    <div class="html-concept">
+                        <span class="code-comment">L'élément natif permet de gérer l'ouverture/fermeture sans JS</span>
+                        <code>
         &lt;<span class="keyword">details</span>&gt;<br>
         &nbsp;&nbsp;&lt;<span class="keyword">summary</span>&gt;Titre de la FAQ&lt;/<span class="keyword">summary</span>&gt;<br>
         &nbsp;&nbsp;&lt;p&gt;Contenu accessible par défaut.&lt;/p&gt;<br>
         &lt;/<span class="keyword">details</span>&gt;
     </code>
-</div>
-<!-- <div class="image-placeholder"> -->
-    <!-- <video autoplay loop muted playsinline aria-label="Démo de la navigation au clavier">
+                    </div>
+                    <!-- <div class="image-placeholder"> -->
+                    <!-- <video autoplay loop muted playsinline aria-label="Démo de la navigation au clavier">
         <source src="../img/screen/testnavclavier.mp4" type="video/mp4">
     </video> -->
-    <figure class="image-placeholder">
-        <video autoplay loop muted playsinline>
-            <source src="../img/screen/testnavclavier.mp4" type="video/mp4">
-        </video>
-        <figcaption>Démonstration de la navigation entièrement au clavier.</figcaption>
-    </figure>
-<!-- </div> -->
-            </div>
+                    <figure class="image-placeholder">
+                        <video autoplay loop muted playsinline>
+                            <source src="../img/screen/testnavclavier.mp4" type="video/mp4">
+                        </video>
+                        <figcaption>Démonstration de la navigation entièrement au clavier.</figcaption>
+                    </figure>
+                    <!-- </div> -->
+                </div>
 
-            <div class="article-point">
-                <h3>2. Gestion proactive du Focus</h3>
-                <p>
-                    Dans une application dynamique où le contenu est généré par JavaScript, comme dans ma page scenario,
-                    le curseur clavier se perd souvent lors d'un rafraîchissement. J'ai implémenté un système de
-                    <strong>Focus Management</strong>.
-                </p>
+                <div class="article-point">
+                    <h3>2. Gestion proactive du Focus</h3>
+                    <p>
+                        Dans une application dynamique où le contenu est généré par JavaScript, comme dans ma page
+                        scenario,
+                        le curseur clavier se perd souvent lors d'un rafraîchissement. J'ai implémenté un système de
+                        <strong>Focus Management</strong>.
+                    </p>
 
-                <!-- <div class="code-concept">
+                    <!-- <div class="code-concept">
                     <p>
                         <strong>Focus dynamique :</strong> Dès que l'utilisateur valide un choix, j'utilise la méthode
                         <code>.focus({ focusVisible: true })</code> sur l'élément suivant. Cela garantit une navigation
@@ -184,24 +194,26 @@
                     </p>
                 </div> -->
 
-                <div class="code-concept">
-    <span class="code-comment">On force le focus sur le bouton suivant pour guider l'utilisateur clavier</span>
-    <code>
+                    <div class="code-concept">
+                        <span class="code-comment">On force le focus sur le bouton suivant pour guider l'utilisateur
+                            clavier</span>
+                        <code>
         <span class="keyword">const</span> nextBtn = document.<span class="keyword">querySelector</span>(<span class="string">'.option-btn'</span>);<br>
         nextBtn.<strong>focus</strong>({ <span class="attr">focusVisible</span>: <span class="keyword">true</span> });
     </code>
-</div>
+                    </div>
 
-                <div class="image-placeholder">
-                    <img src="../img/screen/scenario1.png"
-                        alt="Démonstration du focus visible sur le premier bouton de réponse">
+                    <div class="image-placeholder">
+                        <img src="../img/screen/scenario1.png"
+                            alt="Démonstration du focus visible sur le premier bouton de réponse">
+                    </div>
                 </div>
+
             </div>
-
-
         </section>
         <!-- ** ---------LECONS APPRISES ** ------------ -->
-        <section class="project-section highlight">
+        <section class="project-section ">
+            <div class="lesson_learned highlight"> 
             <h2>Ce que j'ai appris</h2>
             <p>
                 Ce projet m'a permis de transformer mes engagements en faveur de l'inclusion en compétences techniques.
@@ -232,7 +244,7 @@
                 </p>
             </div>
 
-        
+</div>
         </section>
 
     </main>
@@ -240,23 +252,26 @@
     <div class="project-footer">
         <p>Prêt·e à discuter d'accessibilité et de neuro-inclusion ?</p>
         <a href="index.html#contact" class="btn">Me contacter</a>
-        </div>
+    </div>
 
-        <footer class="main-footer-inverted">
-    <div class="footer-container">
-        <div class="footer-left">
-            <a href="index.html" class="footer-logo">Louise Moraldy</a>
-        </div>
-        <div class="footer-right">
-            <div class="social-icons">
-                <a href="https://github.com/ton-profil" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/ton-profil" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://instagram.com/ton-profil" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:ton-email@exemple.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    <footer class="main-footer-inverted">
+        <div class="footer-container">
+            <div class="footer-left">
+                <a href="index.html" class="footer-logo">Louise Moraldy</a>
+            </div>
+            <div class="footer-right">
+                <div class="social-icons">
+                    <a href="https://github.com/ton-profil" target="_blank" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/ton-profil" target="_blank" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://instagram.com/ton-profil" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="mailto:ton-email@exemple.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
 
 </body>

@@ -6,10 +6,10 @@ body {
     /* Assure que tout le texte utilise la variable */
 
     /* Navigation */
-        .project-nav {
-            /* padding: var(--space-6) 10vw; */
-            margin: var(--space-2) var(--space-4)
-        }
+    .project-nav {
+        /* padding: var(--space-6) 10vw; */
+        margin: var(--space-2) var(--space-4)
+    }
 
 }
 
@@ -53,7 +53,13 @@ video {
     margin: 0 auto;
     padding: var(--space-12) var(--space-4);
 
-   
+    p {
+            max-width: none;
+            /* Annule la limite des 80ch de global */
+        }
+
+
+
 
     /* Hero */
     .project-hero {
@@ -67,7 +73,8 @@ video {
             font-size: var(--font-size-normal);
         }
 
-        .project-homepage_screen img, figure {
+        .project-homepage_screen img,
+        figure {
             width: 100%;
             margin-bottom: 5%;
         }
@@ -125,7 +132,33 @@ video {
         align-items: center;
         gap: var(--space-8);
         margin-bottom: var(--space-12);
-      
+        /* border: chartreuse 2px solid; */
+
+        &>div {
+            /* Cible tous les enfants directs */
+            width: 100%;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        /* Largeur de toutes les sous-partie de .project-section  */
+        .projet_purpose,
+        .projet_design,
+        .project-technique,
+        .lesson_learned {
+            /* border: rebeccapurple 2px solid; */
+            width: 100%;
+            text-align: left;
+        }
+
+        /* --- STYLE HIGHLIGHT --- */
+        .highlight {
+            background: rgba(0, 0, 0, 0.03);
+            padding: var(--space-8) var(--space-8) var(--space-8) var(--space-12);
+            border-left: 5px solid var(--main-text);
+            border-radius: var(--radius-sm);
+        }
+
 
         h2 {
             color: var(--main-text);
@@ -135,25 +168,19 @@ video {
             margin-top: var(--space-2);
         }
 
-        .projet_purpose {
-            width: 100%;
-            /* max-width: 800px; */
-        }
+        .projet_purpose {}
 
         .projet_design {
             display: flex;
-            flex-direction: row;
-            justify-content: flex-start; /* Aligne le contenu interne à gauche */
-            width: 100%;                /* On utilise toute la largeur disponible */
-            /* max-width: 800px;           */
-             /* Pour garder une ligne de lecture confortable */
-            margin-left: 0;             /* 💡 Corrigé : on ne pousse plus vers la droite */
+            flex-direction: column;
+            /* justify-content: flex-start;  */
+            /* margin-left: 0;              */
             text-align: left;
 
             .elem_design {
                 display: flex;
                 flex-direction: column;
-                align-items: flex-start; /* Aligne l'image à gauche dans sa colonne */
+                align-items: center;
 
                 img {
                     max-width: 80%;
@@ -173,11 +200,16 @@ video {
             }
         }
 
+        .project-technique {}
+
+        .lesson_learned {}
+
         /* --- BLOCS DE CODE  --- */
         .code-concept,
         .html-concept {
             width: 100%;
-            background-color: #282a36; /* Fond Dracula */
+            background-color: #282a36;
+            /* Fond Dracula */
             border-radius: var(--radius-md);
             padding: var(--space-6);
             margin: var(--space-6) 0;
@@ -195,10 +227,12 @@ video {
             font-style: italic;
             display: block;
             margin-bottom: var(--space-4);
+
             &::before {
                 content: "// ";
             }
         }
+
         .code-concept {
             &::before {
                 content: "JavaScript";
@@ -210,16 +244,20 @@ video {
                 opacity: 0.6;
                 text-transform: uppercase;
             }
+
             code {
                 color: #50fa7b;
             }
+
             /* Vert fluo Dracula */
             .keyword {
                 color: #ff79c6;
             }
+
             .string {
                 color: #f1fa8c;
             }
+
             .attr {
                 color: #50fa7b;
             }
@@ -236,15 +274,18 @@ video {
                 opacity: 0.6;
                 text-transform: uppercase;
             }
+
             code {
                 color: #ffb86c;
             }
+
             /* Orange Dracula */
             .keyword {
                 color: #ff79c6;
             }
         }
-        /* On force les blocs de code et les placeholders à avoir la même largeur */
+
+        /*  même largeur des blocs de code et  placeholders à*/
         .code-block-width,
         .image-placeholder {
             width: 100%;
@@ -279,13 +320,7 @@ video {
             }
         }
 
-        /* --- STYLE HIGHLIGHT (POUR "CE QUE J'AI APPRIS") --- */
-        &.highlight {
-            background: rgba(0, 0, 0, 0.03);
-            padding: var(--space-8) var(--space-8) var(--space-8) var(--space-12);
-            border-left: 5px solid var(--main-text);
-            border-radius: var(--radius-sm);
-        }
+
     }
 
     /* Listes stylisées */
@@ -327,7 +362,7 @@ video {
     }
 }
 
-/* --- NOUVEAU FOOTER INVERSÉ --- */
+/* --- FOOTER INVERSÉ --- */
 .main-footer-inverted {
     background-color: var(--main-text);
     /* Fond noir (si main-text est noir) */
