@@ -132,85 +132,79 @@
         <section class="project-section">
             <div class="project-technique">
                 <h2>Défis techniques : L'Accessibilité</h2>
-                <p>
-                    Pour un projet s'adressant aux personnes neurodivergentes, l'accessibilité n'est pas une option,
-                    mais le
-                    socle de l'expérience utilisateur. Mon défi a été de réduire la charge cognitive tout en assurant
-                    une
+                <p class="intro-text">
+                    Pour un projet s'adressant aux personnes neurodivergentes, l'accessibilité n'est pas une option, mais le
+                    socle de l'expérience utilisateur. Mon défi a été de réduire la charge cognitive tout en assurant une
                     navigation robuste pour les technologies d'assistance.
                 </p>
-
+        
                 <div class="article-point">
-                    <h3>1. Navigation sémantique native</h3>
-                    <p>
-                        J'ai privilégié l'utilisation des balises HTML5 <code>&lt;details&gt;</code> et
-                        <code>&lt;summary&gt;</code> pour les FAQ et les sections d'analyse.
-                    </p>
-                    <p>
-                        <strong>L'intérêt technique :</strong> Ces balises offrent une interactivité native sans
-                        JavaScript.
-                        Elles sont <strong>accessibles par défaut</strong> : le navigateur gère lui-même le focus
-                        clavier et
-                        communique automatiquement l'état (ouvert ou fermé) aux lecteurs d'écran.
-                    </p>
-
-                    <div class="html-concept">
-                        <span class="code-comment">L'élément natif permet de gérer l'ouverture/fermeture sans JS</span>
-                        <code>
-        &lt;<span class="keyword">details</span>&gt;<br>
-        &nbsp;&nbsp;&lt;<span class="keyword">summary</span>&gt;Titre de la FAQ&lt;/<span class="keyword">summary</span>&gt;<br>
-        &nbsp;&nbsp;&lt;p&gt;Contenu accessible par défaut.&lt;/p&gt;<br>
-        &lt;/<span class="keyword">details</span>&gt;
-    </code>
+                    <div class="point-content">
+                        <span class="badge badge-html">HTML5 Sémantique</span>
+                        <h3>1. Navigation sémantique native</h3>
+                        <p>
+                            J'ai privilégié l'utilisation des balises HTML5 <code>&lt;details&gt;</code> et
+                            <code>&lt;summary&gt;</code> pour les FAQ et les sections d'analyse.
+                        </p>
+                        <div class="benefit-box">
+                            <strong>L'intérêt technique :</strong> Ces balises offrent une interactivité native sans JavaScript.
+                            Elles sont <strong>accessibles par défaut</strong> : le navigateur gère lui-même le focus clavier
+                            et communique automatiquement l'état (ouvert ou fermé) aux lecteurs d'écran.
+                        </div>
                     </div>
-                    <!-- <div class="image-placeholder"> -->
-                    <!-- <video autoplay loop muted playsinline aria-label="Démo de la navigation au clavier">
-        <source src="../img/screen/testnavclavier.mp4" type="video/mp4">
-    </video> -->
-                    <figure class="image-placeholder">
-                        <video autoplay loop muted playsinline>
-                            <source src="../img/screen/testnavclavier.mp4" type="video/mp4">
-                        </video>
-                        <figcaption>Démonstration de la navigation entièrement au clavier.</figcaption>
-                    </figure>
-                    <!-- </div> -->
-                </div>
-
-                <div class="article-point">
-                    <h3>2. Gestion proactive du Focus</h3>
-                    <p>
-                        Dans une application dynamique où le contenu est généré par JavaScript, comme dans ma page
-                        scenario,
-                        le curseur clavier se perd souvent lors d'un rafraîchissement. J'ai implémenté un système de
-                        <strong>Focus Management</strong>.
-                    </p>
-
-                    <!-- <div class="code-concept">
-                    <p>
-                        <strong>Focus dynamique :</strong> Dès que l'utilisateur valide un choix, j'utilise la méthode
-                        <code>.focus({ focusVisible: true })</code> sur l'élément suivant. Cela garantit une navigation
-                        fluide au clavier, évite les clics inutiles et met visuellement en évidence l'élément actif par
-                        un contour marqué.
-                    </p>
-                </div> -->
-
-                    <div class="code-concept">
-                        <span class="code-comment">On force le focus sur le bouton suivant pour guider l'utilisateur
-                            clavier</span>
-                        <code>
-        <span class="keyword">const</span> nextBtn = document.<span class="keyword">querySelector</span>(<span class="string">'.option-btn'</span>);<br>
-        nextBtn.<strong>focus</strong>({ <span class="attr">focusVisible</span>: <span class="keyword">true</span> });
-    </code>
-                    </div>
-
-                    <div class="image-placeholder">
-                        <img src="../img/screen/scenario1.png"
-                            alt="Démonstration du focus visible sur le premier bouton de réponse">
+                    <div class="point-media">
+                        <div class="html-concept">
+                            <span class="code-comment">L'élément natif permet de gérer l'ouverture/fermeture sans JS</span>
+                            <code>
+                                &lt;<span class="keyword">details</span>&gt;<br>
+                                &nbsp;&nbsp;&lt;<span class="keyword">summary</span>&gt;Titre de la FAQ&lt;/<span class="keyword">summary</span>&gt;<br>
+                                &nbsp;&nbsp;&lt;p&gt;Contenu accessible par défaut.&lt;/p&gt;<br>
+                                &lt;/<span class="keyword">details</span>&gt;
+                            </code>
+                        </div>
+                        <figure class="image-placeholder">
+                            <video autoplay loop muted playsinline>
+                                <source src="../img/screen/testnavclavier.mp4" type="video/mp4">
+                            </video>
+                            <figcaption>Démonstration de la navigation entièrement au clavier.</figcaption>
+                        </figure>
                     </div>
                 </div>
-
+        
+                <div class="article-point">
+                    <div class="point-content">
+                        <span class="badge badge-js">JavaScript & UX</span>
+                        <h3>2. Gestion proactive du Focus</h3>
+                        <p>
+                            Dans une application dynamique où le contenu est généré par JavaScript, comme dans ma page scenario,
+                            le curseur clavier se perd souvent lors d'un rafraîchissement. J'ai implémenté un système de
+                            <strong>Focus Management</strong>.
+                        </p>
+                        <div class="benefit-box">
+                            <strong>Focus dynamique :</strong> Dès que l'utilisateur valide un choix, j'utilise la méthode
+                            <code>.focus({ focusVisible: true })</code> sur l'élément suivant. Cela garantit une navigation
+                            fluide au clavier,
+                            évite les clics inutiles et met visuellement en évidence l'élément actif par un contour marqué.
+                        </div>
+                    </div>
+                    <div class="point-media">
+                        <div class="code-concept">
+                            <span class="code-comment">On force le focus sur le bouton suivant pour guider l'utilisateur
+                                clavier</span>
+                            <code>
+                                <span class="keyword">const</span> nextBtn = document.<span class="keyword">querySelector</span>(<span class="string">'.option-btn'</span>);<br>
+                                nextBtn.<strong>focus</strong>({ <span class="attr">focusVisible</span>: <span class="keyword">true</span> });
+                            </code>
+                        </div>
+                        <div class="image-placeholder">
+                            <img src="../img/screen/scenario1.png"
+                                alt="Démonstration du focus visible sur le premier bouton de réponse">
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
+        
         <!-- ** ---------LECONS APPRISES ** ------------ -->
         <section class="project-section ">
             <div class="lesson_learned highlight"> 

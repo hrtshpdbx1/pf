@@ -54,153 +54,257 @@ video {
     padding: var(--space-12) var(--space-4);
 
     p {
-            max-width: none;
-            /* Annule la limite des 80ch de global */
-        }
+        max-width: none;
+        /* Annule la limite des 80ch de global */
+    }
+}
 
+/* Hero */
+.project-hero {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    text-align: left;
 
-
-
-    /* Hero */
-    .project-hero {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-8);
-        text-align: left;
-
-        p.project-tagline {
-            line-height: 2;
-            font-size: var(--font-size-normal);
-        }
-
-        .project-homepage_screen img,
-        figure {
-            width: 100%;
-            margin-bottom: 5%;
-        }
+    p.project-tagline {
+        line-height: 2;
+        font-size: var(--font-size-normal);
     }
 
-    /* Meta & Links */
-    .project-meta {
+    .project-homepage_screen img,
+    figure {
+        width: 100%;
+        margin-bottom: 5%;
+    }
+}
+
+/* Meta & Links */
+.project-meta {
+    display: flex;
+    justify-content: space-between;
+
+    .meta-container-left {
         display: flex;
         justify-content: space-between;
+        width: 50%;
+    }
 
-        .meta-container-left {
-            display: flex;
-            justify-content: space-between;
-            width: 50%;
+    .meta-container-right {
+        display: flex;
+        gap: var(--space-1);
+    }
+
+    .meta-item {
+        display: flex;
+        flex-direction: column;
+        font-size: var(--font-size-small);
+        padding: var(--space-2);
+        gap: var(--space-2);
+
+        ul,
+        li {
+            list-style: none;
+            opacity: 0.9;
+            line-height: var(--line-normal);
+            margin-bottom: 0;
         }
+    }
+}
 
-        .meta-container-right {
-            display: flex;
-            gap: var(--space-1);
-        }
+.project-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+    max-width: 400px;
+    margin: 0 auto;
 
-        .meta-item {
+    a {
+        text-decoration: none;
+    }
+}
+
+/* --- SECTIONS GÉNÉRALES --- */
+.project-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-8);
+    margin-bottom: var(--space-12);
+    border: chartreuse 2px solid;
+
+    &>div {
+        /* Cible tous les enfants directs */
+        width: 100%;
+        max-width: 800px;
+        box-sizing: border-box;
+    }
+
+    /* Largeur de toutes les sous-partie de .project-section  */
+    .projet_purpose,
+    .projet_design,
+    .project-technique,
+    .lesson_learned {
+        border: rebeccapurple 2px solid;
+        width: 100%;
+        text-align: left;
+    }
+
+    /* --- STYLE HIGHLIGHT --- */
+    .highlight {
+        background: rgba(0, 0, 0, 0.03);
+        padding: var(--space-8) var(--space-8) var(--space-8) var(--space-12);
+        border-left: 5px solid var(--main-text);
+        border-radius: var(--radius-sm);
+    }
+
+
+    h2 {
+        color: var(--main-text);
+        border-bottom: 1px solid var(--main-text);
+        display: inline-block;
+        margin-bottom: var(--space-4);
+        margin-top: var(--space-2);
+    }
+
+    .projet_purpose {}
+
+    .projet_design {
+        display: flex;
+        flex-direction: column;
+        /* Aligne ce bloc spécifique à gauche */
+        /* justify-content: flex-start;  */
+        /* margin-left: 0;              */
+        text-align: left;
+
+        .elem_design {
             display: flex;
             flex-direction: column;
-            font-size: var(--font-size-small);
-            padding: var(--space-2);
-            gap: var(--space-2);
+            align-items: center;
 
-            ul,
-            li {
-                list-style: none;
-                opacity: 0.9;
-                line-height: var(--line-normal);
-                margin-bottom: 0;
+            img {
+                max-width: 80%;
+                height: auto;
+                margin-top: var(--space-4);
             }
         }
     }
 
-    .project-links {
+    .container_screens {
         display: flex;
-        justify-content: center;
-        gap: var(--space-4);
-        max-width: 400px;
-        margin: 0 auto;
+        flex-direction: column;
+        gap: var(--space-8);
 
-        a {
-            text-decoration: none;
+        img {
+            width: 100%;
         }
     }
 
-    /* --- SECTIONS GÉNÉRALES --- */
-    .project-section {
+    /* --- SECTION DÉFIS TECHNIQUES --- */
+    .project-technique {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: var(--space-8);
-        margin-bottom: var(--space-12);
-        /* border: chartreuse 2px solid; */
+        gap: var(--space-16);
+        width: 100%;
+        /* TEST */
+        max-width: 1000px;
+        margin: 0 auto;
 
-        &>div {
-            /* Cible tous les enfants directs */
-            width: 100%;
+        .intro-text {
+            margin-bottom: var(--space-8);
             max-width: 800px;
-            box-sizing: border-box;
+            /* TEST */
+            text-align: center
         }
 
-        /* Largeur de toutes les sous-partie de .project-section  */
-        .projet_purpose,
-        .projet_design,
-        .project-technique,
-        .lesson_learned {
-            /* border: rebeccapurple 2px solid; */
-            width: 100%;
-            text-align: left;
-        }
-
-        /* --- STYLE HIGHLIGHT --- */
-        .highlight {
-            background: rgba(0, 0, 0, 0.03);
-            padding: var(--space-8) var(--space-8) var(--space-8) var(--space-12);
-            border-left: 5px solid var(--main-text);
-            border-radius: var(--radius-sm);
-        }
-
-
-        h2 {
-            color: var(--main-text);
-            border-bottom: 1px solid var(--main-text);
-            display: inline-block;
-            margin-bottom: var(--space-4);
-            margin-top: var(--space-2);
-        }
-
-        .projet_purpose {}
-
-        .projet_design {
+        .article-point {
             display: flex;
-            flex-direction: column;
-            /* justify-content: flex-start;  */
-            /* margin-left: 0;              */
-            text-align: left;
+            /* align-items: flex-start; */
+            /* TEST */
+            flex-direction: row;
+            /* Force la ligne sur desktop */
+            align-items: center;
+            /* Centre verticalement le texte et l'image */
+            gap: var(--space-12);
+            width: 100%;
 
-            .elem_design {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+            /* Alternance : le 2ème, 4ème, etc. sont inversés */
+            &:nth-of-type(even) {
+                flex-direction: row-reverse;
+            }
 
-                img {
-                    max-width: 80%;
-                    height: auto;
-                    margin-top: var(--space-4);
+                        /* On force chaque côté à prendre 50% du bloc */
+                        .point-content,
+                        .point-media {
+                            flex: 1;
+                            width: 50%;
+                        }
+
+            .point-content {
+                /* text-align: left; */
+                
+                p {
+                    margin-bottom: var(--space-4);
+                    line-height: 1.7;
+                    /* Un peu plus d'air pour la lecture */
+                }
+
+                .point-media {
+                    flex: 1;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: var(--space-4);
+                    /* Espace entre le code et l'image/vidéo */
+                }
+            }
+
+            /* --- STYLES DES BADGES --- */
+            .badge {
+                display: inline-block;
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 0.75rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                margin-bottom: var(--space-2);
+                letter-spacing: 1px;
+
+                &.badge-html {
+                    background: #e34f2622;
+                    color: #e34f26;
+                    border: 1px solid #e34f26;
+                }
+
+                &.badge-js {
+                    background: #f7df1e22;
+                    color: #d6bf00;
+                    border: 1px solid #f7df1e;
+                }
+            }
+
+            /* --- PETITE BOX DE BÉNÉFICE --- */
+            .benefit-box {
+                background: rgba(var(--main-text-rgb, 0, 0, 0), 0.05);
+                padding: var(--space-4);
+                border-radius: var(--radius-sm);
+                font-size: 0.9rem;
+                border-left: 3px solid var(--main-text);
+                margin-top: var(--space-4);
+            }
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 900px) {
+            .project-technique .article-point {
+                flex-direction: column !important;
+                /* On force le retour en colonne */
+                gap: var(--space-6);
+
+                .point-media {
+                    width: 100%;
                 }
             }
         }
-
-        .container_screens {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-8);
-
-            img {
-                width: 100%;
-            }
-        }
-
-        .project-technique {}
 
         .lesson_learned {}
 
