@@ -825,7 +825,7 @@ em {
 
     .text_intro {
         /* margin-top: 2em; */
-        width: 80%;
+        width: 100%;
         /* flex-direction: column;
             justify-content: space-around;
             align-items: flex-start; */
@@ -836,41 +836,41 @@ em {
             color: var(--main-text);
             opacity: 0.9;
             margin-bottom: var(--space-8);
-            max-width: 850px;
-            /* Évite les lignes trop longues pour la lecture */
             border-left: 2px solid var(--main-text);
-            /* Rappel discret du style highlight */
             padding-left: var(--space-6);
         }
 
-        .linkedin-inline-link {
-            color: var(--main-text);
-            font-weight: bold;
-            text-decoration: underline;
 
-            &:hover {
-                opacity: 0.7;
-            }
-        }
     }
 
     .div_skills {
-
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--space-8);
 
         .skills-columns {
             display: flex;
             align-items: flex-start;
             justify-content: flex-start;
-            gap: var(--space-8);
+            gap: 5rem;
             list-style: none;
-
             width: 100%;
 
             .skills-category {
-                flex: 1;
+                flex: 0 1 auto;
+                min-width: fit-content;
+
+
 
                 .skills-list {
+                    display: flex;
+                    flex-direction: column;
+                    /* Pour les garder en colonne */
+                    gap: 0.4rem;
+                    /* Ajuste la valeur selon tes besoins */
 
+                    padding: 0;
                     width: 100%;
                     list-style: none;
                     /* padding-left: 0; */
@@ -879,13 +879,23 @@ em {
                     li {
                         display: flex;
                         align-items: flex-start;
+
                         /* margin-bottom: 0.8rem !important; */
+
+                        p {
+                            max-width: none;
+                            /* Supprime la limite des 80 caractères */
+
+                        }
+
 
                         i {
                             margin-right: 18px;
                             margin-top: 4px;
-                            min-width: 25px;
+                            min-width: 20px;
                             text-align: center;
+                            font-size: larger;
+                            transition: all 0.3s ease;
 
                             &.fa-check-double {
                                 color: var(--main-text);
@@ -896,12 +906,174 @@ em {
                             }
                         }
 
+
+
                         @media (max-width: 768px) {
                             flex-direction: column;
                         }
                     }
+
                 }
             }
+        }
+    }
+
+    .icon-logo {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 18px;
+        background-color: var(--main-text);
+        transition: all 0.3s ease; 
+
+     
+     -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-position: center;
+        mask-position: center; 
+     }  
+
+    .icon-logo.html {
+        -webkit-mask-image: url('https://cdn.simpleicons.org/html5');
+        mask-image: url('https://cdn.simpleicons.org/html5');
+    }
+
+    .icon-logo.js {
+        -webkit-mask-image: url('https://cdn.simpleicons.org/javascript');
+        mask-image: url('https://cdn.simpleicons.org/javascript');
+    }
+
+    .icon-logo.react {
+        -webkit-mask-image: url('https://cdn.simpleicons.org/react');
+        mask-image: url('https://cdn.simpleicons.org/react');
+    }
+
+    .icon-logo.node {
+        -webkit-mask-image: url('https://cdn.simpleicons.org/nodedotjs');
+        mask-image: url('https://cdn.simpleicons.org/nodedotjs');
+    }
+
+    .icon-logo.mongodb {
+        -webkit-mask-image: url('https://cdn.simpleicons.org/mongodb');
+        mask-image: url('https://cdn.simpleicons.org/mongodb');
+    }
+
+    .icon-logo.figma {
+        -webkit-mask-image: url('https://cdn.simpleicons.org/figma');
+        mask-image: url('https://cdn.simpleicons.org/figma');
+    } 
+
+  
+    li:hover {
+        .icon-logo.html {
+            background-color: #E34F26;
+            transform: scale(1.2);
+        }
+
+        .icon-logo.js {
+            background-color: #F7DF1E;
+            transform: scale(1.2);
+        }
+
+        .icon-logo.react {
+            background-color: #61DAFB;
+            transform: scale(1.2);
+        }
+
+        .icon-logo.node {
+            background-color: #339933;
+            transform: scale(1.2);
+        }
+
+        .icon-logo.mongodb {
+            background-color: #47A248;
+            transform: scale(1.2);
+        }
+
+        .icon-logo.figma {
+            background-color: #F24E1E;
+            transform: scale(1.2);
+        }
+
+      
+    } 
+
+    
+.skills-list.mastery li i {
+    transition: all 0.3s ease; /* Transition douce pour la couleur et la taille */
+    color: var(--main-text);   /* Couleur par défaut (ton gris/bleu) */
+}
+
+.skills-list.mastery li:hover i {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Couleurs spécifiques par icône au survol */
+.skills-list.mastery li:hover .fa-check-double {
+    color: #37c26c; 
+}
+
+.skills-list.mastery li:hover .fa-compass-drafting {
+    color: #0ea5e9; 
+}
+
+.skills-list.mastery li:hover .fa-people-group {
+    color: #8b5cf6; 
+}
+
+.skills-list.mastery li:hover .fa-bullhorn {
+    color: #f59e0b; 
+}
+
+.skills-list.mastery li:hover .fa-chart-line {
+    color: #10b981;
+}
+
+.skills-list.mastery li:hover .fa-pen-nib {
+    color: #ec4899; 
+}
+
+    /* Container pour btn lien*/
+    .skills-links-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: var(--space-8);
+        margin-top: var(--space-6);
+    }
+
+
+    .btn-skill {
+        padding: 10px 20px;
+        font-size: var(--font-size-extra-small);
+        border-width: 1px;
+
+    }
+
+    .btn-skill i {
+        font-size: 1.2rem;
+        color: var(--main-text);
+        transition: transform 0.3s ease;
+    }
+
+  
+    .btn-skill:hover i {
+        color: var(--main-background);
+        transform: scale(1.1) rotate(-5deg);
+        
+    }
+
+    /* Responsive : boutons pleine largeur sur mobile */
+    @media (max-width: 480px) {
+        .skills-links-container {
+            flex-direction: column;
+        }
+
+        .btn-skill {
+            width: 100%;
+            justify-content: center;
         }
     }
 
@@ -1003,7 +1175,7 @@ em {
 /* Formulaire Contact - Design Amélioré */
 .section5 {
     .contactform_container {
-        margin-top: var(--space-8);
+        margin-top: var(--space-4);
 
         #contact {
             background-color: rgb(from var(--main-text) r g b / 3%);
@@ -1025,14 +1197,15 @@ em {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
-                gap: var(--space-4);
+                gap: var(--space-2);
             }
 
             label {
                 font-size: var(--font-size-small);
                 font-weight: var(--weight-medium);
-                letter-spacing: var(--letter-wide);
+                /* letter-spacing: var(--letter-wide); */
                 opacity: 0.8;
+                margin-top: 2%;
             }
 
             input,
@@ -1058,7 +1231,7 @@ em {
             }
 
             textarea {
-                min-height: 100px;
+                min-height: 40%;
                 resize: vertical;
             }
 
@@ -1068,27 +1241,9 @@ em {
                 align-self: flex-start;
                 width: fit-content;
                 padding: 12px 30px;
-
-
-               
-
-            /* 1. On cache le message de statut s'il ne contient pas de texte */
-            #statusMessage:empty {
-                display: none;
             }
 
-            /* 2. On supprime l'espace (gap) après le bouton s'il est le dernier élément visible */
-            #contactForm {
-                gap: var(--space-2);
-            }
 
-            /* 3. Optionnel : Réduire spécifiquement le padding bas du cadre gris */
-            .section5 .contactform_container #contact {
-                padding-bottom: var(--space-2);
-                /* Au lieu de space-4 */
-            }
         }
-
-
     }
 }

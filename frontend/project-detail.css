@@ -1,5 +1,29 @@
 /* project-detail.css */
 
+.image-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    margin: var(--space-2) 0;
+
+    video,
+    img {
+        max-width: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        height: auto;
+        max-height: 450px;
+        object-fit: contain;
+    }
+
+    /* Style des légendes */
+    p {
+        font-size: 0.85rem;
+        font-style: italic;
+        opacity: 0.5;
+    }
+}
+
 body {
     background-color: var(--main-background);
     color: var(--main-text);
@@ -14,14 +38,6 @@ body {
 }
 
 /* 1. Base typographique locale */
-p,
-li,
-ul {
-    font-family: Helvetica, sans-serif;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: var(--space-6);
-}
 
 h1 {
     font-size: 2rem;
@@ -36,6 +52,8 @@ h3 {
     font-size: 1rem;
     opacity: 0.8;
 }
+
+
 
 /* 2. Médias globaux */
 img,
@@ -52,10 +70,19 @@ video {
     max-width: 60vw;
     margin: 0 auto;
     padding: var(--space-12) var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
 
-    p {
+    p,
+    li,
+    ul {
+        font-family: Helvetica, sans-serif;
+        font-size: 1rem;
+        line-height: 1.5rem;
         max-width: none;
         /* Annule la limite des 80ch de global */
+
     }
 }
 
@@ -123,14 +150,17 @@ video {
     }
 }
 
+
+
 /* --- SECTIONS GÉNÉRALES --- */
 .project-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-8);
-    margin-bottom: var(--space-12);
-    border: chartreuse 2px solid;
+    justify-content: space-evenly;
+    gap: var(--space-12);
+    margin-bottom: var(--space-6);
+    /* border: chartreuse 2px solid; */
 
     &>div {
         /* Cible tous les enfants directs */
@@ -144,9 +174,10 @@ video {
     .projet_design,
     .project-technique,
     .lesson_learned {
-        border: rebeccapurple 2px solid;
+        /* border: rebeccapurple 2px solid; */
         width: 100%;
         text-align: left;
+        /* gap: var(--space-4); */
     }
 
     /* --- STYLE HIGHLIGHT --- */
@@ -162,8 +193,8 @@ video {
         color: var(--main-text);
         border-bottom: 1px solid var(--main-text);
         display: inline-block;
-        margin-bottom: var(--space-4);
-        margin-top: var(--space-2);
+        /* margin-bottom: var(--space-2); */
+        /* margin-top: var(--space-2); */
     }
 
     .projet_purpose {}
@@ -180,13 +211,9 @@ video {
             display: flex;
             flex-direction: column;
             align-items: center;
-
-            img {
-                max-width: 80%;
-                height: auto;
-                margin-top: var(--space-4);
-            }
         }
+
+
     }
 
     .container_screens {
@@ -203,94 +230,81 @@ video {
     .project-technique {
         display: flex;
         flex-direction: column;
-        gap: var(--space-16);
-        width: 100%;
+        justify-content: space-between;
+        width: 90%;
+        gap: var(--space-2);
         /* TEST */
         max-width: 1000px;
         margin: 0 auto;
 
         .intro-text {
-            margin-bottom: var(--space-8);
+            /* margin-bottom: var(--space-8); */
             max-width: 800px;
             /* TEST */
-            text-align: center
+            text-align: center;
+
+
         }
 
         .article-point {
             display: flex;
             /* align-items: flex-start; */
             /* TEST */
-            flex-direction: row;
+            flex-direction: column;
             /* Force la ligne sur desktop */
             align-items: center;
-            /* Centre verticalement le texte et l'image */
-            gap: var(--space-12);
-            width: 100%;
+            /* border: 2px red solid; */
+            gap: var(--space-4);
+            margin-bottom: 4rem;
 
-            /* Alternance : le 2ème, 4ème, etc. sont inversés */
-            &:nth-of-type(even) {
-                flex-direction: row-reverse;
-            }
 
-                        /* On force chaque côté à prendre 50% du bloc */
-                        .point-content,
-                        .point-media {
-                            flex: 1;
-                            width: 50%;
-                        }
 
             .point-content {
                 /* text-align: left; */
-                
+
                 p {
                     margin-bottom: var(--space-4);
                     line-height: 1.7;
                     /* Un peu plus d'air pour la lecture */
                 }
+            }
 
-                .point-media {
+            .point-media {
+                /* flex: 1; */
+
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: stretch;
+                gap: var(--space-4);
+                /* border: solid 1px saddlebrown; */
+
+
+                /* On force chaque côté à prendre 50% du bloc */
+                .html-concept,
+                .code-concept,
+                .benefit-box {
                     flex: 1;
-                    width: 100%;
+                    width: 50%;
+                    margin: 0;
+                    /* Important : on annule les marges qui décalent les blocs */
+                    box-sizing: border-box;
                     display: flex;
                     flex-direction: column;
-                    gap: var(--space-4);
-                    /* Espace entre le code et l'image/vidéo */
+                }
+
+                .benefit-box {
+                    background: rgba(var(--main-text-rgb, 0, 0, 0), 0.05);
+                    padding: var(--space-6);
+                    border-radius: var(--radius-sm);
+                    font-size: 0.9rem;
+                    border-left: 3px solid var(--main-text);
+                    font-size: 0.9rem;
+                    box-shadow: var(--shadow-lg);
+                    font-family: 'Fira Code', 'Courier New', monospace;
                 }
             }
 
-            /* --- STYLES DES BADGES --- */
-            .badge {
-                display: inline-block;
-                padding: 4px 12px;
-                border-radius: 20px;
-                font-size: 0.75rem;
-                font-weight: bold;
-                text-transform: uppercase;
-                margin-bottom: var(--space-2);
-                letter-spacing: 1px;
-
-                &.badge-html {
-                    background: #e34f2622;
-                    color: #e34f26;
-                    border: 1px solid #e34f26;
-                }
-
-                &.badge-js {
-                    background: #f7df1e22;
-                    color: #d6bf00;
-                    border: 1px solid #f7df1e;
-                }
-            }
-
-            /* --- PETITE BOX DE BÉNÉFICE --- */
-            .benefit-box {
-                background: rgba(var(--main-text-rgb, 0, 0, 0), 0.05);
-                padding: var(--space-4);
-                border-radius: var(--radius-sm);
-                font-size: 0.9rem;
-                border-left: 3px solid var(--main-text);
-                margin-top: var(--space-4);
-            }
         }
 
         /* --- RESPONSIVE MOBILE --- */
@@ -395,57 +409,34 @@ video {
             width: 100%;
             max-width: 800px;
             margin: var(--space-6) auto;
-            border: #ff79c6 2px solid;
-        }
-
-        .image-placeholder {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: var(--space-6);
-            margin: var(--space-8) 0;
-
-            video,
-            img {
-                max-width: 100%;
-                border: 1px solid rgba(0, 0, 0, 0.1);
-                height: auto;
-                max-height: 450px;
-                object-fit: contain;
-            }
-
-            /* Style des légendes */
-            figcaption {
-                margin-top: var(--space-3);
-                font-size: 0.85rem;
-                font-style: italic;
-                opacity: 0.8;
-                text-align: center;
-            }
+            /* border: #ff79c6 2px solid; */
         }
 
 
     }
 
-    /* Listes stylisées */
-    .project-list {
-        list-style: none;
-        padding-left: 0;
 
-        li {
-            margin-bottom: var(--space-2) !important;
-            position: relative;
-            padding-left: var(--space-6);
+}
 
-            &::before {
-                content: "→";
-                position: absolute;
-                left: 0;
-                color: var(--main-text);
-            }
+/* Listes stylisées */
+.project-list {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+        margin-bottom: var(--space-2) !important;
+        position: relative;
+        padding-left: var(--space-6);
+
+        &::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--main-text);
         }
     }
 }
+
 
 /* Footer & Media Queries (Hors Nesting) */
 .project-footer {

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="project-detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="project-details.js defer"> </script>
 </head>
 
 <body class="bbbreadme">
@@ -37,7 +38,7 @@
                         <ul>
                             <li>Développement</li>
                             <li>Design</li>
-                            <li>Redaction</li>
+                            <li>Rédaction</li>
                         </ul>
                     </div>
                     <div class="meta-item">
@@ -74,9 +75,8 @@
                 <h2>Objectif du projet</h2>
                 <p>Ce projet vient d'un besoin que j'ai rencontré personellement. Étant autiste et TDAH, c'est par la
                     répétition et l'analyse consciente des
-                    interactions que j'ai acquis des compétences sociales qui ne me venaient pas naturellement (Merci
-                    les
-                    SIMS !). J'ai toujours rêvé d'un environnement où m'entraîner sans craindre les malentendus ou les
+                    interactions que j'ai acquis des compétences sociales qui ne me venaient pas naturellement. J'ai
+                    toujours rêvé d'un environnement où m'entraîner sans craindre les malentendus ou les
                     faux
                     pas du temps réel. Ce projet est cette réalisation : un simulateur où les personnes neurodivergentes
                     peuvent expérimenter, analyser et progresser dans un cadre structuré et bienveillant.</p>
@@ -108,14 +108,19 @@
                 <div class="elem_design">
                     <p>Mes recherches graphiques ont abouti à un design qui reprend le logo de l'autisme (un sigle
                         infini) en
-                        l'intégrant au S de Socal et de Script. Cette fusion symbolise une boucle d'apprentissage
+                        l'intégrant au S de Social Script. Cette fusion symbolise une boucle d'apprentissage
                         continue et
                         fluide tout en respectant les normes
                         WCAG AAA voulue sur le site.</p>
-
-                    <img src="../img/screen/recherchesgraphiques.png" alt="Différentes version du logo"
-                        class="image-placeholder ">
                 </div>
+                <div class="image-placeholder">
+                    <img src="../img/screen/croquislogo2.png" alt="Croquis et recherches graphiques">
+                      <p>Croquis et recherches graphiques</p>
+                    <img src="../img/screen/recherchesgraphiques.png" alt="Différentes version du logo">
+                    <p>Différentes version du logo réalisées sur Illustrator</p>
+                </div>
+
+
 
             </div>
         </section>
@@ -132,29 +137,29 @@
         <section class="project-section">
             <div class="project-technique">
                 <h2>Défis techniques : L'Accessibilité</h2>
-                <p class="intro-text">
-                    Pour un projet s'adressant aux personnes neurodivergentes, l'accessibilité n'est pas une option, mais le
-                    socle de l'expérience utilisateur. Mon défi a été de réduire la charge cognitive tout en assurant une
-                    navigation robuste pour les technologies d'assistance.
-                </p>
-        
+                <div class="intro-text">
+                    <p>Pour un projet s'adressant aux personnes neurodivergentes, l'accessibilité n'est pas une option,
+                        mais le
+                        socle de l'expérience utilisateur. Mon défi a été de réduire la charge cognitive tout en
+                        assurant
+                        une
+                        navigation robuste pour les technologies d'assistance. </p>
+                </div>
+
                 <div class="article-point">
                     <div class="point-content">
-                        <span class="badge badge-html">HTML5 Sémantique</span>
+
                         <h3>1. Navigation sémantique native</h3>
                         <p>
                             J'ai privilégié l'utilisation des balises HTML5 <code>&lt;details&gt;</code> et
                             <code>&lt;summary&gt;</code> pour les FAQ et les sections d'analyse.
                         </p>
-                        <div class="benefit-box">
-                            <strong>L'intérêt technique :</strong> Ces balises offrent une interactivité native sans JavaScript.
-                            Elles sont <strong>accessibles par défaut</strong> : le navigateur gère lui-même le focus clavier
-                            et communique automatiquement l'état (ouvert ou fermé) aux lecteurs d'écran.
-                        </div>
+
                     </div>
                     <div class="point-media">
                         <div class="html-concept">
-                            <span class="code-comment">L'élément natif permet de gérer l'ouverture/fermeture sans JS</span>
+                            <span class="code-comment">L'élément natif permet de gérer l'ouverture/fermeture sans
+                                JS</span>
                             <code>
                                 &lt;<span class="keyword">details</span>&gt;<br>
                                 &nbsp;&nbsp;&lt;<span class="keyword">summary</span>&gt;Titre de la FAQ&lt;/<span class="keyword">summary</span>&gt;<br>
@@ -162,30 +167,35 @@
                                 &lt;/<span class="keyword">details</span>&gt;
                             </code>
                         </div>
-                        <figure class="image-placeholder">
-                            <video autoplay loop muted playsinline>
-                                <source src="../img/screen/testnavclavier.mp4" type="video/mp4">
-                            </video>
-                            <figcaption>Démonstration de la navigation entièrement au clavier.</figcaption>
-                        </figure>
+                        <div class="benefit-box">
+                            <strong>L'intérêt technique :</strong> Ces balises offrent une interactivité native sans
+                            JavaScript.
+                            Elles sont <strong>accessibles par défaut</strong> : le navigateur gère lui-même le focus
+                            clavier
+                            et communique automatiquement l'état (ouvert ou fermé) aux lecteurs d'écran.
+                        </div>
+                    </div>
+                    <!-- <div class="video-container"> -->
+                        <div class="image-placeholder">
+                        <video id="demo-video" loop muted playsinline controls>
+                            <source src="../img/screen/testnavclavier.mp4" type="video/mp4">
+                        </video>
+                        <p>Capture d'écran vidéo de la FAQ</p>
+
                     </div>
                 </div>
-        
+
+
                 <div class="article-point">
                     <div class="point-content">
-                        <span class="badge badge-js">JavaScript & UX</span>
                         <h3>2. Gestion proactive du Focus</h3>
                         <p>
-                            Dans une application dynamique où le contenu est généré par JavaScript, comme dans ma page scenario,
+                            Dans une application dynamique où le contenu est généré par JavaScript, comme dans ma page
+                            scenario,
                             le curseur clavier se perd souvent lors d'un rafraîchissement. J'ai implémenté un système de
                             <strong>Focus Management</strong>.
                         </p>
-                        <div class="benefit-box">
-                            <strong>Focus dynamique :</strong> Dès que l'utilisateur valide un choix, j'utilise la méthode
-                            <code>.focus({ focusVisible: true })</code> sur l'élément suivant. Cela garantit une navigation
-                            fluide au clavier,
-                            évite les clics inutiles et met visuellement en évidence l'élément actif par un contour marqué.
-                        </div>
+
                     </div>
                     <div class="point-media">
                         <div class="code-concept">
@@ -196,49 +206,66 @@
                                 nextBtn.<strong>focus</strong>({ <span class="attr">focusVisible</span>: <span class="keyword">true</span> });
                             </code>
                         </div>
-                        <div class="image-placeholder">
-                            <img src="../img/screen/scenario1.png"
-                                alt="Démonstration du focus visible sur le premier bouton de réponse">
+
+                        <div class="benefit-box">
+                            <strong>Focus dynamique :</strong> Dès que l'utilisateur valide un choix, j'utilise la
+                            méthode
+                            <code>.focus({ focusVisible: true })</code> sur l'élément suivant. Cela garantit une
+                            navigation
+                            fluide au clavier,
+                            évite les clics inutiles et met visuellement en évidence l'élément actif par un contour
+                            marqué.
                         </div>
+                    </div>
+                    <div class="image-placeholder">
+                        <img src="../img/screen/scenario1.png"
+                            alt="Démonstration du focus visible sur le premier bouton de réponse">
+                            <p>Capture d'écran montrant focus visible sur le premier bouton de réponse</p>
                     </div>
                 </div>
             </div>
+            </div>
         </section>
-        
+
         <!-- ** ---------LECONS APPRISES ** ------------ -->
         <section class="project-section ">
-            <div class="lesson_learned highlight"> 
-            <h2>Ce que j'ai appris</h2>
-            <p>
-                Ce projet m'a permis de transformer mes engagements en faveur de l'inclusion en compétences techniques.
-                En m'appuyant sur les standards du W3C et les principes <strong>POUR</strong>, j'ai consolidé ma
-                pratique de l'accessibilité native.
-            </p>
-
-            <div class="article-point">
-                <h3>Maîtrise des standards et outils</h3>
+            <div class="lesson_learned highlight">
+                <h2>Ce que j'ai appris</h2>
                 <p>
-                    J'ai approfondi l'usage du duo <code>&lt;details&gt;/&lt;summary&gt;</code> et la gestion proactive
-                    du focus clavier en JavaScript. L'utilisation systématique de **Wave** et des **axe DevTools** fait
-                    désormais partie intégrante de mon workflow pour garantir des interfaces certifiées <strong>WCAG
-                        AA</strong>.
+                    Ce projet m'a permis de transformer mes engagements en faveur de l'inclusion en compétences
+                    techniques.
+                    En m'appuyant sur les standards du W3C et les principes <strong>POUR</strong>, j'ai consolidé ma
+                    pratique de l'accessibilité native.
                 </p>
+
+                <div class="article-point">
+                    <h3>Maîtrise des standards et outils</h3>
+                    <p>
+                        J'ai approfondi l'usage du duo <code>&lt;details&gt;/&lt;summary&gt;</code> et la gestion
+                        proactive
+                        du focus clavier en JavaScript. L'utilisation systématique de **Wave** et des **axe DevTools**
+                        fait
+                        désormais partie intégrante de mon workflow pour garantir des interfaces certifiées <strong>WCAG
+                            AA</strong>.
+                    </p>
+                </div>
+
+                <div class="article-point">
+                    <h3>Analyse critique du workflow</h3>
+                    <p>
+                        Si <strong>JSON Server</strong> a été un excellent choix pour mon premier projet avec une API,
+                        il a
+                        montré ses limites pour le déploiement en production.
+                    </p>
+                    <p>
+                        <em>Le test ultime :</em> Naviguer sur mon propre simulateur via <strong>VoiceOver</strong> a
+                        été
+                        l'étape la plus formatrice. Cela m'a permis d'ajuster l'annonce des feedbacks pédagogiques pour
+                        qu'ils soient aussi fluides à l'oreille qu'à l'œil.
+                    </p>
+                </div>
+
             </div>
-
-            <div class="article-point">
-                <h3>Analyse critique du workflow</h3>
-                <p>
-                    Si <strong>JSON Server</strong> a été un excellent choix pour mon premier projet avec une API, il a
-                    montré ses limites pour le déploiement en production.
-                </p>
-                <p>
-                    <em>Le test ultime :</em> Naviguer sur mon propre simulateur via <strong>VoiceOver</strong> a été
-                    l'étape la plus formatrice. Cela m'a permis d'ajuster l'annonce des feedbacks pédagogiques pour
-                    qu'ils soient aussi fluides à l'oreille qu'à l'œil.
-                </p>
-            </div>
-
-</div>
         </section>
 
     </main>
