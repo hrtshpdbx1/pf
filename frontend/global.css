@@ -1002,8 +1002,8 @@ em {
 
     
 .skills-list.mastery li i {
-    transition: all 0.3s ease; /* Transition douce pour la couleur et la taille */
-    color: var(--main-text);   /* Couleur par défaut (ton gris/bleu) */
+    transition: all 0.3s ease; 
+    color: var(--main-text);   
 }
 
 .skills-list.mastery li:hover i {
@@ -1183,40 +1183,40 @@ em {
             padding: var(--space-4);
             border-radius: var(--radius-lg);
             border: 1px solid rgb(from var(--main-text) r g b / 10%);
-            max-width: 600px;
+            max-width: 60%;
         }
 
         #contactForm {
             display: flex;
             flex-direction: column;
 
-            gap: var(--space-2);
-            margin-top: var(--space-2);
+            gap: 1em;
+            /* margin-top: var(--space-2); */
 
             div {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
-                gap: var(--space-2);
+                /* gap: var(--space-2); */
             }
 
             label {
-                font-size: var(--font-size-small);
+                font-size: var(--font-size-extra-small);
                 font-weight: var(--weight-medium);
                 /* letter-spacing: var(--letter-wide); */
                 opacity: 0.8;
-                margin-top: 2%;
             }
 
             input,
             textarea {
-                padding: var(--space-4);
+                padding: var(--space-2);
                 border: 1.5px solid rgb(from var(--main-text) r g b / 20%);
                 background: var(--main-background);
                 color: var(--main-text);
                 font-family: inherit;
                 border-radius: var(--radius-sm);
                 transition: all 0.2s ease;
+                font-size: var(--font-size-extra-small);
 
                 &:focus {
                     outline: none;
@@ -1231,7 +1231,8 @@ em {
             }
 
             textarea {
-                min-height: 40%;
+                min-height: 80px;
+                max-height: 150px;
                 resize: vertical;
             }
 

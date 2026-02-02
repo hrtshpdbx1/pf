@@ -21,10 +21,14 @@
     <main id="main-content" class="project-page">
         <header class="project-hero">
             <h1>PayGap Quest</h1>
-            <p class="project-tagline">PayGap Quest est un simulateur interactif conçu pour lever le voile sur les inégalités de rémunération et transformer la
-            négociation de carrière en un exercice accessible à toutes. En traduisant des données macro-économiques complexes en une
-            expérience utilisateur fluide et pédagogique, cet outil permet aux femmes de simuler leurs trajectoires, de calculer
-            leur manque à gagner et de structurer leur discours pour exiger une rémunération à la hauteur de leur talent.</p>
+            <p class="project-tagline">PayGap Quest est un simulateur interactif conçu pour lever le voile sur les
+                inégalités de rémunération et transformer la
+                négociation de carrière en un exercice accessible à toutes. En traduisant des données macro-économiques
+                complexes en une
+                expérience utilisateur fluide et pédagogique, cet outil permet aux femmes de simuler leurs trajectoires,
+                de calculer
+                leur manque à gagner et de structurer leur discours pour exiger une rémunération à la hauteur de leur
+                talent.</p>
 
             <div class="project-meta">
                 <div class="meta-container-left">
@@ -65,29 +69,35 @@
                 </div>
             </div>
 
-            <section class="project-section highlight">
-                <h2>À propos de cette démo</h2>
-                <p><strong>Cette version est une démonstration interactive Frontend uniquement.</strong> Elle présente
-                    le
-                    design visuel et les interactions conçus durant l'événement. Pour faciliter l'accès immédiat, cette
-                    démo
-                    présente la structure fidèle au prototype original, bien que les calculs en temps réel (Backend via
-                    PHP)
-                    soient ici simulés. L'architecture complète reste consultable sur GitHub.</p>
+            <section class="project-section">
+                <div class="projet_purpose highlight">
+                    <h2>À propos de cette démo</h2>
+                    <p><strong>Cette version est une démonstration interactive Frontend uniquement.</strong> Elle
+                        présente
+                        le
+                        design visuel et les interactions conçus durant l'événement. Pour faciliter l'accès immédiat,
+                        cette
+                        démo
+                        présente la structure fidèle au prototype original, bien que les calculs en temps réel (Backend
+                        via
+                        PHP)
+                        soient ici simulés. L'architecture complète reste consultable sur GitHub.</p>
+                </div>
             </section>
 
             <div class="project-homepage_screen">
                 <figure class="image-placeholder">
-                    <video autoplay loop muted playsinline>
+                   <video loop muted playsinline controls>
                         <source src="../img/screen/homepage_animation_v2.mp4"
                             alt="Capture d'écran de l'accueil PayGap Quest" type="video/mp4">
-                    </video>
-                    <figcaption>Page d'accueil PayGap Quest.</figcaption>
+                             </video>
+                        <figcaption>Page d'accueil du projet PayGap Quest</figcaption>
+                   
                 </figure>
             </div>
         </header>
-<!-- ** ------- OBJECTIFS PROJET * ----------  -->
-<!-- TODO : regler pb de margin top -->
+        <!-- ** ------- OBJECTIFS PROJET * ----------  -->
+        <!-- TODO : regler pb de margin top -->
         <section class="project-section">
             <div class="projet_purpose">
                 <h2>Objectif du projet</h2>
@@ -103,7 +113,7 @@
                     jusqu'à 1 million d'euros sur une carrière. Face à ce manque d'éducation financière, notre équipe a
                     créé un outil pour
                     se réapproprier ces enjeux par l'information et la négociation.</p>
-<!-- ** -------FONCTIONALITEs   ** ----------  -->
+                <!-- ** -------FONCTIONALITEs   ** ----------  -->
                 <h3>Fonctionnalités clés :</h3>
                 <ul class="project-list">
                     <li><strong>Calculateur salarial :</strong> Comparatif dynamique basé sur le secteur, l’ancienneté
@@ -121,70 +131,90 @@
                 </ul>
             </div>
         </section>
-
+        <!-- ** ------- TECHNIQUES    ** ----------  -->
         <section class="project-section">
-            <h2>Défis techniques & Réalisations</h2>
+            <div class="project-technique">
+                <h2>Défis techniques & Réalisations</h2>
+                <div class="intro-text">
+                    <!-- insererer une intro ? -->
+                </div>
+                <div class="article-point">
+                    <div class="point-content">
+                        <h3>Le calculateur d'écart salarial</h3>
+                        <p>Pour rendre les données de l'IEFH concrètes, notre équipe a mis en place un simulateur
+                            dynamique. Le
+                            défi majeur a été
+                            l'harmonisation entre le traitement des données en PHP et leur affichage côté Front-end.
+                            Nous avons
+                            travaillé sur un
+                            flux asynchrone (JSON) permettant d'interroger les différents secteurs (IT, santé,
+                            enseignement) et
+                            d'afficher les
+                            écarts salariaux sans rechargement de page.
+                        </p>
+                    </div>
+                    <figure class="image-placeholder">
+                        <img src="" alt="">
+                        <figcaption> Capture d'ecran video du formulaire</figcaption>
 
-            <div class="article-point">
-                <h3>Le calculateur d'écart salarial</h3>
-                <p>Pour rendre les données de l'IEFH concrètes, notre équipe a mis en place un simulateur dynamique. Le
-                    défi majeur a été
-                    l'harmonisation entre le traitement des données en PHP et leur affichage côté Front-end. Nous avons
-                    travaillé sur un
-                    flux asynchrone (JSON) permettant d'interroger les différents secteurs (IT, santé, enseignement) et
-                    d'afficher les
-                    écarts salariaux sans rechargement de page.</p>
-
+                    </figure>
                     <figure class="image-placeholder">
                         <img src="../img/screen//PayGap.drawio.png" alt="Diagramme de l'architecture backend">
-                        <figcaption>Architecture logicielle</figcaption>
+
+                        <figcaption> Architecture logicielle</figcaption>
                     </figure>
+                    <div class="point-media">
+                        <div class="json-concept">
+                            <span class="code-comment">Extrait de la structure de données consommée par le
+                                Front-end</span>
+                            <code>
+<br>
+&nbsp;&nbsp;<span class="json-key">"IT"</span>: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"ecartHF"</span>: <span class="json-number">0.18</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"metiers"</span>: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"Developpeur Full-Stack"</span>: { <span class="json-key">"CP"</span>: <span class="json-string">"200"</span>, <span class="json-key">"base"</span>: <span class="json-number">3300</span>, <span class="json-key">"femme"</span>: <span class="json-number">3100</span>, <span class="json-key">"homme"</span>: <span class="json-number">3500</span> },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"Developpeur JavaScript"</span>: { <span class="json-key">"CP"</span>: <span class="json-string">"200"</span>, <span class="json-key">"base"</span>: <span class="json-number">3100</span>, <span class="json-key">"femme"</span>: <span class="json-number">2950</span>, <span class="json-key">"homme"</span>: <span class="json-number">3250</span> },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"UX/UI Designer"</span>: { <span class="json-key">"CP"</span>: <span class="json-string">"200"</span>, <span class="json-key">"base"</span>: <span class="json-number">2900</span>, <span class="json-key">"femme"</span>: <span class="json-number">2850</span>, <span class="json-key">"homme"</span>: <span class="json-number">3000</span> },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"Data Analyst"</span>: { <span class="json-key">"CP"</span>: <span class="json-string">"200"</span>, <span class="json-key">"base"</span>: <span class="json-number">3400</span>, <span class="json-key">"femme"</span>: <span class="json-number">3250</span>, <span class="json-key">"homme"</span>: <span class="json-number">3550</span> }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;<span class="json-key">"Santé"</span>: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"ecartHF"</span>: <span class="json-number">0.17</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"metiers"</span>: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"Infirmier Hospitalier"</span>: { <span class="json-key">"CP"</span>: <span class="json-string">"330"</span>, <span class="json-key">"base"</span>: <span class="json-number">2800</span>, <span class="json-key">"femme"</span>: <span class="json-number">2700</span>, <span class="json-key">"homme"</span>: <span class="json-number">2900</span> },<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"Aide-Soignant"</span>: { <span class="json-key">"CP"</span>: <span class="json-string">"330"</span>, <span class="json-key">"base"</span>: <span class="json-number">2350</span>, <span class="json-key">"femme"</span>: <span class="json-number">2450</span>, <span class="json-key">"homme"</span>: <span class="json-number">2600</span> }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;<span class="json-key">"Education"</span>: { <span class="json-punctuation">...</span> }<br>
 
-
-                <div class="html-concept code-block-width">
-                    <span class="code-comment">Extrait de la structure de données consommée par le Front-end</span>
-                    <code>
-                        {<br>
-                        &nbsp;&nbsp;"IT": {<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;"ecartHF": <span class="string">0.18</span>,<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;"metiers": {<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"UX/UI Designer": { "base": <span class="string">2900</span>, "femme": <span class="string">2850</span> }<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                        &nbsp;&nbsp;}<br>
-                        }
-                    </code>
+    </code>
+                        </div>
+                    </div>
                 </div>
 
-               
-            </div>
-
-            <div class="article-point">
-                <h3>Le compteur dynamique</h3>
-                <p>En complément du calculateur, j'ai développé un compteur en JavaScript pur pour créer un impact
-                    immédiat dès la page d'accueil.
-                    Mon objectif était de traduire une statistique "froide" en une urgence temporelle. En effet, le 20
-                    octobre est la <em> Journée de l’inégalité salariale</em> (UnEqual Pay Day), date à partir de
-                    laquelle les femmes belges travailles "grauitement" jusqu'à la fin de l'année.
-                    J'ai conçu une logique hybride qui détecte la date du jour. Avant le 20 octobre, le
-                    script affiche un compte à rebours ("Dans X jours..."); dès la date passée, il bascule
-                    automatiquement en compteur de
-                    temps écoulé ("Depuis X jours..."). Ainsi le message de rester percutant
-                    toute l'année.
-                </p>
-                <!-- TODO : Choisir -->
-                <figure class="image-placeholder">
-                    <video autoplay loop muted playsinline>
-                        <source src="../img/screen/Compteur_720.mp4" type="video/mp4">
-                        <!-- TODO : Mettre nouvelle capture d'écran -->
-                    </video>
-                    <figcaption>Capture vidéo du compteur : Transformer une donnée froide en une expérience temporelle
-                        percutante.</figcaption>
-                </figure>
-            </div>
-            <!-- bloc de code v2 -->
-            <div class="code-concept code-block-width">
-                <span class="code-comment">Calcul dynamique de l'inégalité en temps réel</span>
-                <code>
+                <div class="article-point">
+                    <div class="point-content">
+                        <h3>Le compteur dynamique</h3>
+                        <p>En complément du calculateur, j'ai développé un compteur en JavaScript pur pour créer un
+                            impact
+                            immédiat dès la page d'accueil.
+                            Mon objectif était de traduire une statistique "froide" en une urgence temporelle. En effet,
+                            le
+                            20
+                            octobre est la <em> Journée de l’inégalité salariale</em> (UnEqual Pay Day), date à partir
+                            de
+                            laquelle les femmes belges travailles "grauitement" jusqu'à la fin de l'année.
+                            J'ai conçu une logique hybride qui détecte la date du jour. Avant le 20 octobre, le
+                            script affiche un compte à rebours ("Dans X jours..."); dès la date passée, il bascule
+                            automatiquement en compteur de
+                            temps écoulé ("Depuis X jours..."). Ainsi le message de rester percutant
+                            toute l'année.
+                        </p>
+                    </div>
+                    <div class="point-media">
+                        <div class="code-concept">
+                            <span class="code-comment">Calcul dynamique de l'inégalité en temps réel</span>
+                            <code>
                         <span class="keyword">function</span> <span class="attr">updateCounter</span>() {<br>
                         &nbsp;&nbsp;<span class="keyword">const</span> today = <span class="keyword">new</span> Date();<br>
                         &nbsp;&nbsp;<span class="keyword">let</span> diff = today - unequalPayDay;<br>
@@ -193,44 +223,69 @@
                         &nbsp;&nbsp;counterElement.innerHTML = <span class="string">`Depuis ${diffDays} jours...`</span>;<br>
                         }
                     </code>
+                        </div>
+                        <div class="benefit-box">
+                            <!-- todo : inserer ici p explicatif -->
+                        </div>
+                    </div>
+                    <div class="image-placeholder">
+                        <figure id="demo-video" loop muted playsinline controls>
+                            <source src="../img/screen/compteur_fast.mp4" type="video/mp4">
+                            <!-- TODO : Mettre nouvelle capture d'écran -->
+                            <figcaption> Capture vidéo du compteur : Transformer une donnée froide en une expérience
+                                temporelle
+                                percutante.</figcaption>
+                        </figure>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ** ---------LECONS APPRISES ** ------------ -->
+        <section class="project-section ">
+            <div class="lesson_learned highlight">
+                <h2>Ce que j'ai appris</h2>
+                <div class="article-point">
+                    <ul class="project-list">
+                        <li><strong>Collaboration intensive :</strong> Coordonner l'intégration de mes composants
+                            Front-end avec
+                            la logique Back-end de l'équipe.</li>
+                        <li><strong>Git Flow sous tension :</strong> Gérer les branches et résoudre les conflits de
+                            fusion à 4
+                            mains sur un sprint de 72h.</li>
+                        <li><strong>• UX Temporelle & MVP:</strong> : Prioriser des scripts intelligents qui servent le
+                            message
+                            politique du projet.</li>
+                    </ul>
+
+                    <h3>On the agenda (Futur du prototype) :</h3>
+                    <p>Pour la suite, nous souhaiterions renforcer l'accessibilité (contraste et sémantique vocale),
+                        peaufiner
+                        l'UI
+                        pour plus de clarté, et assurer un responsive design total pour une utilisation mobile en
+                        situation
+                        d'entretien.</p>
+                </div>
             </div>
 
-            <!-- bloc de code v1 -->
 
+            <div class="article-point">
+                <h2>Crédits </h2>
+                <p>💖</p>
+                <p>Ce projet est le fruit d'une collaboration intense entre le développement et le design :</p>
+                <ul class="project-list">
+                    <li><strong>Développement Frontend :</strong>
+                        <a href="https://github.com/Sara-pe" target="_blank" class="credit-link">Sara</a>,
+                        <a href="https://github.com/Vic50595" target="_blank" class="credit-link">Victoria</a>
+                        et Moi 🤗.
+                    </li>
+                    <li><strong>Développement Backend :</strong> <a href="https://github.com/sahardel92" target="_blank"
+                            class="credit-link">Sahar D.</a></li>
+                    <li><strong><a href="https://deepthroadocus.itch.io/" target="_blank" class="credit-link">Romane</a>
+                </ul>
             </div>
-        </section>
 
-        <section class="project-section highlight">
-            <h2>Ce que j'ai appris</h2>
-            <ul class="project-list">
-                <li><strong>Collaboration intensive :</strong> Coordonner l'intégration de mes composants Front-end avec
-                    la logique Back-end de l'équipe.</li>
-                <li><strong>Git Flow sous tension :</strong> Gérer les branches et résoudre les conflits de fusion à 4
-                    mains sur un sprint de 72h.</li>
-                <li><strong>• UX Temporelle & MVP:</strong> : Prioriser des scripts intelligents qui servent le message
-                    politique du projet.</li>
-            </ul>
-
-            <h3>On the agenda (Futur du prototype) :</h3>
-            <p>Pour la suite, nous souhaiterions renforcer l'accessibilité (contraste et sémantique vocale), peaufiner l'UI
-                pour plus de clarté, et assurer un responsive design total pour une utilisation mobile en situation
-                d'entretien.</p>
-        </section>
-
-        <section class="project-section">
-            <h2>Travail d'équipe & Crédits</h2>
-            <p>Ce projet est le fruit d'une collaboration intense entre le développement et le design :</p>
-            <ul class="project-list">
-                <li><strong>Développement Frontend :</strong>
-                    <a href="https://github.com/Sara-pe" target="_blank" class="credit-link">Sara</a>,
-                    <a href="https://github.com/Vic50595" target="_blank" class="credit-link">Victoria</a>
-                    et Moi 🤗.
-                </li>
-                <li><strong>Développement Backend :</strong> <a href="https://github.com/sahardel92" target="_blank"
-                        class="credit-link">Sahar D.</a></li>
-                <li><strong><a href="https://deepthroadocus.itch.io/" target="_blank" class="credit-link">Romane</a>
-            </ul>
-        </section>
     </main>
 
     <div class="project-footer">
@@ -254,8 +309,7 @@
                     <a href="mailto:ton-email@exemple.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
                 </div>
             </div>
-        </div>
-
+    </footer>
 </body>
 
 </html>
