@@ -67,8 +67,6 @@ a {
     --main-background: #F7F7F0;
     /* ! idem */
     --main-text: #2C3E50;
-    /* --accent-color-soft: #B7B7E0;
-    --accent-color-strong: #001F3F; */
 
     /* SPACING */
     --space-0-5: 0.15rem;
@@ -93,8 +91,7 @@ a {
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
     --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.20);
 
-    /* FONTS */
-
+    /* FONTS STYLING*/
     --font-size-extra-small: 0.8rem;
     /* ~13px */
     --font-size-small: 0.9rem;
@@ -117,16 +114,18 @@ a {
     --weight-bold: 700;
     --weight-extra-bold: 800;
     --weight-black: 900;
-
     --line-tight: 1;
     --line-normal: 1.5;
     --line-loose: 1.8;
     --line-big: 2.2;
-
     --letter-tight: -0.02em;
     --letter-normal: 0;
     --letter-wide: 0.05em;
 }
+
+/* =========================================
+   3. PAGE LAYOUT
+   ========================================= */
 
 * {
     margin: 0;
@@ -135,18 +134,13 @@ a {
 }
 
 html {
-    /* * Scroll Snapping  */
-    /* "y" pour défilement vertical, "mandatory" pour forcer l'aimantation */
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y mandatory;     /* Scroll Snapping  */
     scroll-behavior: smooth;
-    /* Pour que les ancres soient fluides */
 }
 
 html,
 body {
     height: 100%;
-
-
 }
 
 body {
@@ -155,10 +149,7 @@ body {
     color: var(--main-text);
     transition: all 0.3s ease;
     scroll-snap-type: y mandatory;
-    font-family: 'BBB ReadMe',
-        sans-serif;
-
-    /* * Scroll Snapping  */
+    font-family: 'BBB ReadMe',sans-serif;
     margin: 0;
 
     /* Classes de polices injectées par JS */
@@ -187,51 +178,6 @@ body {
     }
 }
 
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background-color: var(--main-text);
-    color: var(--main-background);
-    border: 1.5px solid var(--main-text);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 998;
-    /* Juste en dessous du menu trigger */
-
-    /* On le cache par défaut */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-
-    /* Animation fluide */
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: var(--shadow-md);
-
-    &:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-lg);
-        background-color: var(--main-background);
-        color: var(--main-text);
-    }
-
-    /* Version active/visible */
-    &.visible {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
-}
-
-#main-content {
-    /* ne pas mettre de line-height ici ! */
-}
-
 #main-content p {
     /* variable pilotée par le JS */
     line-height: var(--dynamic-line-height, 1.2);
@@ -239,11 +185,7 @@ body {
     margin-bottom: var(--space-6);
     opacity: 0.9;
     text-align: left;
-    /* Un noir pur sur fond blanc peut être agressif, 0.9 adoucit le contraste */
 }
-
-
-
 
 #main-content li {
     /* variable pilotée par le JS */
@@ -329,8 +271,44 @@ em {
 }
 
 
+/* Bouton Back to top */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--main-text);
+    color: var(--main-background);
+    border: 1.5px solid var(--main-text);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-md);
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+        background-color: var(--main-background);
+        color: var(--main-text);
+    }
+
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
 /* =========================================
-   3. SIDEBAR & CUSTOM TOOLS
+   4. SIDEBAR
    ========================================= */
 #sidebar {
     position: fixed;
@@ -371,10 +349,6 @@ em {
         width: 100%;
         margin-bottom: 0.5em;
 
-        /* &:hover{
-            rotate: 90deg;
-        } */
-
     }
 
     .sidebar__content {
@@ -393,21 +367,13 @@ em {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            /* margin-bottom: 1.5em;
-        padding-bottom: 1em; */
 
-            /* p {
-            font-size: 0.9em;
-            font-weight: bold;
-            margin-bottom: 0.8em;
-        } */
             .sidebar__label {
                 font-size: 0.9em;
                 font-weight: bold;
                 /* margin-bottom: 0.8em; */
             }
 
-            /* Dropdown Polices (Style spécifique aux options) */
             .sidebar_dropdown {
                 width: 100%;
                 padding: 8px;
@@ -482,9 +448,6 @@ em {
                 flex-direction: row;
                 flex-wrap: wrap;
                 gap: var(--space-3);
-                /* display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px; */
 
                 .contrast-circle {
                     width: 35px;
@@ -519,11 +482,9 @@ em {
                     position: relative;
                     display: inline-block;
                     width: 40px;
-                    /* La largeur est ici */
-                    height: 22px;
-                    /* La hauteur est ici */
+                    height: 22px;       
 
-                    /* L'INPUT (invisible mais capte le clic) */
+                    /* input invisible */
                     input {
                         opacity: 0;
                         width: 100%;
@@ -536,7 +497,7 @@ em {
                         margin: 0;
                     }
 
-                    /* LE SLIDER (le dessin du switch) */
+                    /* switch slider */
                     .slider {
                         position: absolute;
                         cursor: pointer;
@@ -545,12 +506,11 @@ em {
                         right: 0;
                         bottom: 0;
                         background-color: var(--main-text);
-                        /* Couleur de fond */
                         transition: .4s;
                         border-radius: 34px;
                         z-index: 1;
 
-                        &:before {
+                        &:before {   /* La bille */
                             position: absolute;
                             content: "";
                             height: 16px;
@@ -558,7 +518,6 @@ em {
                             left: 3px;
                             bottom: 3px;
                             background-color: var(--main-background);
-                            /* La bille */
                             transition: .4s;
                             border-radius: 50%;
                         }
@@ -579,30 +538,23 @@ em {
     }
 
     .sidebar__reset-button {
-        /* Mise en forme "Pill" */
         display: flex;
         align-items: center;
         justify-content: center;
         gap: var(--space-2);
 
         width: 100%;
-        /* Prend toute la largeur du groupe */
         padding: 10px 15px;
-
-        /* Couleurs cohérentes avec tes .pill-btn */
         background: var(--main-background);
         color: var(--main-text);
         border: 1px solid var(--main-text);
         border-radius: var(--radius-lg);
-
-        /* Typographie */
         font-family: inherit;
         font-size: 0.9em;
         cursor: pointer;
         transition: all 0.2s ease;
 
         span {
-            /* Aligne le texte avec l'icône */
             line-height: 1;
         }
 
@@ -610,7 +562,6 @@ em {
             font-size: 1.1em;
         }
 
-        /* Interactions */
         &:hover {
             opacity: 0.8;
             transform: translateY(-1px);
@@ -624,17 +575,10 @@ em {
     }
 }
 
-/* Cibler les icônes SVG dans la sidebar */
 .sidebar__pill-group .pill-value {
-    /* 1. On définit la taille */
     width: 24px;
     height: 24px;
-
-    /* 2. La couleur magique : elle utilisera ta variable de thème */
     background-color: var(--main-text);
-
-    /* 3. On applique le masque (on retire l'attribut src du HTML plus tard) */
-    /* Note: On utilise mask-image et sa version préfixée pour la compatibilité */
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-size: contain;
@@ -643,27 +587,23 @@ em {
     mask-position: center;
 }
 
-/* On assigne les fichiers spécifiques à chaque groupe */
-/* Groupe Taille de police */
 .sidebar__group:nth-of-type(2) .pill-value {
     -webkit-mask-image: url('../img/icon/font-size-svgrepo-com.svg');
     mask-image: url('../img/icon/font-size-svgrepo-com.svg');
 }
 
-/* Groupe Interligne */
 .sidebar__group:nth-of-type(3) .pill-value {
     -webkit-mask-image: url('../img/icon/line-height-line-svgrepo-com.svg');
     mask-image: url('../img/icon/line-height-line-svgrepo-com.svg');
 }
 
-/* Selecteur spécial pour l'icone line height */
 #sidebar .sidebar__group:nth-of-type(3) .pill-value {
     max-height: 20px;
 
 }
 
 /* =========================================
-   4. INTERFACE UI (TRIGGERS)
+   5. INTERFACE UI (TRIGGERS)
    ========================================= */
 
 #logo_trigger_menu {
@@ -730,7 +670,7 @@ em {
 }
 
 /* =========================================
-   5. SECTIONS & MAIN CONTENT
+   6. SECTIONS & MAIN CONTENT
    ========================================= */
 
 
@@ -738,7 +678,7 @@ em {
 
 .page-section {
     height: 100vh;
-    width: 70vw;
+    width: 80vw;
     display: flex;
     align-items: center;
     padding-left: 10vw;
@@ -793,7 +733,6 @@ em {
     }
 }
 
-/* Section 1 (Intro) */
 .section1 {
     .content-container {
         p {
@@ -802,7 +741,6 @@ em {
     }
 }
 
-/* Spécificités Section 2  */
 .section2 {
     display: flex;
     flex-direction: column;
@@ -811,11 +749,8 @@ em {
     .text_intro {
         /* border:  1px solid sandybrown; */
     }
-
-
 }
 
-/* Section 3 */
 .section3 {
     display: flex;
     flex-direction: column;
@@ -824,30 +759,23 @@ em {
     gap: var(--space-8);
 
     .text_intro {
-        /* margin-top: 2em; */
-        width: 100%;
-        /* flex-direction: column;
-            justify-content: space-around;
-            align-items: flex-start; */
-        /* gap: var(--space-12); */
 
-        .competences-intro {
+        p {
             font-style: italic;
             color: var(--main-text);
             opacity: 0.9;
-            margin-bottom: var(--space-8);
             border-left: 2px solid var(--main-text);
             padding-left: var(--space-6);
         }
-
-
     }
 
     .div_skills {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: var(--space-8);
+        gap: var(--space-4);
+        margin-top: 1rem;
+        margin-bottom: 1rem;
 
         .skills-columns {
             display: flex;
@@ -860,8 +788,6 @@ em {
             .skills-category {
                 flex: 0 1 auto;
                 min-width: fit-content;
-
-
 
                 .skills-list {
                     display: flex;
@@ -999,7 +925,6 @@ em {
 
       
     } 
-
     
 .skills-list.mastery li i {
     transition: all 0.3s ease; 
@@ -1039,9 +964,10 @@ em {
     .skills-links-container {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
-        gap: var(--space-8);
-        margin-top: var(--space-6);
+        justify-content: space-evenly;
+        gap: 9rem;
+        /* align-items: center; */
+        /* margin-top: var(--space-6); */
     }
 
 
@@ -1065,7 +991,7 @@ em {
         
     }
 
-    /* Responsive : boutons pleine largeur sur mobile */
+    /* Boutons pleine largeur sur mobile */
     @media (max-width: 480px) {
         .skills-links-container {
             flex-direction: column;
